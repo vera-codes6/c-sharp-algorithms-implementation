@@ -26,7 +26,6 @@ public class ThreeNPlusOneStepsSequence : ISequence
             {
                 BigInteger counter = 0;
                 BigInteger currentValue = startingValue;
-
                 while (currentValue != 1)
                 {
                     if (currentValue.IsEven)
