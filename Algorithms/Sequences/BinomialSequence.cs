@@ -21,7 +21,6 @@ public class BinomialSequence : ISequence
         get
         {
             var i = 0;
-
             while (true)
             {
                 var row = GenerateRow(i);
