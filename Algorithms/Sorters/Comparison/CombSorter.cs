@@ -15,11 +15,12 @@ public class CombSorter<T>(double shrinkFactor = 1.3) : IComparisonSorter<T>
     ///     best case performance: O(n log(n)),
     ///     average performance: O(n^2 / 2^p),
     ///     space complexity: O(1),
-    ///     where n - array length and p - number of increments.
+    ///     ///     where n - array length and p - number of increments.
     ///     See <a href="https://en.wikipedia.org/wiki/Comb_sort">here</a> for more info.
     /// </summary>
     /// <param name="array">Array to sort.</param>
     /// <param name="comparer">Compares elements.</param>
+    ///
     public void Sort(T[] array, IComparer<T> comparer)
     {
         var gap = array.Length;
