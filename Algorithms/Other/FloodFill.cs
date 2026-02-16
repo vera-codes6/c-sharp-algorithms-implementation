@@ -12,7 +12,17 @@ namespace Algorithms.Other;
 /// </summary>
 public static class FloodFill
 {
-    private static readonly List<(int XOffset, int YOffset)> Neighbors = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)];
+    private static readonly List<(int XOffset, int YOffset)> Neighbors =
+    [
+        (-1, -1),
+        (-1, 0),
+        (-1, 1),
+        (0, -1),
+        (0, 1),
+        (1, -1),
+        (1, 0),
+        (1, 1),
+    ];
 
     /// <summary>
     /// Implements the flood fill algorithm through a breadth-first approach using a queue.
@@ -21,17 +31,27 @@ public static class FloodFill
     /// <param name="location">The start location on the bitmap.</param>
     /// <param name="targetColor">The old color to be replaced.</param>
     /// <param name="replacementColor">The new color to replace the old one.</param>
-    public static void BreadthFirstSearch(SKBitmap bitmap, (int X, int Y) location, SKColor targetColor, SKColor replacementColor)
+    public static void BreadthFirstSearch(
+        SKBitmap bitmap,
+        (int X, int Y) location,
+        SKColor targetColor,
+        SKColor replacementColor
+    )
     {
-        if (location.X < 0 || location.X >= bitmap.Width || location.Y < 0 || location.Y >= bitmap.Height)
+        if (
+            location.X < 0
+            || location.X >= bitmap.Width
+            || location.Y < 0
+            || location.Y >= bitmap.Height
+        )
         {
-            throw new ArgumentOutOfRangeException(nameof(location), $"{nameof(location)} should point to a pixel within the bitmap");
+            throw new ArgumentOutOfRangeException(
+                nameof(location),
+                $"{nameof(location)} should point to a pixel within the bitmap"
+            );
         }
 
-        var queue = new List<(int X, int Y)>
-        {
-            location,
-        };
+        var queue = new List<(int X, int Y)> { location };
 
         while (queue.Count > 0)
         {
@@ -46,17 +66,36 @@ public static class FloodFill
     /// <param name="location">The start location on the bitmap.</param>
     /// <param name="targetColor">The old color to be replaced.</param>
     /// <param name="replacementColor">The new color to replace the old one.</param>
-    public static void DepthFirstSearch(SKBitmap bitmap, (int X, int Y) location, SKColor targetColor, SKColor replacementColor)
+    public static void DepthFirstSearch(
+        SKBitmap bitmap,
+        (int X, int Y) location,
+        SKColor targetColor,
+        SKColor replacementColor
+    )
     {
-        if (location.X < 0 || location.X >= bitmap.Width || location.Y < 0 || location.Y >= bitmap.Height)
+        if (
+            location.X < 0
+            || location.X >= bitmap.Width
+            || location.Y < 0
+            || location.Y >= bitmap.Height
+        )
         {
-            throw new ArgumentOutOfRangeException(nameof(location), $"{nameof(location)} should point to a pixel within the bitmap");
+            throw new ArgumentOutOfRangeException(
+                nameof(location),
+                $"{nameof(location)} should point to a pixel within the bitmap"
+            );
         }
 
         DepthFirstFill(bitmap, location, targetColor, replacementColor);
     }
 
-    private static void BreadthFirstFill(SKBitmap bitmap, (int X, int Y) location, SKColor targetColor, SKColor replacementColor, List<(int X, int Y)> queue)
+    private static void BreadthFirstFill(
+        SKBitmap bitmap,
+        (int X, int Y) location,
+        SKColor targetColor,
+        SKColor replacementColor,
+        List<(int X, int Y)> queue
+    )
     {
         (int X, int Y) currentLocation = queue[0];
         queue.RemoveAt(0);
@@ -77,7 +116,12 @@ public static class FloodFill
         }
     }
 
-    private static void DepthFirstFill(SKBitmap bitmap, (int X, int Y) location, SKColor targetColor, SKColor replacementColor)
+    private static void DepthFirstFill(
+        SKBitmap bitmap,
+        (int X, int Y) location,
+        SKColor targetColor,
+        SKColor replacementColor
+    )
     {
         if (bitmap.GetPixel(location.X, location.Y) == targetColor)
         {
