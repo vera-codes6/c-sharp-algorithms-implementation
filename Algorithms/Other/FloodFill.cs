@@ -126,7 +126,6 @@ public static class FloodFill
         if (bitmap.GetPixel(location.X, location.Y) == targetColor)
         {
             bitmap.SetPixel(location.X, location.Y, replacementColor);
-
             for (int i = 0; i < Neighbors.Count; i++)
             {
                 int x = location.X + Neighbors[i].XOffset;
