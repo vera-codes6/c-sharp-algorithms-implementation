@@ -130,6 +130,7 @@ public static class FloodFill
             {
                 int x = location.X + Neighbors[i].XOffset;
                 int y = location.Y + Neighbors[i].YOffset;
+                
                 if (x >= 0 && x < bitmap.Width && y >= 0 && y < bitmap.Height)
                 {
                     DepthFirstFill(bitmap, (x, y), targetColor, replacementColor);
