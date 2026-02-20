@@ -70,8 +70,7 @@ public static class FloodFill
         SKBitmap bitmap,
         (int X, int Y) location,
         SKColor targetColor,
-        SKColor replacementColor
-    )
+        SKColor replacementColor)
     {
         if (
             location.X < 0
