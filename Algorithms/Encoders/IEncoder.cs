@@ -14,6 +14,7 @@ public interface IEncoder<TKey>
     /// <returns>Encoded text.</returns>
     string Encode(string text, TKey key);
 
+
     /// <summary>
     ///     Decodes text that was encoded using specified key.
     /// </summary>
