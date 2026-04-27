@@ -44,8 +44,7 @@ public class BogoSorter<T> : IComparisonSorter<T>
             do
             {
                 nextPos = random.Next(0, int.MaxValue) % array.Length;
-            }
-            while (taken[nextPos]);
+            } while (taken[nextPos]);
 
             taken[nextPos] = true;
             newArray[nextPos] = array[i];

@@ -92,7 +92,10 @@ public class BasicTimSorter<T>(IComparer<T> comparer)
         // Merge the two subarrays back into the main array
         while (i < leftArray.Length && j < rightArray.Length)
         {
-            array[k++] = comparer.Compare(leftArray[i], rightArray[j]) <= 0 ? leftArray[i++] : rightArray[j++];
+            array[k++] =
+                comparer.Compare(leftArray[i], rightArray[j]) <= 0
+                    ? leftArray[i++]
+                    : rightArray[j++];
         }
 
         // Copy remaining elements from leftArray, if any

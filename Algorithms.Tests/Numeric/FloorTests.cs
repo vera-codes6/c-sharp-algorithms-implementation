@@ -13,7 +13,8 @@ public static class FloorTests
     [TestCase(-1.0, -1)]
     [TestCase(1000000000.1, 1000000000)]
     [TestCase(1, 1)]
-    public static void GetsFloorVal<T>(T inputNum, T expected) where T : INumber<T>
+    public static void GetsFloorVal<T>(T inputNum, T expected)
+        where T : INumber<T>
     {
         // Act
         var result = Floor.FloorVal(inputNum);

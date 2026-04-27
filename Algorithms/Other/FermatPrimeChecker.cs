@@ -29,7 +29,13 @@ public static class FermatPrimeChecker
         {
             var randomNumber = r.Next(1, numberToTest);
             var randomNumberBigInteger = new BigInteger(randomNumber);
-            if (BigInteger.ModPow(randomNumberBigInteger, exponentBigInteger, numberToTestBigInteger) != 1)
+            if (
+                BigInteger.ModPow(
+                    randomNumberBigInteger,
+                    exponentBigInteger,
+                    numberToTestBigInteger
+                ) != 1
+            )
             {
                 prime = false;
             }

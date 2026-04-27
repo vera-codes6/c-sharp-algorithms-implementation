@@ -3,7 +3,9 @@ namespace Algorithms.Search.AStar;
 /// <summary>
 ///     Contains Positional and other information about a single node.
 /// </summary>
-public class Node(VecN position, bool traversable, double traverseMultiplier) : IComparable<Node>, IEquatable<Node>
+public class Node(VecN position, bool traversable, double traverseMultiplier)
+    : IComparable<Node>,
+        IEquatable<Node>
 {
     /// <summary>
     ///     Gets the Total cost of the Node.
@@ -79,9 +81,7 @@ public class Node(VecN position, bool traversable, double traverseMultiplier) : 
     public override bool Equals(object? obj) => obj is Node other && Equals(other);
 
     public override int GetHashCode() =>
-        Position.GetHashCode()
-        + Traversable.GetHashCode()
-        + TraversalCostMultiplier.GetHashCode();
+        Position.GetHashCode() + Traversable.GetHashCode() + TraversalCostMultiplier.GetHashCode();
 
     /// <summary>
     ///     Returns the distance to the other node.

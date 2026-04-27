@@ -14,7 +14,10 @@ public static class DijkstraAlgorithm
     /// <returns>List of distances from current vertex to all other vertices.</returns>
     /// <exception cref="InvalidOperationException">Exception thrown in case when graph is null or start
     /// vertex does not belong to graph instance.</exception>
-    public static DistanceModel<T>[] GenerateShortestPath<T>(DirectedWeightedGraph<T> graph, Vertex<T> startVertex)
+    public static DistanceModel<T>[] GenerateShortestPath<T>(
+        DirectedWeightedGraph<T> graph,
+        Vertex<T> startVertex
+    )
     {
         ValidateGraphAndStartVertex(graph, startVertex);
 
@@ -66,7 +69,8 @@ public static class DijkstraAlgorithm
 
     private static DistanceModel<T>[] InitializeDistanceArray<T>(
         IDirectedWeightedGraph<T> graph,
-        Vertex<T> startVertex)
+        Vertex<T> startVertex
+    )
     {
         var distArray = new DistanceModel<T>[graph.Count];
 
@@ -80,7 +84,10 @@ public static class DijkstraAlgorithm
         return distArray;
     }
 
-    private static void ValidateGraphAndStartVertex<T>(DirectedWeightedGraph<T> graph, Vertex<T> startVertex)
+    private static void ValidateGraphAndStartVertex<T>(
+        DirectedWeightedGraph<T> graph,
+        Vertex<T> startVertex
+    )
     {
         if (graph is null)
         {

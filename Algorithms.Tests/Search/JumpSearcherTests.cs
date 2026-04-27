@@ -9,7 +9,11 @@ public class JumpSearcherTests
     {
         // Arrange
         var searcher = new JumpSearcher<int>();
-        var sortedArray = Enumerable.Range(0, n).Select(_ => TestContext.CurrentContext.Random.Next(1_000_000)).OrderBy(x => x).ToArray();
+        var sortedArray = Enumerable
+            .Range(0, n)
+            .Select(_ => TestContext.CurrentContext.Random.Next(1_000_000))
+            .OrderBy(x => x)
+            .ToArray();
         var expectedIndex = TestContext.CurrentContext.Random.Next(sortedArray.Length);
 
         // Act
@@ -20,11 +24,19 @@ public class JumpSearcherTests
     }
 
     [Test]
-    public void FindIndex_ItemMissing_MinusOneReturned([Random(1, 1000, 10)] int n, [Random(-100, 1100, 10)] int missingItem)
+    public void FindIndex_ItemMissing_MinusOneReturned(
+        [Random(1, 1000, 10)] int n,
+        [Random(-100, 1100, 10)] int missingItem
+    )
     {
         // Arrange
         var searcher = new JumpSearcher<int>();
-        var sortedArray = Enumerable.Range(0, n).Select(_ => TestContext.CurrentContext.Random.Next(1_000_000)).Where(x => x != missingItem).OrderBy(x => x).ToArray();
+        var sortedArray = Enumerable
+            .Range(0, n)
+            .Select(_ => TestContext.CurrentContext.Random.Next(1_000_000))
+            .Where(x => x != missingItem)
+            .OrderBy(x => x)
+            .ToArray();
         var expectedIndex = -1;
 
         // Act
@@ -52,7 +64,10 @@ public class JumpSearcherTests
     [TestCase(null, "abc")]
     [TestCase(new[] { "abc", "def", "ghi" }, null)]
     [TestCase(null, null)]
-    public void FindIndex_ArrayNull_ItemNull_ArgumentNullExceptionThrown(string[] sortedArray, string searchItem)
+    public void FindIndex_ArrayNull_ItemNull_ArgumentNullExceptionThrown(
+        string[] sortedArray,
+        string searchItem
+    )
     {
         // Arrange
         var searcher = new JumpSearcher<string>();

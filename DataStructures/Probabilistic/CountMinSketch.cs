@@ -1,6 +1,7 @@
 namespace DataStructures.Probabilistic;
 
-public class CountMinSketch<T> where T : notnull
+public class CountMinSketch<T>
+    where T : notnull
 {
     private readonly int[][] sketch;
     private readonly int numHashes;
@@ -71,5 +72,6 @@ public class CountMinSketch<T> where T : notnull
         return min;
     }
 
-    private int GetSlot(int i, int initialHash) => Math.Abs((i + 1) * initialHash) % sketch[0].Length;
+    private int GetSlot(int i, int initialHash) =>
+        Math.Abs((i + 1) * initialHash) % sketch[0].Length;
 }

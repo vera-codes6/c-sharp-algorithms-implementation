@@ -16,7 +16,9 @@ public static class MinMaxHeapTests
     public static void CustomComparerTest()
     {
         var arr = new[] { "aaaa", "c", "dd", "bbb" };
-        var comparer = Comparer<string>.Create((a, b) => Comparer<int>.Default.Compare(a.Length, b.Length));
+        var comparer = Comparer<string>.Create(
+            (a, b) => Comparer<int>.Default.Compare(a.Length, b.Length)
+        );
 
         var mmh = new MinMaxHeap<string>(comparer: comparer);
         foreach (var s in arr)
@@ -105,7 +107,8 @@ public static class MinMaxHeapTests
     [Test]
     public static void HeapSortUsingGet<T>(
         [ValueSource(nameof(CollectionsSource))] IEnumerable<T> collection,
-        [Values] bool ascending)
+        [Values] bool ascending
+    )
     {
         var ordered = ascending ? collection.OrderBy(x => x) : collection.OrderByDescending(x => x);
         var mmh = new MinMaxHeap<T>(collection);
@@ -134,7 +137,8 @@ public static class MinMaxHeapTests
     [Test]
     public static void HeapSortUsingExtract<T>(
         [ValueSource(nameof(CollectionsSource))] IEnumerable<T> collection,
-        [Values] bool ascending)
+        [Values] bool ascending
+    )
     {
         var ordered = ascending ? collection.OrderBy(x => x) : collection.OrderByDescending(x => x);
         var mmh = new MinMaxHeap<T>(collection);

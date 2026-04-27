@@ -28,20 +28,23 @@ public static class EulerMethod
         double xEnd,
         double stepSize,
         double yStart,
-        Func<double, double, double> yDerivative)
+        Func<double, double, double> yDerivative
+    )
     {
         if (xStart >= xEnd)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(xEnd),
-                $"{nameof(xEnd)} should be greater than {nameof(xStart)}");
+                $"{nameof(xEnd)} should be greater than {nameof(xStart)}"
+            );
         }
 
         if (stepSize <= 0)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(stepSize),
-                $"{nameof(stepSize)} should be greater than zero");
+                $"{nameof(stepSize)} should be greater than zero"
+            );
         }
 
         List<double[]> points = [];
@@ -73,7 +76,8 @@ public static class EulerMethod
         double xCurrent,
         double stepSize,
         double yCurrent,
-        Func<double, double, double> yDerivative)
+        Func<double, double, double> yDerivative
+    )
     {
         var yNext = yCurrent + stepSize * yDerivative(xCurrent, yCurrent);
         return yNext;

@@ -32,7 +32,7 @@ public class BellmanFordTests
             { vertex2, 1 },
             { vertex3, -3 },
             { vertex4, 2 },
-            { vertex5, -4 }
+            { vertex5, -4 },
         };
 
         var bellmanFord = new BellmanFord<int>(graph, [], []);
@@ -43,7 +43,9 @@ public class BellmanFordTests
         {
             if (vertex != null)
             {
-                calculatedDistances[vertex].Should().BeApproximately(expectedDistances[vertex], 0.001);
+                calculatedDistances[vertex]
+                    .Should()
+                    .BeApproximately(expectedDistances[vertex], 0.001);
             }
         }
     }
@@ -65,6 +67,9 @@ public class BellmanFordTests
 
         Action action = () => bellmanFord.Run(vertex1);
 
-        action.Should().Throw<InvalidOperationException>().WithMessage("Graph contains a negative weight cycle.");
+        action
+            .Should()
+            .Throw<InvalidOperationException>()
+            .WithMessage("Graph contains a negative weight cycle.");
     }
 }

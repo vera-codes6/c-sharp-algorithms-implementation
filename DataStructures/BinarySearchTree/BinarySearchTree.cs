@@ -27,7 +27,8 @@ public class BinarySearchTree<TKey>
 
     public BinarySearchTree() => (Root, Count, comparer) = (null, 0, Comparer<TKey>.Default);
 
-    public BinarySearchTree(Comparer<TKey> customComparer) => (Root, Count, comparer) = (null, 0, customComparer);
+    public BinarySearchTree(Comparer<TKey> customComparer) =>
+        (Root, Count, comparer) = (null, 0, customComparer);
 
     /// <summary>
     ///     Gets the number nodes currently in the BST.
@@ -184,7 +185,6 @@ public class BinarySearchTree<TKey>
                 node.Right = newNode;
             }
         }
-
         // Key is already in tree.
         else
         {
@@ -216,7 +216,11 @@ public class BinarySearchTree<TKey>
     ///     <br></br>
     ///     More information: https://en.wikipedia.org/wiki/Binary_search_tree#Deletion .
     /// </remarks>
-    private bool Remove(BinarySearchTreeNode<TKey>? parent, BinarySearchTreeNode<TKey>? node, TKey key)
+    private bool Remove(
+        BinarySearchTreeNode<TKey>? parent,
+        BinarySearchTreeNode<TKey>? node,
+        TKey key
+    )
     {
         if (node is null || parent is null)
         {
@@ -243,7 +247,6 @@ public class BinarySearchTree<TKey>
         {
             replacementNode = node.Left ?? node.Right;
         }
-
         // Case 2: Node has two children. (This implementation uses the in-order predecessor to replace node.)
         else
         {
@@ -337,10 +340,7 @@ public class BinarySearchTree<TKey>
         }
 
         // Use mutable list approach instead of spread operator for better performance
-        var result = new List<TKey>
-        {
-            node.Key,
-        };
+        var result = new List<TKey> { node.Key };
         result.AddRange(GetKeysPreOrder(node.Left));
         result.AddRange(GetKeysPreOrder(node.Right));
         return result;

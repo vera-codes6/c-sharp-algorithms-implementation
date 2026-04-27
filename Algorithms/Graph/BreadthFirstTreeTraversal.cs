@@ -27,7 +27,8 @@ public static class BreadthFirstTreeTraversal<TKey>
             return Array.Empty<TKey>();
         }
 
-        Queue<BinarySearchTreeNode<TKey>> breadthTraversal = new Queue<BinarySearchTreeNode<TKey>>();
+        Queue<BinarySearchTreeNode<TKey>> breadthTraversal =
+            new Queue<BinarySearchTreeNode<TKey>>();
         breadthTraversal.Enqueue(root);
         for (int i = 0; i < levelOrder.Length; i++)
         {
@@ -63,7 +64,8 @@ public static class BreadthFirstTreeTraversal<TKey>
             return default(TKey);
         }
 
-        Queue<BinarySearchTreeNode<TKey>> breadthTraversal = new Queue<BinarySearchTreeNode<TKey>>();
+        Queue<BinarySearchTreeNode<TKey>> breadthTraversal =
+            new Queue<BinarySearchTreeNode<TKey>>();
         breadthTraversal.Enqueue(root);
         TKey deepest = root.Key;
         while (breadthTraversal.Count > 0)

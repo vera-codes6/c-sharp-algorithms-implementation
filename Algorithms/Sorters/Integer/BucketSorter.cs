@@ -43,7 +43,8 @@ public class BucketSorter : IIntegerSorter
     /// </summary>
     /// <param name="array">Input array.</param>
     /// <returns>Number of digits.</returns>
-    private static int NumberOfDigits(IEnumerable<int> array) => (int)Math.Floor(Math.Log10(array.Max()) + 1);
+    private static int NumberOfDigits(IEnumerable<int> array) =>
+        (int)Math.Floor(Math.Log10(array.Max()) + 1);
 
     /// <summary>
     ///     To distribute elements into buckets based on specified digit.

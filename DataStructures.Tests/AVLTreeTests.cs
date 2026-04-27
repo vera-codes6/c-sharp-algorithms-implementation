@@ -22,9 +22,7 @@ internal class AvlTreeTests
 
         tree.GetKeysInOrder()
             .Should()
-            .BeEquivalentTo(
-                Data.Reverse(),
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(Data.Reverse(), config => config.WithStrictOrdering());
     }
 
     [Test]
@@ -38,23 +36,15 @@ internal class AvlTreeTests
             tree.Count.Should().Be(i + 1);
         }
 
-        tree.GetKeysInOrder()
-            .Should()
-            .BeEquivalentTo(
-                Data,
-                config => config.WithStrictOrdering());
+        tree.GetKeysInOrder().Should().BeEquivalentTo(Data, config => config.WithStrictOrdering());
 
         tree.GetKeysPreOrder()
             .Should()
-            .BeEquivalentTo(
-                PreOrder,
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(PreOrder, config => config.WithStrictOrdering());
 
         tree.GetKeysPostOrder()
             .Should()
-            .BeEquivalentTo(
-                PostOrder,
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(PostOrder, config => config.WithStrictOrdering());
     }
 
     [Test]
@@ -78,19 +68,22 @@ internal class AvlTreeTests
             .Should()
             .BeEquivalentTo(
                 new[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g' },
-                config => config.WithStrictOrdering());
+                config => config.WithStrictOrdering()
+            );
 
         tree.GetKeysPreOrder()
             .Should()
             .BeEquivalentTo(
                 new[] { 'd', 'b', 'a', 'c', 'f', 'e', 'g' },
-                config => config.WithStrictOrdering());
+                config => config.WithStrictOrdering()
+            );
 
         tree.GetKeysPostOrder()
             .Should()
             .BeEquivalentTo(
                 new[] { 'a', 'c', 'b', 'e', 'g', 'f', 'd' },
-                config => config.WithStrictOrdering());
+                config => config.WithStrictOrdering()
+            );
     }
 
     [Test]
@@ -108,19 +101,22 @@ internal class AvlTreeTests
             .Should()
             .BeEquivalentTo(
                 new[] { 1, 2, 3, 4, 5, 6, 8, 9, 10 },
-                config => config.WithStrictOrdering());
+                config => config.WithStrictOrdering()
+            );
 
         tree.GetKeysPreOrder()
             .Should()
             .BeEquivalentTo(
                 new[] { 4, 2, 1, 3, 8, 6, 5, 9, 10 },
-                config => config.WithStrictOrdering());
+                config => config.WithStrictOrdering()
+            );
 
         tree.GetKeysPostOrder()
             .Should()
             .BeEquivalentTo(
                 new[] { 1, 3, 2, 5, 6, 10, 9, 8, 4 },
-                config => config.WithStrictOrdering());
+                config => config.WithStrictOrdering()
+            );
 
         tree.Remove(2);
 
@@ -134,21 +130,15 @@ internal class AvlTreeTests
 
         tree.GetKeysInOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 3, 4, 5, 6, 8, 9, 10 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 3, 4, 5, 6, 8, 9, 10 }, config => config.WithStrictOrdering());
 
         tree.GetKeysPreOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 8, 4, 3, 6, 5, 9, 10 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 8, 4, 3, 6, 5, 9, 10 }, config => config.WithStrictOrdering());
 
         tree.GetKeysPostOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 3, 5, 6, 4, 10, 9, 8 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 3, 5, 6, 4, 10, 9, 8 }, config => config.WithStrictOrdering());
 
         tree.Remove(9);
 
@@ -157,21 +147,15 @@ internal class AvlTreeTests
 
         tree.GetKeysInOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 3, 4, 5, 6, 8, 10 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 3, 4, 5, 6, 8, 10 }, config => config.WithStrictOrdering());
 
         tree.GetKeysPreOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 6, 4, 3, 5, 8, 10 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 6, 4, 3, 5, 8, 10 }, config => config.WithStrictOrdering());
 
         tree.GetKeysPostOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 3, 5, 4, 10, 8, 6 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 3, 5, 4, 10, 8, 6 }, config => config.WithStrictOrdering());
 
         tree.Remove(3);
         tree.Remove(4);
@@ -227,21 +211,15 @@ internal class AvlTreeTests
 
         tree.GetKeysInOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 4, 6, 8 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 4, 6, 8 }, config => config.WithStrictOrdering());
 
         tree.GetKeysPreOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 6, 4, 8 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 6, 4, 8 }, config => config.WithStrictOrdering());
 
         tree.GetKeysPostOrder()
             .Should()
-            .BeEquivalentTo(
-                new[] { 4, 8, 6 },
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(new[] { 4, 8, 6 }, config => config.WithStrictOrdering());
     }
 
     [Test]
@@ -323,11 +301,7 @@ internal class AvlTreeTests
         var tree = new AvlTree<int>();
         tree.AddRange(Data);
 
-        tree.GetKeysInOrder()
-            .Should()
-            .BeEquivalentTo(
-                Data,
-                config => config.WithStrictOrdering());
+        tree.GetKeysInOrder().Should().BeEquivalentTo(Data, config => config.WithStrictOrdering());
     }
 
     [Test]
@@ -347,9 +321,7 @@ internal class AvlTreeTests
 
         tree.GetKeysPreOrder()
             .Should()
-            .BeEquivalentTo(
-                PreOrder,
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(PreOrder, config => config.WithStrictOrdering());
     }
 
     [Test]
@@ -368,9 +340,7 @@ internal class AvlTreeTests
 
         tree.GetKeysPostOrder()
             .Should()
-            .BeEquivalentTo(
-                PostOrder,
-                config => config.WithStrictOrdering());
+            .BeEquivalentTo(PostOrder, config => config.WithStrictOrdering());
     }
 
     [Test]

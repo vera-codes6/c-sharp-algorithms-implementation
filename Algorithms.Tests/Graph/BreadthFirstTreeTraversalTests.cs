@@ -86,4 +86,3 @@ public static class BreadthFirstTreeTraversalTests
         Assert.That(deepest, Is.Null);
     }
 }
-

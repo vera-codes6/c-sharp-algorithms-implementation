@@ -26,7 +26,8 @@ public static class PowerIteration
     public static (double Eigenvalue, double[] Eigenvector) Dominant(
         double[,] source,
         double[] startVector,
-        double error = 0.00001)
+        double error = 0.00001
+    )
     {
         if (source.GetLength(0) != source.GetLength(1))
         {
@@ -36,7 +37,8 @@ public static class PowerIteration
         if (source.GetLength(0) != startVector.Length)
         {
             throw new ArgumentException(
-                "The length of the start vector doesn't equal the size of the source matrix.");
+                "The length of the start vector doesn't equal the size of the source matrix."
+            );
         }
 
         double eigenNorm;
@@ -46,16 +48,18 @@ public static class PowerIteration
         do
         {
             previousEigenVector = currentEigenVector;
-            currentEigenVector = source.Multiply(
-                    previousEigenVector.ToColumnVector())
+            currentEigenVector = source
+                .Multiply(previousEigenVector.ToColumnVector())
                 .ToRowVector();
 
             eigenNorm = currentEigenVector.Magnitude();
             currentEigenVector = currentEigenVector.Select(x => x / eigenNorm).ToArray();
-        }
-        while (Math.Abs(currentEigenVector.Dot(previousEigenVector)) < 1.0 - error);
+        } while (Math.Abs(currentEigenVector.Dot(previousEigenVector)) < 1.0 - error);
 
-        var eigenvalue = source.Multiply(currentEigenVector.ToColumnVector()).ToRowVector().Magnitude();
+        var eigenvalue = source
+            .Multiply(currentEigenVector.ToColumnVector())
+            .ToRowVector()
+            .Magnitude();
 
         return (eigenvalue, Eigenvector: currentEigenVector);
     }
@@ -77,6 +81,8 @@ public static class PowerIteration
     /// <returns>Dominant eigenvalue and eigenvector pair.</returns>
     /// <exception cref="ArgumentException">The <paramref name="source" /> matrix is not square-shaped.</exception>
     /// <exception cref="ArgumentException">The length of the start vector doesn't equal the size of the source matrix.</exception>
-    public static (double Eigenvalue, double[] Eigenvector) Dominant(double[,] source, double error = 0.00001) =>
-        Dominant(source, new Random().NextVector(source.GetLength(1)), error);
+    public static (double Eigenvalue, double[] Eigenvector) Dominant(
+        double[,] source,
+        double error = 0.00001
+    ) => Dominant(source, new Random().NextVector(source.GetLength(1)), error);
 }

@@ -13,7 +13,12 @@ public static class GeoLocation
     /// <param name="lat2">Latitude of point B.</param>
     /// <param name="lng2">Longitude of point B.</param>
     /// <returns>Spherical distance between A and B.</returns>
-    public static double CalculateDistanceFromLatLng(double lat1, double lng1, double lat2, double lng2)
+    public static double CalculateDistanceFromLatLng(
+        double lat1,
+        double lng1,
+        double lat2,
+        double lng2
+    )
     {
         var pi180 = Math.PI / 180d;
         var lat1Radian = lat1 * pi180;
@@ -26,8 +31,12 @@ public static class GeoLocation
 
         var haversine =
             Math.Sin(diffLat / 2) * Math.Sin(diffLat / 2)
-            + Math.Cos(lat1Radian) * Math.Cos(lat2Radian) * Math.Sin(diffLng / 2) * Math.Sin(diffLng / 2);
-        var distance = EarthRadiusKm * (2d * Math.Atan2(Math.Sqrt(haversine), Math.Sqrt(1 - haversine)));
+            + Math.Cos(lat1Radian)
+                * Math.Cos(lat2Radian)
+                * Math.Sin(diffLng / 2)
+                * Math.Sin(diffLng / 2);
+        var distance =
+            EarthRadiusKm * (2d * Math.Atan2(Math.Sqrt(haversine), Math.Sqrt(1 - haversine)));
 
         return distance * 1000; // Convert from km -> m
     }

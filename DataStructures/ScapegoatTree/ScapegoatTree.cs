@@ -5,7 +5,8 @@ namespace DataStructures.ScapegoatTree;
 /// See https://en.wikipedia.org/wiki/Scapegoat_tree for more information about scapegoat tree.
 /// </summary>
 /// <typeparam name="TKey">The scapegoat tree key type.</typeparam>
-public class ScapegoatTree<TKey> where TKey : IComparable
+public class ScapegoatTree<TKey>
+    where TKey : IComparable
 {
     /// <summary>
     /// Gets the α (alpha) value of the tree.
@@ -33,14 +34,10 @@ public class ScapegoatTree<TKey> where TKey : IComparable
     public event EventHandler? TreeIsUnbalanced;
 
     public ScapegoatTree()
-        : this(alpha: 0.5, size: 0)
-    {
-    }
+        : this(alpha: 0.5, size: 0) { }
 
     public ScapegoatTree(double alpha)
-        : this(alpha, size: 0)
-    {
-    }
+        : this(alpha, size: 0) { }
 
     public ScapegoatTree(Node<TKey> node, double alpha)
         : this(alpha, size: node.GetSize())
@@ -263,14 +260,19 @@ public class ScapegoatTree<TKey> where TKey : IComparable
             depth++;
         }
 
-        throw new InvalidOperationException("Scapegoat node wasn't found. The tree should be unbalanced.");
+        throw new InvalidOperationException(
+            "Scapegoat node wasn't found. The tree should be unbalanced."
+        );
     }
 
     private static void CheckAlpha(double alpha)
     {
         if (alpha is < 0.5 or > 1.0)
         {
-            throw new ArgumentException("The alpha parameter's value should be in 0.5..1.0 range.", nameof(alpha));
+            throw new ArgumentException(
+                "The alpha parameter's value should be in 0.5..1.0 range.",
+                nameof(alpha)
+            );
         }
     }
 
@@ -301,7 +303,6 @@ public class ScapegoatTree<TKey> where TKey : IComparable
         {
             replacementNode = node.Left ?? node.Right;
         }
-
         // Case 2: Node has two children. (This implementation uses the in-order predecessor to replace node.)
         else
         {

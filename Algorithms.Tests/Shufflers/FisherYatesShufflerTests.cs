@@ -7,8 +7,8 @@ public static class FisherYatesShufflerTests
 {
     [Test]
     public static void ArrayShuffled_NewArrayHasSameSize(
-        [Random(10, 1000, 100, Distinct = true)]
-        int n)
+        [Random(10, 1000, 100, Distinct = true)] int n
+    )
     {
         // Arrange
         var shuffler = new FisherYatesShuffler<int>();
@@ -23,8 +23,8 @@ public static class FisherYatesShufflerTests
 
     [Test]
     public static void ArrayShuffled_NewArrayHasSameValues(
-        [Random(0, 100, 10, Distinct = true)]
-        int n)
+        [Random(0, 100, 10, Distinct = true)] int n
+    )
     {
         // Arrange
         var shuffler = new FisherYatesShuffler<int>();
@@ -39,8 +39,9 @@ public static class FisherYatesShufflerTests
 
     [Test]
     public static void ArrayShuffled_SameShuffle(
-       [Random(0, 1000, 2, Distinct = true)] int n,
-       [Random(1000, 10000, 5, Distinct = true)] int seed)
+        [Random(0, 1000, 2, Distinct = true)] int n,
+        [Random(1000, 10000, 5, Distinct = true)] int seed
+    )
     {
         // Arrange
         var shuffler = new FisherYatesShuffler<int>();
@@ -56,8 +57,9 @@ public static class FisherYatesShufflerTests
 
     [Test]
     public static void ArrayShuffled_DifferentSeedDifferentShuffle(
-      [Random(10, 100, 2, Distinct = true)] int n,
-      [Random(1000, 10000, 5, Distinct = true)] int seed)
+        [Random(10, 100, 2, Distinct = true)] int n,
+        [Random(1000, 10000, 5, Distinct = true)] int seed
+    )
     {
         // Arrange
         var shuffler = new FisherYatesShuffler<int>();

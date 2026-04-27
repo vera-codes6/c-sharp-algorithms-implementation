@@ -15,7 +15,11 @@ namespace Algorithms.Encoders
         /// <returns>The Autokey encoded string (All Uppercase).</returns>
         public string Encode(string plainText, string keyword)
         {
-            plainText = Regex.Replace(plainText.ToUpper(CultureInfo.InvariantCulture), "[^A-Z]", string.Empty);
+            plainText = Regex.Replace(
+                plainText.ToUpper(CultureInfo.InvariantCulture),
+                "[^A-Z]",
+                string.Empty
+            );
             keyword = keyword.ToUpper(CultureInfo.InvariantCulture);
 
             keyword += plainText;
@@ -42,7 +46,11 @@ namespace Algorithms.Encoders
         /// <returns>The plaintext (All Uppercase).</returns>
         public string Decode(string cipherText, string keyword)
         {
-            cipherText = Regex.Replace(cipherText.ToUpper(CultureInfo.InvariantCulture), "[^A-Z]", string.Empty);
+            cipherText = Regex.Replace(
+                cipherText.ToUpper(CultureInfo.InvariantCulture),
+                "[^A-Z]",
+                string.Empty
+            );
             keyword = keyword.ToUpper(CultureInfo.InvariantCulture);
 
             StringBuilder plainText = new StringBuilder();
@@ -53,7 +61,8 @@ namespace Algorithms.Encoders
                 char cipherCharacter = cipherText[i];
                 char keywordCharacter = extendedKeyword[i];
 
-                int decryptedCharacter = (cipherCharacter - 'A' - (keywordCharacter - 'A') + 26) % 26 + 'A';
+                int decryptedCharacter =
+                    (cipherCharacter - 'A' - (keywordCharacter - 'A') + 26) % 26 + 'A';
                 plainText.Append((char)decryptedCharacter);
                 extendedKeyword.Append((char)decryptedCharacter);
             }

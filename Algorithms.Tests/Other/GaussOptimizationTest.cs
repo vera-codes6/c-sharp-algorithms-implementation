@@ -21,8 +21,12 @@ public static class GaussOptimizationTest
                 return 0;
             }
 
-            return coefficients[0] + coefficients[1] * x1 + coefficients[2] * x2 + coefficients[3] * x1 * x2 +
-                coefficients[4] * x1 * x1 + coefficients[5] * x2 * x2;
+            return coefficients[0]
+                + coefficients[1] * x1
+                + coefficients[2] * x2
+                + coefficients[3] * x1 * x2
+                + coefficients[4] * x1 * x1
+                + coefficients[5] * x2 * x2;
         };
 
         // The parameter that identifies how much step size will be decreased each iteration
@@ -65,8 +69,12 @@ public static class GaussOptimizationTest
                 return 0;
             }
 
-            return coefficients[0] + coefficients[1] * x1 + coefficients[2] * x2 + coefficients[3] * x1 * x2 +
-                coefficients[4] * x1 * x1 + coefficients[5] * x2 * x2;
+            return coefficients[0]
+                + coefficients[1] * x1
+                + coefficients[2] * x2
+                + coefficients[3] * x1 * x2
+                + coefficients[4] * x1 * x1
+                + coefficients[5] * x2 * x2;
         };
 
         // The parameter that identifies how much step size will be decreased each iteration

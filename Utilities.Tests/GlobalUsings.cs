@@ -10,8 +10,8 @@
 // - Avoid placing rarely used namespaces here to maintain clarity.
 // -----------------------------------------------------------------------------
 
-global using System;                        // Core base classes and fundamental types
-global using System.Collections.Generic;    // Generic collection types (List, Dictionary, etc.)
-global using FluentAssertions;              // Assertion library for more readable and expressive unit tests
-global using NUnit.Framework;               // Testing framework providing attributes and assertions for test cases
-global using Utilities.Extensions;          // Common project-specific extension methods reused across multiple files
+global using System; // Core base classes and fundamental types
+global using System.Collections.Generic; // Generic collection types (List, Dictionary, etc.)
+global using FluentAssertions; // Assertion library for more readable and expressive unit tests
+global using NUnit.Framework; // Testing framework providing attributes and assertions for test cases
+global using Utilities.Extensions; // Common project-specific extension methods reused across multiple files

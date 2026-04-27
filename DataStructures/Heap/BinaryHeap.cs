@@ -217,7 +217,8 @@ public class BinaryHeap<T>
 
         var leftLargerThanElem = left < Count && comparer.Compare(data[elemIdx], data[left]) < 0;
         var rightLargerThanElem = right < Count && comparer.Compare(data[elemIdx], data[right]) < 0;
-        var leftLargerThanRight = left < Count && right < Count && comparer.Compare(data[left], data[right]) > 0;
+        var leftLargerThanRight =
+            left < Count && right < Count && comparer.Compare(data[left], data[right]) > 0;
 
         if (leftLargerThanElem && leftLargerThanRight)
         {

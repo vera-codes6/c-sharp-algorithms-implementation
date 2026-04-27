@@ -8,7 +8,6 @@ public class AllOnesSequenceTests
     public void First10ElementsCorrect()
     {
         var sequence = new AllOnesSequence().Sequence.Take(10);
-        sequence.SequenceEqual(new BigInteger[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 })
-            .Should().BeTrue();
+        sequence.SequenceEqual(new BigInteger[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }).Should().BeTrue();
     }
 }

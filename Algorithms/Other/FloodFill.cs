@@ -35,20 +35,17 @@ public static class FloodFill
         SKBitmap bitmap,
         (int X, int Y) location,
         SKColor targetColor,
-        SKColor replacementColor
-    )
+        SKColor replacementColor)
     {
         if (
             location.X < 0
             || location.X >= bitmap.Width
             || location.Y < 0
-            || location.Y >= bitmap.Height
-        )
+            || location.Y >= bitmap.Height)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(location),
-                $"{nameof(location)} should point to a pixel within the bitmap"
-            );
+                $"{nameof(location)} should point to a pixel within the bitmap");
         }
 
         var queue = new List<(int X, int Y)> { location };
@@ -76,13 +73,11 @@ public static class FloodFill
             location.X < 0
             || location.X >= bitmap.Width
             || location.Y < 0
-            || location.Y >= bitmap.Height
-        )
+            || location.Y >= bitmap.Height)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(location),
-                $"{nameof(location)} should point to a pixel within the bitmap"
-            );
+                $"{nameof(location)} should point to a pixel within the bitmap");
         }
 
         DepthFirstFill(bitmap, location, targetColor, replacementColor);
@@ -93,8 +88,7 @@ public static class FloodFill
         (int X, int Y) location,
         SKColor targetColor,
         SKColor replacementColor,
-        List<(int X, int Y)> queue
-    )
+        List<(int X, int Y)> queue)
     {
         (int X, int Y) currentLocation = queue[0];
         queue.RemoveAt(0);
@@ -119,8 +113,7 @@ public static class FloodFill
         SKBitmap bitmap,
         (int X, int Y) location,
         SKColor targetColor,
-        SKColor replacementColor
-    )
+        SKColor replacementColor)
     {
         if (bitmap.GetPixel(location.X, location.Y) == targetColor)
         {

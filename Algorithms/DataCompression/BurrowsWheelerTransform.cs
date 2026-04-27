@@ -22,9 +22,7 @@ public class BurrowsWheelerTransform
 
         var rotations = GetRotations(s);
         Array.Sort(rotations, StringComparer.Ordinal);
-        var lastColumn = rotations
-            .Select(x => x[^1])
-            .ToArray();
+        var lastColumn = rotations.Select(x => x[^1]).ToArray();
         var encoded = new string(lastColumn);
         return (encoded, Array.IndexOf(rotations, s));
     }

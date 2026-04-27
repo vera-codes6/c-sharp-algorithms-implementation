@@ -120,8 +120,7 @@ public class TimSorter<T> : IComparisonSorter<T>
 
             start += runLen;
             remaining -= runLen;
-        }
-        while (remaining != 0);
+        } while (remaining != 0);
 
         MergeForceCollapse(array);
     }
@@ -284,7 +283,13 @@ public class TimSorter<T> : IComparisonSorter<T>
         {
             var target = array[first];
             var targetInsertLocation = BinarySearch(array, start, first - 1, target);
-            Array.Copy(array, targetInsertLocation, array, targetInsertLocation + 1, first - targetInsertLocation);
+            Array.Copy(
+                array,
+                targetInsertLocation,
+                array,
+                targetInsertLocation + 1,
+                first - targetInsertLocation
+            );
 
             array[targetInsertLocation] = target;
         }
@@ -305,9 +310,7 @@ public class TimSorter<T> : IComparisonSorter<T>
             }
         }
 
-        return comparer.Compare(target, array[left]) < 0
-            ? left
-            : left + 1;
+        return comparer.Compare(target, array[left]) < 0 ? left : left + 1;
     }
 
     private void MergeCollapse(T[] array)
@@ -376,7 +379,13 @@ public class TimSorter<T> : IComparisonSorter<T>
             return;
         }
 
-        lenB = GallopingStrategy<T>.GallopLeft(array, array[baseA + lenA - 1], baseB, lenB, comparer);
+        lenB = GallopingStrategy<T>.GallopLeft(
+            array,
+            array[baseA + lenA - 1],
+            baseB,
+            lenB,
+            comparer
+        );
 
         if (lenB <= 0)
         {
@@ -391,11 +400,7 @@ public class TimSorter<T> : IComparisonSorter<T>
         var endA = baseA + lenA;
         var dest = baseA;
 
-        TimChunk<T> left = new()
-        {
-            Array = array[baseA..endA],
-            Remaining = lenA,
-        };
+        TimChunk<T> left = new() { Array = array[baseA..endA], Remaining = lenA };
 
         TimChunk<T> right = new()
         {
@@ -416,14 +421,10 @@ public class TimSorter<T> : IComparisonSorter<T>
         while (RunMerge(left, right, ref dest, ref gallop))
         {
             // Penalize for leaving gallop mode
-            gallop = gallop > 0
-                ? gallop + 2
-                : 2;
+            gallop = gallop > 0 ? gallop + 2 : 2;
         }
 
-        minGallop = gallop >= 1
-            ? gallop
-            : 1;
+        minGallop = gallop >= 1 ? gallop : 1;
 
         FinalizeMerge(left, right, dest);
     }
@@ -453,8 +454,7 @@ public class TimSorter<T> : IComparisonSorter<T>
 
             // We had a bit of a run, so make it easier to get started again.
             gallop--;
-        }
-        while (left.Wins >= initMinGallop || right.Wins >= initMinGallop);
+        } while (left.Wins >= initMinGallop || right.Wins >= initMinGallop);
 
         return true;
     }
@@ -483,15 +483,20 @@ public class TimSorter<T> : IComparisonSorter<T>
                     return true;
                 }
             }
-        }
-        while ((left.Wins | right.Wins) < gallop);
+        } while ((left.Wins | right.Wins) < gallop);
 
         return false;
     }
 
     private bool GallopMerge(TimChunk<T> left, TimChunk<T> right, ref int dest)
     {
-        left.Wins = GallopingStrategy<T>.GallopRight(left.Array, right.Array[right.Index], left.Index, left.Remaining, comparer);
+        left.Wins = GallopingStrategy<T>.GallopRight(
+            left.Array,
+            right.Array[right.Index],
+            left.Index,
+            left.Remaining,
+            comparer
+        );
         if (left.Wins != 0)
         {
             Array.Copy(left.Array, left.Index, right.Array, dest, left.Wins);
@@ -510,7 +515,13 @@ public class TimSorter<T> : IComparisonSorter<T>
             return true;
         }
 
-        right.Wins = GallopingStrategy<T>.GallopLeft(right.Array, left.Array[left.Index], right.Index, right.Remaining, comparer);
+        right.Wins = GallopingStrategy<T>.GallopLeft(
+            right.Array,
+            left.Array[left.Index],
+            right.Index,
+            right.Remaining,
+            comparer
+        );
         if (right.Wins != 0)
         {
             Array.Copy(right.Array, right.Index, right.Array, dest, right.Wins);

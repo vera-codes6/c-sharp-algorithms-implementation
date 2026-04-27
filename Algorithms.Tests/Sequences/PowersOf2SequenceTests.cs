@@ -9,7 +9,6 @@ public class PowersOf2SequenceTests
     {
         var sequence = new PowersOf2Sequence().Sequence.Take(10);
         BigInteger[] expected = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512];
-        sequence.SequenceEqual(expected)
-            .Should().BeTrue();
+        sequence.SequenceEqual(expected).Should().BeTrue();
     }
 }

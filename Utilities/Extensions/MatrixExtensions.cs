@@ -14,7 +14,8 @@ public static class MatrixExtensions
         if (source.GetLength(1) != operand.GetLength(0))
         {
             throw new InvalidOperationException(
-                "The width of a first operand should match the height of a second.");
+                "The width of a first operand should match the height of a second."
+            );
         }
 
         var result = new double[source.GetLength(0), operand.GetLength(1)];
@@ -109,8 +110,7 @@ public static class MatrixExtensions
     /// <exception cref="ArgumentException">Dimensions of matrices do not match.</exception>
     public static double[,] Subtract(this double[,] lhs, double[,] rhs)
     {
-        if (lhs.GetLength(0) != rhs.GetLength(0) ||
-            lhs.GetLength(1) != rhs.GetLength(1))
+        if (lhs.GetLength(0) != rhs.GetLength(0) || lhs.GetLength(1) != rhs.GetLength(1))
         {
             throw new ArgumentException("Dimensions of matrices must be the same");
         }
@@ -135,9 +135,11 @@ public static class MatrixExtensions
     /// <returns>true: if all elements are the same; false otherwise.</returns>
     public static bool IsEqual(this double[,] source, double[,] operand)
     {
-        if (source.Length != operand.Length ||
-            source.GetLength(0) != operand.GetLength(0) ||
-            source.GetLength(1) != operand.GetLength(1))
+        if (
+            source.Length != operand.Length
+            || source.GetLength(0) != operand.GetLength(0)
+            || source.GetLength(1) != operand.GetLength(1)
+        )
         {
             return false;
         }

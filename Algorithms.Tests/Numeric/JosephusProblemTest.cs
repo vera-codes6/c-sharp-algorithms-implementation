@@ -4,22 +4,30 @@ namespace Algorithms.Tests.Numeric;
 
 public class JosephusProblemTest
 {
-
     [TestCase(10, 0)]
     [TestCase(10, -1)]
     public void JosephusProblemInvalidStepSize(long groupSize, long step)
     {
-        Assert.Throws(Is.TypeOf<ArgumentException>()
-                .And.Message.EqualTo("The step cannot be smaller than 1"),
-            delegate { JosephusProblem.FindWinner(groupSize, step); });
+        Assert.Throws(
+            Is.TypeOf<ArgumentException>().And.Message.EqualTo("The step cannot be smaller than 1"),
+            delegate
+            {
+                JosephusProblem.FindWinner(groupSize, step);
+            }
+        );
     }
 
     [TestCase(10, 12)]
     public void JosephusProblemStepSizeGreaterThanGroup(long groupSize, long step)
     {
-        Assert.Throws(Is.TypeOf<ArgumentException>()
+        Assert.Throws(
+            Is.TypeOf<ArgumentException>()
                 .And.Message.EqualTo("The step cannot be greater than the size of the group"),
-            delegate { JosephusProblem.FindWinner(groupSize, step); });
+            delegate
+            {
+                JosephusProblem.FindWinner(groupSize, step);
+            }
+        );
     }
 
     [TestCase(10, 2, 5)]

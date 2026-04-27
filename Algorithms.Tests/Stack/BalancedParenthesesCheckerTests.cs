@@ -22,9 +22,11 @@ namespace Algorithms.Tests.Stack
 
             if (ex != null)
             {
-                Assert.That(ex.Message, Is.EqualTo("The input expression cannot be null or empty."));
+                Assert.That(
+                    ex.Message,
+                    Is.EqualTo("The input expression cannot be null or empty.")
+                );
             }
-
         }
 
         [Test]
@@ -76,7 +78,10 @@ namespace Algorithms.Tests.Stack
             var ex = Assert.Throws<ArgumentException>(() => IsBalanced(expression));
             if (ex != null)
             {
-                Assert.That(ex.Message, Is.EqualTo("Invalid character 'a' found in the expression."));
+                Assert.That(
+                    ex.Message,
+                    Is.EqualTo("Invalid character 'a' found in the expression.")
+                );
             }
         }
 

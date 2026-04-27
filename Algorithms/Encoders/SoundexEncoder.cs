@@ -66,8 +66,7 @@ public class SoundexEncoder
         do
         {
             yield return enumerator.Current;
-        }
-        while (enumerator.MoveNext());
+        } while (enumerator.MoveNext());
     }
 
     private IEnumerable<int> PadTo3Numbers(IEnumerable<int> numbers)
@@ -75,9 +74,7 @@ public class SoundexEncoder
         using var enumerator = numbers.GetEnumerator();
         for (var i = 0; i < 3; i++)
         {
-            yield return enumerator.MoveNext()
-                ? enumerator.Current
-                : 0;
+            yield return enumerator.MoveNext() ? enumerator.Current : 0;
         }
     }
 
@@ -98,7 +95,8 @@ public class SoundexEncoder
         }
     }
 
-    private IEnumerable<int> ProduceNumberCoding(IEnumerable<char> text) => text.Select(MapToNumber);
+    private IEnumerable<int> ProduceNumberCoding(IEnumerable<char> text) =>
+        text.Select(MapToNumber);
 
     private int MapToNumber(char ch)
     {

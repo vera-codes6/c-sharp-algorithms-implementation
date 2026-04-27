@@ -7,6 +7,6 @@ public class Accepter
     public List<Proposer> PreferenceOrder { get; set; } = [];
 
     public bool PrefersOverCurrent(Proposer newProposer) =>
-        EngagedTo is null ||
-        PreferenceOrder.IndexOf(newProposer) < PreferenceOrder.IndexOf(EngagedTo);
+        EngagedTo is null
+        || PreferenceOrder.IndexOf(newProposer) < PreferenceOrder.IndexOf(EngagedTo);
 }

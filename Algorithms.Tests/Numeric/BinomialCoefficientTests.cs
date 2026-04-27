@@ -25,6 +25,8 @@ public static class BinomialCoefficientTests
         // Act
 
         // Assert
-        _ = Assert.Throws<ArgumentException>(() => BinomialCoefficient.Calculate(new BigInteger(n), new BigInteger(k)));
+        _ = Assert.Throws<ArgumentException>(() =>
+            BinomialCoefficient.Calculate(new BigInteger(n), new BigInteger(k))
+        );
     }
 }

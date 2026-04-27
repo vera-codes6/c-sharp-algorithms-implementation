@@ -120,7 +120,6 @@ public class HashTableTests
         var hashTable = new HashTable<Collider, int>();
         hashTable.Add(new Collider(1), 1);
 
-
         // Act & Assert
         Assert.Throws<ArgumentException>(() => hashTable.Add(new Collider(1), 2));
     }
@@ -306,6 +305,7 @@ public class HashTableTests
         /// After resizing, the capacity should be 10
         Assert.That(hashTable.Capacity, Is.EqualTo(10));
     }
+
     [Test]
     public void LoadFactor_ReturnsCorrectValue()
     {
@@ -501,7 +501,6 @@ public class HashTableTests
         hashTable.Count.Should().Be(32);
     }
 
-
     [Test]
     public void Add_ThrowsException_WhenKeyIsDefault()
     {
@@ -614,6 +613,8 @@ public class NegativeHashKey(int id)
 public class Collider(int id)
 {
     private readonly int id = id;
+
     public override int GetHashCode() => 42; // Force all instances to collide
+
     public override bool Equals(object? obj) => obj is Collider other && other.id == id;
 }

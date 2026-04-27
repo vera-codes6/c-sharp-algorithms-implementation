@@ -11,22 +11,26 @@ public class GenerateSingleCoinChangesTests
         DynamicCoinChangeSolver
             .GenerateSingleCoinChanges(6, [1, 2, 3])
             .SequenceEqual(new[] { 3, 4, 5 })
-            .Should().BeTrue();
+            .Should()
+            .BeTrue();
 
         DynamicCoinChangeSolver
             .GenerateSingleCoinChanges(10, [1, 2, 3, 7, 12, 15, 14])
             .SequenceEqual(new[] { 3, 7, 8, 9 })
-            .Should().BeTrue();
+            .Should()
+            .BeTrue();
 
         DynamicCoinChangeSolver
             .GenerateSingleCoinChanges(1, [1, 2, 3, 7, 12, 15, 14])
             .SequenceEqual(new[] { 0 })
-            .Should().BeTrue();
+            .Should()
+            .BeTrue();
 
         DynamicCoinChangeSolver
             .GenerateSingleCoinChanges(2, [1, 2, 3, 7, 12, 15, 14])
             .SequenceEqual(new[] { 0, 1 })
-            .Should().BeTrue();
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -37,7 +41,8 @@ public class GenerateSingleCoinChangesTests
 
         Func<int[]> act = () => DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, arr);
 
-        act.Should().Throw<InvalidOperationException>()
+        act.Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"The coin cannot be lesser or equal to zero {nameof(coin)}.");
     }
 
@@ -47,9 +52,11 @@ public class GenerateSingleCoinChangesTests
         const int coin = 10;
         var coinsAsArray = Array.Empty<int>();
 
-        Func<int[]> act = () => DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, coinsAsArray);
+        Func<int[]> act = () =>
+            DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, coinsAsArray);
 
-        act.Should().Throw<InvalidOperationException>()
+        act.Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"Coins array cannot be empty {nameof(coinsAsArray)}.");
     }
 
@@ -59,9 +66,11 @@ public class GenerateSingleCoinChangesTests
         const int coin = 10;
         var coinsAsArray = new[] { 2, 3, 4 };
 
-        Func<int[]> act = () => DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, coinsAsArray);
+        Func<int[]> act = () =>
+            DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, coinsAsArray);
 
-        act.Should().Throw<InvalidOperationException>()
+        act.Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"Coins array must contain coin 1 {nameof(coinsAsArray)}.");
     }
 
@@ -71,10 +80,14 @@ public class GenerateSingleCoinChangesTests
         const int coin = 10;
         var coinsAsArray = new[] { 1, 2, -3, 4 };
 
-        Func<int[]> act = () => DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, coinsAsArray);
+        Func<int[]> act = () =>
+            DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, coinsAsArray);
 
-        act.Should().Throw<InvalidOperationException>()
-            .WithMessage($"{nameof(coinsAsArray)} cannot contain numbers less than or equal to zero");
+        act.Should()
+            .Throw<InvalidOperationException>()
+            .WithMessage(
+                $"{nameof(coinsAsArray)} cannot contain numbers less than or equal to zero"
+            );
     }
 
     [Test]
@@ -83,9 +96,11 @@ public class GenerateSingleCoinChangesTests
         const int coin = 10;
         var coinsAsArray = new[] { 1, 2, 3, 3, 4 };
 
-        Func<int[]> act = () => DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, coinsAsArray);
+        Func<int[]> act = () =>
+            DynamicCoinChangeSolver.GenerateSingleCoinChanges(coin, coinsAsArray);
 
-        act.Should().Throw<InvalidOperationException>()
+        act.Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"Coins array cannot contain duplicates {nameof(coinsAsArray)}.");
     }
 }

@@ -21,7 +21,9 @@ namespace DataStructures;
 ///     sorted by <see cref="DateTime" /> field.
 /// </summary>
 /// <typeparam name="TValue">Value associated with a <see cref="DateTime" />.</typeparam>
-public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEquatable<Timeline<TValue>>
+public class Timeline<TValue>
+    : ICollection<(DateTime Time, TValue Value)>,
+        IEquatable<Timeline<TValue>>
 {
     /// <summary>
     ///     Inner collection storing the timeline events as key-tuples.
@@ -31,42 +33,32 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// <summary>
     ///     Initializes a new instance of the <see cref="Timeline{TValue}"/> class.
     /// </summary>
-    public Timeline()
-    {
-    }
+    public Timeline() { }
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="Timeline{TValue}"/> class populated with an initial event.
     /// </summary>
     /// <param name="time">The time at which the given event occurred.</param>
     /// <param name="value">The event's content.</param>
-    public Timeline(DateTime time, TValue value)
-        => timeline =
-        [
-            (time, value),
-        ];
+    public Timeline(DateTime time, TValue value) => timeline = [(time, value)];
 
     /// <summary>
     ///     Initializes a new instance of the <see cref="Timeline{TValue}"/> class containing the provided events
     ///     ordered chronologically.
     /// </summary>
     /// <param name="timeline">The timeline to represent.</param>
-    public Timeline(params (DateTime, TValue)[] timeline)
-        => this.timeline = timeline
-            .OrderBy(pair => pair.Item1)
-            .ToList();
+    public Timeline(params (DateTime, TValue)[] timeline) =>
+        this.timeline = timeline.OrderBy(pair => pair.Item1).ToList();
 
     /// <summary>
     /// Gets he number of unique times within this timeline.
     /// </summary>
-    public int TimesCount
-        => GetAllTimes().Length;
+    public int TimesCount => GetAllTimes().Length;
 
     /// <summary>
     ///     Gets all events that has occurred in this timeline.
     /// </summary>
-    public int ValuesCount
-        => GetAllValues().Length;
+    public int ValuesCount => GetAllValues().Length;
 
     /// <summary>
     ///     Get all values associated with <paramref name="time" />.
@@ -87,63 +79,60 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     }
 
     /// <inheritdoc />
-    bool ICollection<(DateTime Time, TValue Value)>.IsReadOnly
-        => false;
+    bool ICollection<(DateTime Time, TValue Value)>.IsReadOnly => false;
 
     /// <summary>
     ///     Gets the count of pairs.
     /// </summary>
-    public int Count
-        => timeline.Count;
+    public int Count => timeline.Count;
 
     /// <summary>
     ///     Clear the timeline, removing all events.
     /// </summary>
-    public void Clear()
-        => timeline.Clear();
+    public void Clear() => timeline.Clear();
 
     /// <summary>
     ///     Copy a value to an array.
     /// </summary>
     /// <param name="array">Destination array.</param>
     /// <param name="arrayIndex">The start index.</param>
-    public void CopyTo((DateTime, TValue)[] array, int arrayIndex)
-        => timeline.CopyTo(array, arrayIndex);
+    public void CopyTo((DateTime, TValue)[] array, int arrayIndex) =>
+        timeline.CopyTo(array, arrayIndex);
 
     /// <summary>
     ///     Add an event at a given time.
     /// </summary>
     /// <param name="item">The tuple containing the event date and value.</param>
-    void ICollection<(DateTime Time, TValue Value)>.Add((DateTime Time, TValue Value) item)
-        => Add(item.Time, item.Value);
+    void ICollection<(DateTime Time, TValue Value)>.Add((DateTime Time, TValue Value) item) =>
+        Add(item.Time, item.Value);
 
     /// <summary>
     ///     Check whether or not a event exists at a specific date in the timeline.
     /// </summary>
     /// <param name="item">The tuple containing the event date and value.</param>
     /// <returns>True if this event exists at the given date, false otherwise.</returns>
-    bool ICollection<(DateTime Time, TValue Value)>.Contains((DateTime Time, TValue Value) item)
-        => Contains(item.Time, item.Value);
+    bool ICollection<(DateTime Time, TValue Value)>.Contains((DateTime Time, TValue Value) item) =>
+        Contains(item.Time, item.Value);
 
     /// <summary>
     ///     Remove an event at a specific date.
     /// </summary>
     /// <param name="item">The tuple containing the event date and value.</param>
     /// <returns>True if the event was removed, false otherwise.</returns>
-    bool ICollection<(DateTime Time, TValue Value)>.Remove((DateTime Time, TValue Value) item)
-        => Remove(item.Time, item.Value);
+    bool ICollection<(DateTime Time, TValue Value)>.Remove((DateTime Time, TValue Value) item) =>
+        Remove(item.Time, item.Value);
 
     /// <inheritdoc />
-    IEnumerator IEnumerable.GetEnumerator()
-        => timeline.GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => timeline.GetEnumerator();
 
     /// <inheritdoc />
-    IEnumerator<(DateTime Time, TValue Value)> IEnumerable<(DateTime Time, TValue Value)>.GetEnumerator()
-        => timeline.GetEnumerator();
+    IEnumerator<(DateTime Time, TValue Value)> IEnumerable<(
+        DateTime Time,
+        TValue Value
+    )>.GetEnumerator() => timeline.GetEnumerator();
 
     /// <inheritdoc />
-    public bool Equals(Timeline<TValue>? other)
-        => other is not null && this == other;
+    public bool Equals(Timeline<TValue>? other) => other is not null && this == other;
 
     /// <summary>
     ///     Checks whether or not two <see cref="Timeline{TValue}"/> are equals.
@@ -163,8 +152,10 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
 
         for (var i = 0; i < leftArray.Length; i++)
         {
-            if (leftArray[i].Time != rightArray[i].Time
-                && !leftArray[i].Value!.Equals(rightArray[i].Value))
+            if (
+                leftArray[i].Time != rightArray[i].Time
+                && !leftArray[i].Value!.Equals(rightArray[i].Value)
+            )
             {
                 return false;
             }
@@ -179,149 +170,134 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// <param name="left">The first timeline.</param>
     /// <param name="right">The other timeline to be checked against the <paramref name="left"/> one.</param>
     /// <returns>False if both timelines are similar, true otherwise.</returns>
-    public static bool operator !=(Timeline<TValue> left, Timeline<TValue> right)
-        => !(left == right);
+    public static bool operator !=(Timeline<TValue> left, Timeline<TValue> right) =>
+        !(left == right);
 
     /// <summary>
     ///     Get all <see cref="DateTime" /> of the timeline.
     /// </summary>
-    public DateTime[] GetAllTimes()
-        => timeline.Select(t => t.Time)
-            .Distinct()
-            .ToArray();
+    public DateTime[] GetAllTimes() => timeline.Select(t => t.Time).Distinct().ToArray();
 
     /// <summary>
     ///     Get <see cref="DateTime" /> values of the timeline that have this <paramref name="value" />.
     /// </summary>
-    public DateTime[] GetTimesByValue(TValue value)
-        => timeline.Where(pair => pair.Value!.Equals(value))
-            .Select(pair => pair.Time)
-            .ToArray();
+    public DateTime[] GetTimesByValue(TValue value) =>
+        timeline.Where(pair => pair.Value!.Equals(value)).Select(pair => pair.Time).ToArray();
 
     /// <summary>
     ///     Get all <see cref="DateTime" /> before <paramref name="time" />.
     /// </summary>
-    public DateTime[] GetTimesBefore(DateTime time)
-        => GetAllTimes()
-            .Where(t => t < time)
-            .OrderBy(t => t)
-            .ToArray();
+    public DateTime[] GetTimesBefore(DateTime time) =>
+        GetAllTimes().Where(t => t < time).OrderBy(t => t).ToArray();
 
     /// <summary>
     ///     Get all <see cref="DateTime" /> after <paramref name="time" />.
     /// </summary>
-    public DateTime[] GetTimesAfter(DateTime time)
-        => GetAllTimes()
-            .Where(t => t > time)
-            .OrderBy(t => t)
-            .ToArray();
+    public DateTime[] GetTimesAfter(DateTime time) =>
+        GetAllTimes().Where(t => t > time).OrderBy(t => t).ToArray();
 
     /// <summary>
     ///     Get all <see cref="TValue" /> of the timeline.
     /// </summary>
-    public TValue[] GetAllValues()
-        => timeline.Select(pair => pair.Value)
-            .ToArray();
+    public TValue[] GetAllValues() => timeline.Select(pair => pair.Value).ToArray();
 
     /// <summary>
     ///     Get all <see cref="TValue" /> associated with <paramref name="time" />.
     /// </summary>
-    public TValue[] GetValuesByTime(DateTime time)
-        => timeline.Where(pair => pair.Time == time)
-            .Select(pair => pair.Value)
-            .ToArray();
+    public TValue[] GetValuesByTime(DateTime time) =>
+        timeline.Where(pair => pair.Time == time).Select(pair => pair.Value).ToArray();
 
     /// <summary>
     ///     Get all <see cref="TValue" /> before <paramref name="time" />.
     /// </summary>
-    public Timeline<TValue> GetValuesBefore(DateTime time)
-        => new(this.Where(pair => pair.Time < time).ToArray());
+    public Timeline<TValue> GetValuesBefore(DateTime time) =>
+        new(this.Where(pair => pair.Time < time).ToArray());
 
     /// <summary>
     ///     Get all <see cref="TValue" /> before <paramref name="time" />.
     /// </summary>
-    public Timeline<TValue> GetValuesAfter(DateTime time)
-        => new(this.Where(pair => pair.Time > time).ToArray());
+    public Timeline<TValue> GetValuesAfter(DateTime time) =>
+        new(this.Where(pair => pair.Time > time).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified millisecond.
     /// </summary>
     /// <param name="millisecond">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByMillisecond(int millisecond)
-        => new(timeline.Where(pair => pair.Time.Millisecond == millisecond).ToArray());
+    public Timeline<TValue> GetValuesByMillisecond(int millisecond) =>
+        new(timeline.Where(pair => pair.Time.Millisecond == millisecond).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified second.
     /// </summary>
     /// <param name="second">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesBySecond(int second)
-        => new(timeline.Where(pair => pair.Time.Second == second).ToArray());
+    public Timeline<TValue> GetValuesBySecond(int second) =>
+        new(timeline.Where(pair => pair.Time.Second == second).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified minute.
     /// </summary>
     /// <param name="minute">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByMinute(int minute)
-        => new(timeline.Where(pair => pair.Time.Minute == minute).ToArray());
+    public Timeline<TValue> GetValuesByMinute(int minute) =>
+        new(timeline.Where(pair => pair.Time.Minute == minute).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified hour.
     /// </summary>
     /// <param name="hour">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByHour(int hour)
-        => new(timeline.Where(pair => pair.Time.Hour == hour).ToArray());
+    public Timeline<TValue> GetValuesByHour(int hour) =>
+        new(timeline.Where(pair => pair.Time.Hour == hour).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified day.
     /// </summary>
     /// <param name="day">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByDay(int day)
-        => new(timeline.Where(pair => pair.Time.Day == day).ToArray());
+    public Timeline<TValue> GetValuesByDay(int day) =>
+        new(timeline.Where(pair => pair.Time.Day == day).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified time of the day.
     /// </summary>
     /// <param name="timeOfDay">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByTimeOfDay(TimeSpan timeOfDay)
-        => new(timeline.Where(pair => pair.Time.TimeOfDay == timeOfDay).ToArray());
+    public Timeline<TValue> GetValuesByTimeOfDay(TimeSpan timeOfDay) =>
+        new(timeline.Where(pair => pair.Time.TimeOfDay == timeOfDay).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified day of the week.
     /// </summary>
     /// <param name="dayOfWeek">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByDayOfWeek(DayOfWeek dayOfWeek)
-        => new(timeline.Where(pair => pair.Time.DayOfWeek == dayOfWeek).ToArray());
+    public Timeline<TValue> GetValuesByDayOfWeek(DayOfWeek dayOfWeek) =>
+        new(timeline.Where(pair => pair.Time.DayOfWeek == dayOfWeek).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified day of the year.
     /// </summary>
     /// <param name="dayOfYear">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByDayOfYear(int dayOfYear)
-        => new(timeline.Where(pair => pair.Time.DayOfYear == dayOfYear).ToArray());
+    public Timeline<TValue> GetValuesByDayOfYear(int dayOfYear) =>
+        new(timeline.Where(pair => pair.Time.DayOfYear == dayOfYear).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified month.
     /// </summary>
     /// <param name="month">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByMonth(int month)
-        => new(timeline.Where(pair => pair.Time.Month == month).ToArray());
+    public Timeline<TValue> GetValuesByMonth(int month) =>
+        new(timeline.Where(pair => pair.Time.Month == month).ToArray());
 
     /// <summary>
     ///     Gets all values that happened at specified year.
     /// </summary>
     /// <param name="year">Value to look for.</param>
     /// <returns>Array of values.</returns>
-    public Timeline<TValue> GetValuesByYear(int year)
-        => new(timeline.Where(pair => pair.Time.Year == year).ToArray());
+    public Timeline<TValue> GetValuesByYear(int year) =>
+        new(timeline.Where(pair => pair.Time.Year == year).ToArray());
 
     /// <summary>
     ///     Add an event at a given <paramref name="time"/>.
@@ -344,8 +320,7 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// <summary>
     ///     Append an existing timeline to this one.
     /// </summary>
-    public void Add(Timeline<TValue> timeline)
-        => Add(timeline.ToArray());
+    public void Add(Timeline<TValue> timeline) => Add(timeline.ToArray());
 
     /// <summary>
     ///     Add a <paramref name="value" /> associated with <see cref="DateTime.Now" /> to the timeline.
@@ -365,24 +340,22 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// <param name="time">The date at which the event occurred.</param>
     /// <param name="value">The event value.</param>
     /// <returns>True if this event exists at the given date, false otherwise.</returns>
-    public bool Contains(DateTime time, TValue value)
-        => timeline.Contains((time, value));
+    public bool Contains(DateTime time, TValue value) => timeline.Contains((time, value));
 
     /// <summary>
     ///     Check if timeline contains this set of value pairs.
     /// </summary>
     /// <param name="timeline">The events to checks.</param>
     /// <returns>True if any of the events has occurred in the timeline.</returns>
-    public bool Contains(params (DateTime, TValue)[] timeline)
-        => timeline.Any(@event => Contains(@event.Item1, @event.Item2));
+    public bool Contains(params (DateTime, TValue)[] timeline) =>
+        timeline.Any(@event => Contains(@event.Item1, @event.Item2));
 
     /// <summary>
     ///     Check if timeline contains any of the event of the provided <paramref name="timeline"/>.
     /// </summary>
     /// <param name="timeline">The events to checks.</param>
     /// <returns>True if any of the events has occurred in the timeline.</returns>
-    public bool Contains(Timeline<TValue> timeline)
-        => Contains(timeline.ToArray());
+    public bool Contains(Timeline<TValue> timeline) => Contains(timeline.ToArray());
 
     /// <summary>
     ///     Check if timeline contains any of the time of the provided <paramref name="times"/>.
@@ -412,8 +385,7 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// <param name="time">The date at which the event occurred.</param>
     /// <param name="value">The event value.</param>
     /// <returns>True if the event was removed, false otherwise.</returns>
-    public bool Remove(DateTime time, TValue value)
-        => timeline.Remove((time, value));
+    public bool Remove(DateTime time, TValue value) => timeline.Remove((time, value));
 
     /// <summary>
     ///     Remove a set of value pairs from the timeline.
@@ -436,8 +408,7 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// </summary>
     /// <param name="timeline">An collection of all events to remove.</param>
     /// <returns>Returns true if the operation completed successfully.</returns>
-    public bool Remove(Timeline<TValue> timeline)
-        => Remove(timeline.ToArray());
+    public bool Remove(Timeline<TValue> timeline) => Remove(timeline.ToArray());
 
     /// <summary>
     ///     Remove a value pair from the timeline if the time is equal to <paramref name="times" />.
@@ -452,8 +423,8 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
             return false;
         }
 
-        var eventsToRemove = times.SelectMany(time =>
-            timeline.Where(@event => @event.Time == time))
+        var eventsToRemove = times
+            .SelectMany(time => timeline.Where(@event => @event.Time == time))
             .ToList();
 
         foreach (var @event in eventsToRemove)
@@ -477,8 +448,12 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
             return false;
         }
 
-        var eventsToRemove = values.SelectMany(value =>
-            timeline.Where(@event => EqualityComparer<TValue>.Default.Equals(@event.Value, value)))
+        var eventsToRemove = values
+            .SelectMany(value =>
+                timeline.Where(@event =>
+                    EqualityComparer<TValue>.Default.Equals(@event.Value, value)
+                )
+            )
             .ToList();
 
         foreach (var @event in eventsToRemove)
@@ -495,8 +470,7 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// <returns>
     /// The timeline as an array of tuples of (<see cref="DateTime"/>, <typeparamref name="TValue"/>).
     /// </returns>
-    public (DateTime Time, TValue Value)[] ToArray()
-        => timeline.ToArray();
+    public (DateTime Time, TValue Value)[] ToArray() => timeline.ToArray();
 
     /// <summary>
     ///     Convert the timeline to a list.
@@ -504,8 +478,7 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// <returns>
     /// The timeline as a list of tuples of (<see cref="DateTime"/>, <typeparamref name="TValue"/>).
     /// </returns>
-    public IList<(DateTime Time, TValue Value)> ToList()
-        => timeline;
+    public IList<(DateTime Time, TValue Value)> ToList() => timeline;
 
     /// <summary>
     ///     Convert the timeline to a dictionary.
@@ -513,15 +486,13 @@ public class Timeline<TValue> : ICollection<(DateTime Time, TValue Value)>, IEqu
     /// <returns>
     /// The timeline as an dictionary of <typeparamref name="TValue"/> by <see cref="DateTime"/>.
     /// </returns>
-    public IDictionary<DateTime, TValue> ToDictionary()
-        => timeline.ToDictionary(@event => @event.Time, @event => @event.Value);
+    public IDictionary<DateTime, TValue> ToDictionary() =>
+        timeline.ToDictionary(@event => @event.Time, @event => @event.Value);
 
     /// <inheritdoc />
-    public override bool Equals(object? obj)
-        => obj is Timeline<TValue> otherTimeline
-           && this == otherTimeline;
+    public override bool Equals(object? obj) =>
+        obj is Timeline<TValue> otherTimeline && this == otherTimeline;
 
     /// <inheritdoc />
-    public override int GetHashCode()
-        => timeline.GetHashCode();
+    public override int GetHashCode() => timeline.GetHashCode();
 }

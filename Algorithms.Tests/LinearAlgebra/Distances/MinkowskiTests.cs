@@ -17,7 +17,11 @@ public class MinkowskiTests
     [TestCase(new[] { 2.0, 3.0 }, new[] { -1.0 }, 2)]
     [TestCase(new[] { 1.0 }, new[] { 1.0, 2.0, 3.0 }, 1)]
     [TestCase(new[] { 1.0, 1.0 }, new[] { 2.0, 2.0 }, 0)]
-    public void DistanceThrowsArgumentExceptionOnInvalidInput(double[] point1, double[] point2, int order)
+    public void DistanceThrowsArgumentExceptionOnInvalidInput(
+        double[] point1,
+        double[] point2,
+        int order
+    )
     {
         Action action = () => Minkowski.Distance(point1, point2, order);
         action.Should().Throw<ArgumentException>();

@@ -83,5 +83,6 @@ public class LogisticRegression
 
     private static double Sigmoid(double z) => 1.0 / (1.0 + Math.Exp(-z));
 
-    private static double Dot(double[] a, double[] b) => a.Zip(b).Sum(pair => pair.First * pair.Second);
+    private static double Dot(double[] a, double[] b) =>
+        a.Zip(b).Sum(pair => pair.First * pair.Second);
 }

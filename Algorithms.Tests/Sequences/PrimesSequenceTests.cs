@@ -8,7 +8,9 @@ public class PrimesSequenceTests
     public void First10ElementsCorrect()
     {
         var sequence = new PrimesSequence().Sequence.Take(10);
-        sequence.SequenceEqual(new BigInteger[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 })
-            .Should().BeTrue();
+        sequence
+            .SequenceEqual(new BigInteger[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 })
+            .Should()
+            .BeTrue();
     }
 }

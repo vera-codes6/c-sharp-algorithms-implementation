@@ -11,7 +11,7 @@ namespace Algorithms.Tests.Crypto.Utils
             // Arrange
             var input = 0x0123456789ABCDEF;
             var distance = 8;
-            var expected = 0x23456789ABCDEF01L;  // The expected result is a signed long value.
+            var expected = 0x23456789ABCDEF01L; // The expected result is a signed long value.
 
             // Act
             var result = LongUtils.RotateLeft(input, distance);
@@ -26,7 +26,7 @@ namespace Algorithms.Tests.Crypto.Utils
             // Arrange
             var input = 0x0123456789ABCDEFUL;
             var distance = 8;
-            var expected = 0x23456789ABCDEF01UL;  // The expected result is an unsigned ulong value.
+            var expected = 0x23456789ABCDEF01UL; // The expected result is an unsigned ulong value.
 
             // Act
             var result = LongUtils.RotateLeft(input, distance);
@@ -41,7 +41,7 @@ namespace Algorithms.Tests.Crypto.Utils
             // Arrange
             var input = 0x0123456789ABCDEF;
             var distance = 8;
-            var expected = unchecked((long)0xEF0123456789ABCD);  // Using unchecked to correctly represent signed long.
+            var expected = unchecked((long)0xEF0123456789ABCD); // Using unchecked to correctly represent signed long.
 
             // Act
             var result = LongUtils.RotateRight(input, distance);
@@ -56,7 +56,7 @@ namespace Algorithms.Tests.Crypto.Utils
             // Arrange
             var input = 0x0123456789ABCDEFUL;
             var distance = 8;
-            var expected = 0xEF0123456789ABCDUL;  // The expected result is an unsigned ulong value.
+            var expected = 0xEF0123456789ABCDUL; // The expected result is an unsigned ulong value.
 
             // Act
             var result = LongUtils.RotateRight(input, distance);
@@ -76,7 +76,7 @@ namespace Algorithms.Tests.Crypto.Utils
             var result = LongUtils.RotateLeft(input, distance);
 
             // Assert
-            result.Should().Be(input);  // No rotation, result should be the same as input.
+            result.Should().Be(input); // No rotation, result should be the same as input.
         }
 
         [Test]
@@ -90,7 +90,7 @@ namespace Algorithms.Tests.Crypto.Utils
             var result = LongUtils.RotateRight(input, distance);
 
             // Assert
-            result.Should().Be(input);  // Full 64-bit rotation should result in the same value.
+            result.Should().Be(input); // Full 64-bit rotation should result in the same value.
         }
     }
 }

@@ -59,7 +59,13 @@ public static class WildCardMatcher
 
     // Helper method to match the remaining lengths of the input string and the pattern
     // This method is called for all i and j where i > 0 and j > 0
-    private static void MatchRemainingLenghts(string inputString, string pattern, bool[,] dp, int i, int j)
+    private static void MatchRemainingLenghts(
+        string inputString,
+        string pattern,
+        bool[,] dp,
+        int i,
+        int j
+    )
     {
         // If the characters match or the pattern has a ., then the result is the same as the previous positions.
         if (inputString[i - 1] == pattern[j - 1] || pattern[j - 1] == '.')
@@ -77,7 +83,13 @@ public static class WildCardMatcher
     }
 
     // Helper method to match for the "*" pattern.
-    private static void MatchForZeroOrMore(string inputString, string pattern, bool[,] dp, int i, int j)
+    private static void MatchForZeroOrMore(
+        string inputString,
+        string pattern,
+        bool[,] dp,
+        int i,
+        int j
+    )
     {
         if (dp[i, j - 2])
         {

@@ -12,16 +12,37 @@ public class SvdTests
         ThinSvd.RandomUnitVector(10).Magnitude().Should().BeApproximately(1, epsilon);
         // unit vector with single element should be [-1] or [+1]
         Math.Abs(ThinSvd.RandomUnitVector(1)[0]).Should().BeApproximately(1, epsilon);
-        // two randomly generated unit vectors should not be equal 
+        // two randomly generated unit vectors should not be equal
         ThinSvd.RandomUnitVector(10).Should().NotBeEquivalentTo(ThinSvd.RandomUnitVector(10));
     }
 
     [Test]
     public void Svd_Decompose()
     {
-        CheckSvd(new double[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } });
-        CheckSvd(new double[,] { { 1, 2, 3 }, { 4, 5, 6 } });
-        CheckSvd(new double[,] { { 1, 0, 0, 0, 2 }, { 0, 3, 0, 0, 0 }, { 0, 0, 0, 0, 0 }, { 0, 2, 0, 0, 0 } });
+        CheckSvd(
+            new double[,]
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+                { 7, 8, 9 },
+            }
+        );
+        CheckSvd(
+            new double[,]
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 },
+            }
+        );
+        CheckSvd(
+            new double[,]
+            {
+                { 1, 0, 0, 0, 2 },
+                { 0, 3, 0, 0, 0 },
+                { 0, 0, 0, 0, 0 },
+                { 0, 2, 0, 0, 0 },
+            }
+        );
     }
 
     [Test]
@@ -39,7 +60,11 @@ public class SvdTests
         {
             for (var j = 0; j < matrix1.GetLength(1); j++)
             {
-                Assert.That(matrix1[i, j], Is.EqualTo(matrix2[i, j]).Within(epsilon), $"At index ({i}, {j})");
+                Assert.That(
+                    matrix1[i, j],
+                    Is.EqualTo(matrix2[i, j]).Within(epsilon),
+                    $"At index ({i}, {j})"
+                );
             }
         }
     }
@@ -71,7 +96,9 @@ public class SvdTests
         {
             // singular values should be arranged from greatest to smallest
             // but there are rounding errors
-            (s[i] - s[i - 1]).Should().BeLessThan(1);
+            (s[i] - s[i - 1])
+                .Should()
+                .BeLessThan(1);
         }
 
         for (var i = 0; i < u.GetLength(1); i++)
@@ -122,7 +149,6 @@ public class SvdTests
         {
             expanded[i, i] = s[i];
         }
-
 
         // matrix = U * S * V^t, definition of Singular Vector Decomposition
         AssertMatrixEqual(testMatrix, u.Multiply(expanded).Multiply(v.Transpose()), epsilon);

@@ -1,6 +1,7 @@
 namespace DataStructures.Probabilistic;
 
-public class HyperLogLog<T> where T : notnull
+public class HyperLogLog<T>
+    where T : notnull
 {
     private const int P = 16;
     private const double Alpha = .673;

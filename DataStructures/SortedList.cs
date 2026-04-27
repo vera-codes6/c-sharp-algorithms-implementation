@@ -19,9 +19,7 @@ public class SortedList<T>(IComparer<T> comparer) : IEnumerable<T>
     ///     Initializes a new instance of the <see cref="SortedList{T}" /> class. Uses a Comparer.Default for type T.
     /// </summary>
     public SortedList()
-        : this(Comparer<T>.Default)
-    {
-    }
+        : this(Comparer<T>.Default) { }
 
     /// <summary>
     ///     Gets the number of elements containing in <see cref="SortedList{T}" />.
@@ -47,8 +45,7 @@ public class SortedList<T>(IComparer<T> comparer) : IEnumerable<T>
     /// <summary>
     /// Removes all elements from <see cref="SortedList{T}" />.
     /// </summary>
-    public void Clear()
-        => memory.Clear();
+    public void Clear() => memory.Clear();
 
     /// <summary>
     /// Indicates whether a <see cref="SortedList{T}" /> contains a certain element.
@@ -82,12 +79,10 @@ public class SortedList<T>(IComparer<T> comparer) : IEnumerable<T>
     /// Returns an enumerator that iterates through the <see cref="SortedList{T}" />.
     /// </summary>
     /// <returns>A Enumerator for the <see cref="SortedList{T}" />.</returns>
-    public IEnumerator<T> GetEnumerator()
-        => memory.GetEnumerator();
+    public IEnumerator<T> GetEnumerator() => memory.GetEnumerator();
 
     /// <inheritdoc cref="IEnumerable.GetEnumerator"/>
-    IEnumerator IEnumerable.GetEnumerator()
-        => GetEnumerator();
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
     /// <summary>
     /// Binary search algorithm for finding element index in <see cref="SortedList{T}" />.

@@ -26,9 +26,7 @@ public class AaTree<TKey>(Comparer<TKey> customComparer)
     ///     Initializes a new instance of the <see cref="AaTree{TKey}" /> class.
     /// </summary>
     public AaTree()
-        : this(Comparer<TKey>.Default)
-    {
-    }
+        : this(Comparer<TKey>.Default) { }
 
     /// <summary>
     ///     Gets the root of the tree.

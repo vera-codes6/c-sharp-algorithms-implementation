@@ -134,8 +134,14 @@ public sealed class OpenKnightTour
 
         var candidates = new (int Dr, int Dc)[]
         {
-            (1,  2), (-1,  2), (1, -2), (-1, -2),
-            (2,  1), (2, -1), (-2,  1), (-2, -1),
+            (1, 2),
+            (-1, 2),
+            (1, -2),
+            (-1, -2),
+            (2, 1),
+            (2, -1),
+            (-2, 1),
+            (-2, -1),
         };
 
         foreach (var (dr, dc) in candidates)

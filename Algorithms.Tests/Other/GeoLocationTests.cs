@@ -11,7 +11,8 @@ public static class GeoLocationTests
         double lng1,
         double lat2,
         double lng2,
-        double expectedValue)
+        double expectedValue
+    )
     {
         var result = GeoLocation.CalculateDistanceFromLatLng(lat1, lng1, lat2, lng2);
         var actualValue = Convert.ToDouble(result);

@@ -8,7 +8,6 @@ public class NumberOfPrimesByNumberOfDigitsSequenceTests
     public void First5ElementsCorrect()
     {
         var sequence = new NumberOfPrimesByNumberOfDigitsSequence().Sequence.Take(5);
-        sequence.SequenceEqual(new BigInteger[] { 0, 4, 21, 143, 1061 })
-            .Should().BeTrue();
+        sequence.SequenceEqual(new BigInteger[] { 0, 4, 21, 143, 1061 }).Should().BeTrue();
     }
 }

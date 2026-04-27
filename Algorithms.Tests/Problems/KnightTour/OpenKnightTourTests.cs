@@ -43,15 +43,18 @@ namespace Algorithms.Tests.Problems.KnightTour
             // 1) All cells visited and within [1..n*n]
             int min = int.MaxValue;
             int max = int.MinValue;
-            
+
             var seen = new bool[n * n + 1]; // 1..n*n
             for (var r = 0; r < n; r++)
             {
                 for (var c = 0; c < n; c++)
                 {
                     var v = board[r, c];
-                    Assert.That(v, Is.InRange(1, n * n),
-                        $"Cell [{r},{c}] has out-of-range value {v}.");
+                    Assert.That(
+                        v,
+                        Is.InRange(1, n * n),
+                        $"Cell [{r},{c}] has out-of-range value {v}."
+                    );
                     Assert.That(seen[v], Is.False, $"Duplicate value {v} found.");
                     seen[v] = true;
                     if (v < min)
@@ -74,8 +77,10 @@ namespace Algorithms.Tests.Problems.KnightTour
             {
                 var a = pos[step];
                 var b = pos[step + 1];
-                Assert.That(IsKnightMove(a, b),
-                    $"Step {step}->{step + 1} is not a legal knight move: {a} -> {b}.");
+                Assert.That(
+                    IsKnightMove(a, b),
+                    $"Step {step}->{step + 1} is not a legal knight move: {a} -> {b}."
+                );
             }
         }
 
@@ -138,8 +143,11 @@ namespace Algorithms.Tests.Problems.KnightTour
             {
                 for (var c = 0; c < board.GetLength(1); c++)
                 {
-                    Assert.That(board[r, c], Is.Not.EqualTo(0),
-                        $"Found unvisited cell at [{r},{c}].");
+                    Assert.That(
+                        board[r, c],
+                        Is.Not.EqualTo(0),
+                        $"Found unvisited cell at [{r},{c}]."
+                    );
                 }
             }
         }
@@ -163,8 +171,11 @@ namespace Algorithms.Tests.Problems.KnightTour
             values.Sort();
             // Expect [1..n*n]
             var expected = Enumerable.Range(1, n * n).ToArray();
-            Assert.That(values, Is.EqualTo(expected),
-                "Board must contain each number exactly once from 1 to n*n.");
+            Assert.That(
+                values,
+                Is.EqualTo(expected),
+                "Board must contain each number exactly once from 1 to n*n."
+            );
         }
 
         [Test]

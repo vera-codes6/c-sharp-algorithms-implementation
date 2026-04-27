@@ -183,7 +183,10 @@ public class DoublyLinkedList<T>
         var current = Head;
         while (current is not null)
         {
-            if (current.Data is null && data is null || current.Data is not null && current.Data.Equals(data))
+            if (
+                current.Data is null && data is null
+                || current.Data is not null && current.Data.Equals(data)
+            )
             {
                 return current;
             }
@@ -213,7 +216,10 @@ public class DoublyLinkedList<T>
             current = current!.Next;
         }
 
-        return current ?? throw new ArgumentOutOfRangeException($"{nameof(position)} must be an index in the list");
+        return current
+            ?? throw new ArgumentOutOfRangeException(
+                $"{nameof(position)} must be an index in the list"
+            );
     }
 
     /// <summary>
@@ -281,7 +287,8 @@ public class DoublyLinkedList<T>
         if (node.Previous is null || node.Next is null)
         {
             throw new ArgumentException(
-                $"{nameof(node)} cannot have Previous or Next null if it's an internal node");
+                $"{nameof(node)} cannot have Previous or Next null if it's an internal node"
+            );
         }
 
         node.Previous.Next = node.Next;
@@ -310,7 +317,10 @@ public class DoublyLinkedList<T>
         var index = 0;
         while (current is not null)
         {
-            if (current.Data is null && data is null || current.Data is not null && current.Data.Equals(data))
+            if (
+                current.Data is null && data is null
+                || current.Data is not null && current.Data.Equals(data)
+            )
             {
                 return index;
             }

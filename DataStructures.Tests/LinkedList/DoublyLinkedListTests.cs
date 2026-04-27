@@ -24,12 +24,8 @@ public static class DoublyLinkedListTests
 
         Assert.That(one.Data, Is.EqualTo(1));
         Assert.That(three.Data, Is.EqualTo(3));
-        Assert.Throws<ArgumentOutOfRangeException>(
-            () => dll.GetAt(-1)
-        );
-        Assert.Throws<ArgumentOutOfRangeException>(
-            () => dll.GetAt(5)
-        );
+        Assert.Throws<ArgumentOutOfRangeException>(() => dll.GetAt(-1));
+        Assert.Throws<ArgumentOutOfRangeException>(() => dll.GetAt(5));
     }
 
     [Test]

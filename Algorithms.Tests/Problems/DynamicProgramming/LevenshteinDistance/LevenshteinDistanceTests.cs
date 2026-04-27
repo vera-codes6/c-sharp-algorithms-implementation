@@ -10,7 +10,11 @@ public class LevenshteinDistanceTests
     [TestCase("star", "", 4)]
     [TestCase("", "star", 4)]
     [TestCase("abcde", "12345", 5)]
-    public void Calculate_ReturnsCorrectLevenshteinDistance(string source, string destination, int expectedDistance)
+    public void Calculate_ReturnsCorrectLevenshteinDistance(
+        string source,
+        string destination,
+        int expectedDistance
+    )
     {
         var result = LevenshteinDistance.Calculate(source, destination);
         Assert.That(result, Is.EqualTo(expectedDistance));

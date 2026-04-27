@@ -15,7 +15,13 @@ public static class ExtendedEuclideanAlgorithmTest
     [TestCase(2 * 17, 17, 17, 0, 1)]
     [TestCase(0, 0, 0, 1, 0)]
     [TestCase(2 * 13 * 17, 4 * 9 * 13, 2 * 13, -1, 1)]
-    public static void TestCompute(long a, long b, long expectedGCD, long expectedBezoutOfA, long expectedBezoutOfB)
+    public static void TestCompute(
+        long a,
+        long b,
+        long expectedGCD,
+        long expectedBezoutOfA,
+        long expectedBezoutOfB
+    )
     {
         // Act
         var eeaResult = ExtendedEuclideanAlgorithm.Compute(a, b);
@@ -37,7 +43,13 @@ public static class ExtendedEuclideanAlgorithmTest
     [TestCase(2 * 17, 17, 17, 0, 1)]
     [TestCase(0, 0, 0, 1, 0)]
     [TestCase(2 * 13 * 17, 4 * 9 * 13, 2 * 13, -1, 1)]
-    public static void TestCompute_BigInteger(long a, long b, long expectedGCD, long expectedBezoutOfA, long expectedBezoutOfB)
+    public static void TestCompute_BigInteger(
+        long a,
+        long b,
+        long expectedGCD,
+        long expectedBezoutOfA,
+        long expectedBezoutOfB
+    )
     {
         // Act
         var eeaResult = ExtendedEuclideanAlgorithm.Compute(new BigInteger(a), new BigInteger(b));

@@ -26,14 +26,18 @@ public class LinearRegressionTests
     public void Fit_ThrowsException_WhenInputLengthsDiffer()
     {
         var lr = new LinearRegression();
-        Assert.Throws<ArgumentException>(() => lr.Fit(new List<double> { 1 }, new List<double> { 2, 3 }));
+        Assert.Throws<ArgumentException>(() =>
+            lr.Fit(new List<double> { 1 }, new List<double> { 2, 3 })
+        );
     }
 
     [Test]
     public void Fit_ThrowsException_WhenXVarianceIsZero()
     {
         var lr = new LinearRegression();
-        Assert.Throws<ArgumentException>(() => lr.Fit(new List<double> { 1, 1, 1 }, new List<double> { 2, 3, 4 }));
+        Assert.Throws<ArgumentException>(() =>
+            lr.Fit(new List<double> { 1, 1, 1 }, new List<double> { 2, 3, 4 })
+        );
     }
 
     [Test]

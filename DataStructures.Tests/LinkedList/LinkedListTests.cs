@@ -68,7 +68,6 @@ public static class LinkedListTests
         _ = Assert.Throws<ArgumentOutOfRangeException>(() => list.GetElementByIndex(3));
     }
 
-
     [Test]
     public static void RemoveItemsFromList()
     {
@@ -169,5 +168,4 @@ public static class LinkedListTests
         // Assert
         Assert.That(deleteSuccess, Is.False);
     }
-
 }

@@ -29,13 +29,23 @@ public class DynamicProgrammingKnapsackSolver<T>
     ///     The array of items that provides the maximum value of the
     ///     knapsack without exceeding the specified weight <paramref name="capacity">capacity</paramref>.
     /// </returns>
-    public T[] Solve(T[] items, int capacity, Func<T, int> weightSelector, Func<T, double> valueSelector)
+    public T[] Solve(
+        T[] items,
+        int capacity,
+        Func<T, int> weightSelector,
+        Func<T, double> valueSelector
+    )
     {
         var cache = Tabulate(items, weightSelector, valueSelector, capacity);
         return GetOptimalItems(items, weightSelector, cache, capacity);
     }
 
-    private static T[] GetOptimalItems(T[] items, Func<T, int> weightSelector, double[,] cache, int capacity)
+    private static T[] GetOptimalItems(
+        T[] items,
+        Func<T, int> weightSelector,
+        double[,] cache,
+        int capacity
+    )
     {
         var currentCapacity = capacity;
 
@@ -58,7 +68,8 @@ public class DynamicProgrammingKnapsackSolver<T>
         T[] items,
         Func<T, int> weightSelector,
         Func<T, double> valueSelector,
-        int maxCapacity)
+        int maxCapacity
+    )
     {
         // Store the incremental results in a bottom up manner
         var n = items.Length;

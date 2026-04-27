@@ -75,7 +75,10 @@ public sealed class GraphColoringSolver
 
         if (numVertices != adjacencyMatrix.GetLength(1))
         {
-            throw new ArgumentException("Adjacency matrix must be square.", nameof(adjacencyMatrix));
+            throw new ArgumentException(
+                "Adjacency matrix must be square.",
+                nameof(adjacencyMatrix)
+            );
         }
 
         if (numColors <= 0)
@@ -97,8 +100,9 @@ public sealed class GraphColoringSolver
         if (!ColorVertex(adjacencyMatrix, colors, 0, numColors))
         {
             throw new ArgumentException(
-                $"Graph cannot be colored with {numColors} color(s). " +
-                $"A larger number of colors may be required.");
+                $"Graph cannot be colored with {numColors} color(s). "
+                    + $"A larger number of colors may be required."
+            );
         }
 
         return colors;

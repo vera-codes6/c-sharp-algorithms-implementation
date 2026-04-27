@@ -14,7 +14,8 @@ public class MsdRadixStringSorter : IStringSorter
     ///     Sort array of strings using MSD radix sort algorithm.
     /// </summary>
     /// <param name="array">Array to sort.</param>
-    public void Sort(string[] array) => Sort(array, 0, array.Length - 1, 0, new string[array.Length]);
+    public void Sort(string[] array) =>
+        Sort(array, 0, array.Length - 1, 0, new string[array.Length]);
 
     private static void Sort(string[] array, int l, int r, int d, string[] temp)
     {

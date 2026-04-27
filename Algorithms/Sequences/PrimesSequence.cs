@@ -21,10 +21,7 @@ public class PrimesSequence : ISequence
         get
         {
             yield return 2;
-            var primes = new List<BigInteger>
-            {
-                2,
-            };
+            var primes = new List<BigInteger> { 2 };
             var n = new BigInteger(3);
 
             while (true)

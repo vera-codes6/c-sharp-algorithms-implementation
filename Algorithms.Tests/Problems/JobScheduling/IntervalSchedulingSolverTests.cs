@@ -31,12 +31,7 @@ public class IntervalSchedulingSolverTests
     [Test]
     public void Schedule_SelectsJobsWithEqualEndTime()
     {
-        var jobs = new List<Job>
-        {
-            new Job(1, 4),
-            new Job(2, 4),
-            new Job(4, 6)
-        };
+        var jobs = new List<Job> { new Job(1, 4), new Job(2, 4), new Job(4, 6) };
         var result = IntervalSchedulingSolver.Schedule(jobs);
         Assert.That(result, Has.Count.EqualTo(2));
         Assert.That(result, Does.Contain(new Job(1, 4)));
@@ -46,12 +41,7 @@ public class IntervalSchedulingSolverTests
     [Test]
     public void Schedule_SelectsJobStartingAtLastEnd()
     {
-        var jobs = new List<Job>
-        {
-            new Job(1, 3),
-            new Job(3, 5),
-            new Job(5, 7)
-        };
+        var jobs = new List<Job> { new Job(1, 3), new Job(3, 5), new Job(5, 7) };
         var result = IntervalSchedulingSolver.Schedule(jobs);
         Assert.That(result, Has.Count.EqualTo(3));
         Assert.That(result[0], Is.EqualTo(jobs[0]));
@@ -62,12 +52,7 @@ public class IntervalSchedulingSolverTests
     [Test]
     public void Schedule_HandlesJobsWithNegativeTimes()
     {
-        var jobs = new List<Job>
-        {
-            new Job(-5, -3),
-            new Job(-2, 1),
-            new Job(0, 2)
-        };
+        var jobs = new List<Job> { new Job(-5, -3), new Job(-2, 1), new Job(0, 2) };
         var result = IntervalSchedulingSolver.Schedule(jobs);
         Assert.That(result, Has.Count.EqualTo(2));
         Assert.That(result, Does.Contain(new Job(-5, -3)));
@@ -84,7 +69,7 @@ public class IntervalSchedulingSolverTests
             new Job(0, 6),
             new Job(5, 7),
             new Job(8, 9),
-            new Job(5, 9)
+            new Job(5, 9),
         };
         var result = IntervalSchedulingSolver.Schedule(jobs);
         // Expected: (1,4), (5,7), (8,9)
@@ -97,12 +82,7 @@ public class IntervalSchedulingSolverTests
     [Test]
     public void Schedule_HandlesFullyOverlappingJobs()
     {
-        var jobs = new List<Job>
-        {
-            new Job(1, 5),
-            new Job(2, 6),
-            new Job(3, 7)
-        };
+        var jobs = new List<Job> { new Job(1, 5), new Job(2, 6), new Job(3, 7) };
         var result = IntervalSchedulingSolver.Schedule(jobs);
         // Only one job can be selected
         Assert.That(result, Has.Count.EqualTo(1));

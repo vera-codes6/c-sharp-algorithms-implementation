@@ -108,7 +108,11 @@ namespace Algorithms.Strings.Similarity
         /// <param name="secondString">The second string.</param>
         /// <param name="distanceMatrix">The initial distance matrix.</param>
         /// <returns>The calculated distance matrix.</returns>
-        private static int[,] CalculateDistance(string firstString, string secondString, int[,] distanceMatrix)
+        private static int[,] CalculateDistance(
+            string firstString,
+            string secondString,
+            int[,] distanceMatrix
+        )
         {
             for (var i = 1; i <= firstString.Length; i++)
             {
@@ -124,15 +128,20 @@ namespace Algorithms.Strings.Similarity
                     distanceMatrix[i, j] = Minimum(
                         distanceMatrix[i - 1, j - 1] + cost, // substitution
                         distanceMatrix[i, j - 1] + 1, // insertion
-                        distanceMatrix[i - 1, j] + 1); // deletion
+                        distanceMatrix[i - 1, j] + 1
+                    ); // deletion
 
-                    if (i > 1 && j > 1
+                    if (
+                        i > 1
+                        && j > 1
                         && firstString[i - 1] == secondString[j - 2]
-                        && firstString[i - 2] == secondString[j - 1])
+                        && firstString[i - 2] == secondString[j - 1]
+                    )
                     {
                         distanceMatrix[i, j] = Math.Min(
                             distanceMatrix[i, j],
-                            distanceMatrix[i - 2, j - 2] + cost); // transposition
+                            distanceMatrix[i - 2, j - 2] + cost
+                        ); // transposition
                     }
                 }
             }

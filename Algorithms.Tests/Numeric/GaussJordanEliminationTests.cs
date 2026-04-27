@@ -12,7 +12,12 @@ public static class GaussJordanEliminationTests
     {
         // Arrange
         var solver = new GaussJordanElimination();
-        var input = new double[,] { { 2, -1, 5 }, { 0, 2, 1 }, { 3, 17, 7 } };
+        var input = new double[,]
+        {
+            { 2, -1, 5 },
+            { 0, 2, 1 },
+            { 3, 17, 7 },
+        };
 
         // Act
         void Act() => solver.Solve(input);
@@ -26,7 +31,11 @@ public static class GaussJordanEliminationTests
     {
         // Arrange
         var solver = new GaussJordanElimination();
-        var input = new double[,] { { 0, 0, 0 }, { 0, 0, 0 } };
+        var input = new double[,]
+        {
+            { 0, 0, 0 },
+            { 0, 0, 0 },
+        };
 
         // Act
         var result = solver.Solve(input);

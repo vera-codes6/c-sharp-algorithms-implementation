@@ -169,7 +169,12 @@ public static class Kruskal
     /// <param name="edgeWeights">Weights of each edge.</param>
     /// <param name="connections">Nodes associated with each item in the <paramref name="edgeWeights"/> parameter.</param>
     /// <returns>Array of edges in the minimum spanning tree/forest.</returns>
-    private static (int, int)[] Solve(DisjointSet<int> set, Node<int>[] nodes, float[] edgeWeights, (int, int)[] connections)
+    private static (int, int)[] Solve(
+        DisjointSet<int> set,
+        Node<int>[] nodes,
+        float[] edgeWeights,
+        (int, int)[] connections
+    )
     {
         var edges = new List<(int, int)>();
 

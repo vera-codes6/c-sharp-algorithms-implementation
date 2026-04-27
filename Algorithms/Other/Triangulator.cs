@@ -2,11 +2,16 @@ namespace Algorithms.Other;
 
 public class Triangulator
 {
-    public (double Latitude, double Longitude) CalculatePosition(List<(double Latitude, double Longitude)> baseLocations, List<double> distances)
+    public (double Latitude, double Longitude) CalculatePosition(
+        List<(double Latitude, double Longitude)> baseLocations,
+        List<double> distances
+    )
     {
         if (baseLocations.Count < 3 || distances.Count < 3)
         {
-            throw new ArgumentException("At least three points and corresponding distances are required.");
+            throw new ArgumentException(
+                "At least three points and corresponding distances are required."
+            );
         }
 
         // Get the coordinates of the three base stations

@@ -20,7 +20,8 @@ internal static class RandomHelper
     public static (string[] correctArray, string[] testArray) GetStringArrays(
         int n,
         int maxLength,
-        bool equalLength)
+        bool equalLength
+    )
     {
         var testArr = new string[n];
         var correctArray = new string[n];

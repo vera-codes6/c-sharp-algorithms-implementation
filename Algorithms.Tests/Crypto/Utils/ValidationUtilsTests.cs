@@ -1,5 +1,5 @@
-using Algorithms.Crypto.Utils;
 using Algorithms.Crypto.Exceptions;
+using Algorithms.Crypto.Utils;
 
 namespace Algorithms.Tests.Crypto.Utils
 {
@@ -10,17 +10,16 @@ namespace Algorithms.Tests.Crypto.Utils
         public void CheckDataLength_WithBufferOutOfBounds_ShouldThrowDataLengthException()
         {
             // Arrange
-            var buffer = new byte[5];  // A byte array of length 5
-            var offset = 3;               // Starting at index 3
-            var length = 4;               // Expecting to read 4 bytes (which will exceed the buffer size)
+            var buffer = new byte[5]; // A byte array of length 5
+            var offset = 3; // Starting at index 3
+            var length = 4; // Expecting to read 4 bytes (which will exceed the buffer size)
             var errorMessage = "Buffer is too short";
 
             // Act
             var act = () => ValidationUtils.CheckDataLength(buffer, offset, length, errorMessage);
 
             // Assert
-            act.Should().Throw<DataLengthException>()
-                .WithMessage(errorMessage);
+            act.Should().Throw<DataLengthException>().WithMessage(errorMessage);
         }
 
         [Test]
@@ -34,8 +33,7 @@ namespace Algorithms.Tests.Crypto.Utils
             var act = () => ValidationUtils.CheckOutputLength(condition, errorMessage);
 
             // Assert
-            act.Should().Throw<OutputLengthException>()
-               .WithMessage(errorMessage);
+            act.Should().Throw<OutputLengthException>().WithMessage(errorMessage);
         }
 
         [Test]
@@ -65,8 +63,7 @@ namespace Algorithms.Tests.Crypto.Utils
             var act = () => ValidationUtils.CheckOutputLength(buffer, offset, length, errorMessage);
 
             // Assert
-            act.Should().Throw<OutputLengthException>()
-               .WithMessage(errorMessage);
+            act.Should().Throw<OutputLengthException>().WithMessage(errorMessage);
         }
 
         [Test]
@@ -95,11 +92,11 @@ namespace Algorithms.Tests.Crypto.Utils
             var errorMessage = "Output exceeds maximum length";
 
             // Act
-            var act = () => ValidationUtils.CheckOutputLength(outputLength > maxLength, errorMessage); // Capture the length
+            var act = () =>
+                ValidationUtils.CheckOutputLength(outputLength > maxLength, errorMessage); // Capture the length
 
             // Assert
-            act.Should().Throw<OutputLengthException>()
-                .WithMessage(errorMessage);
+            act.Should().Throw<OutputLengthException>().WithMessage(errorMessage);
         }
 
         [Test]
@@ -112,7 +109,8 @@ namespace Algorithms.Tests.Crypto.Utils
             var errorMessage = "Output exceeds maximum length";
 
             // Act
-            var act = () => ValidationUtils.CheckOutputLength(outputLength > maxLength, errorMessage); // Capture the length
+            var act = () =>
+                ValidationUtils.CheckOutputLength(outputLength > maxLength, errorMessage); // Capture the length
 
             // Assert
             act.Should().NotThrow<OutputLengthException>();

@@ -25,7 +25,8 @@ public class Iso10126D2PaddingTests
 
         Action act = () => padding.AddPadding(inputData, inputOffset);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -37,7 +38,8 @@ public class Iso10126D2PaddingTests
 
         Action act = () => padding.AddPadding(inputData, inputOffset);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -59,8 +61,7 @@ public class Iso10126D2PaddingTests
 
         Action act = () => padding.RemovePadding(inputData);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Invalid padding length");
+        act.Should().Throw<ArgumentException>().WithMessage("Invalid padding length");
     }
 
     [Test]
@@ -70,8 +71,7 @@ public class Iso10126D2PaddingTests
 
         Action act = () => padding.RemovePadding(inputData);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Invalid padding length");
+        act.Should().Throw<ArgumentException>().WithMessage("Invalid padding length");
     }
 
     [Test]
@@ -92,7 +92,8 @@ public class Iso10126D2PaddingTests
 
         Action act = () => padding.GetPaddingCount(input!);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Input cannot be null (Parameter 'input')");
     }
 
@@ -103,8 +104,7 @@ public class Iso10126D2PaddingTests
 
         Action act = () => padding.GetPaddingCount(input);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Padding block is corrupted");
+        act.Should().Throw<ArgumentException>().WithMessage("Padding block is corrupted");
     }
 
     [Test]

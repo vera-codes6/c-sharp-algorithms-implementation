@@ -86,8 +86,8 @@ public class EulerTotientSequence : ISequence
     private static IEnumerable<BigInteger> PrimeFactors(BigInteger target)
     {
         return new PrimesSequence()
-              .Sequence.TakeWhile(prime => prime * prime <= target)
-              .Where(prime => target % prime == 0)
-              .ToList();
+            .Sequence.TakeWhile(prime => prime * prime <= target)
+            .Where(prime => target % prime == 0)
+            .ToList();
     }
 }

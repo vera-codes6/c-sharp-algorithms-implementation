@@ -7,11 +7,11 @@ namespace Algorithms.Stack;
 public class BalancedParenthesesChecker
 {
     private static readonly Dictionary<char, char> ParenthesesMap = new Dictionary<char, char>
-        {
-            { '(', ')' },
-            { '{', '}' },
-            { '[', ']' },
-        };
+    {
+        { '(', ')' },
+        { '{', '}' },
+        { '[', ']' },
+    };
 
     /// <summary>
     /// Determines if a given string expression containing brackets is balanced.
