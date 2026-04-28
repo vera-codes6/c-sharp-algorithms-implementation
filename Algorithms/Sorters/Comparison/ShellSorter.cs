@@ -39,6 +39,7 @@ public class ShellSorter<T> : IComparisonSorter<T>
                     var temp = array[k];
                     array[k] = array[k + step];
                     array[k + step] = temp;
+
                     wasChanged = true;
                 }
             }
