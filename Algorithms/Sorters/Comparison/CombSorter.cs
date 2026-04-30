@@ -23,8 +23,8 @@ public class CombSorter<T>(double shrinkFactor = 1.3) : IComparisonSorter<T>
     ///
     public void Sort(T[] array, IComparer<T> comparer)
     {
-        var gap = array.Length;
-        var sorted = false;
+        int gap = array.Length;
+        bool sorted = false;
         while (!sorted)
         {
             gap = (int)Math.Floor(gap / ShrinkFactor);
@@ -34,7 +34,7 @@ public class CombSorter<T>(double shrinkFactor = 1.3) : IComparisonSorter<T>
                 sorted = true;
             }
 
-            for (var i = 0; i < array.Length - gap; i++)
+            for (int i = 0; i < array.Length - gap; i++)
             {
                 if (comparer.Compare(array[i], array[i + gap]) > 0)
                 {
