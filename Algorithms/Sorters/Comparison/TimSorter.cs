@@ -81,8 +81,8 @@ public class TimSorter<T> : IComparisonSorter<T>
     {
         ArgumentNullException.ThrowIfNull(array);
 
-        var start = 0;
-        var remaining = array.Length;
+        int start = 0;
+        int remaining = array.Length;
 
         if (remaining < minMerge)
         {
@@ -97,12 +97,12 @@ public class TimSorter<T> : IComparisonSorter<T>
             return;
         }
 
-        var minRun = MinRunLength(remaining, minMerge);
+        int minRun = MinRunLength(remaining, minMerge);
 
         do
         {
             // Identify next run
-            var runLen = CountRunAndMakeAscending(array, start);
+            int runLen = CountRunAndMakeAscending(array, start);
 
             // If the run is too short extend to Min(MIN_RUN, remaining)
             if (runLen < minRun)
