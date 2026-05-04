@@ -139,11 +139,11 @@ public class TimSorter<T> : IComparisonSorter<T>
     /// <returns>Minimum run length to be merged.</returns>
     private static int MinRunLength(int total, int minRun)
     {
-        var r = 0;
+        int r = 0;
         while (total >= minRun)
         {
-            r |= total & 1;
-            total >>= 1;
+            r = r | total & 1;
+            total = total >> 1;
         }
 
         return total + r;
