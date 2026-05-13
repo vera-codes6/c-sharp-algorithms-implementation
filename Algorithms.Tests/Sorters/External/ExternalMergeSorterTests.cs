@@ -7,9 +7,7 @@ namespace Algorithms.Tests.Sorters.External;
 public static class ExternalMergeSorterTests
 {
     [Test]
-    public static void ArraySorted(
-        [Random(0, 1000, 100, Distinct = true)]
-        int n)
+    public static void ArraySorted([Random(0, 1000, 100, Distinct = true)] int n)
     {
         // Arrange
         var sorter = new ExternalMergeSorter<int>();
@@ -27,9 +25,7 @@ public static class ExternalMergeSorterTests
     }
 
     [Test]
-    public static void ArraySorted_OnDisk(
-        [Random(0, 1000, 100, Distinct = true)]
-        int n)
+    public static void ArraySorted_OnDisk([Random(0, 1000, 100, Distinct = true)] int n)
     {
         // Arrange
         var sorter = new ExternalMergeSorter<int>();

@@ -8,7 +8,6 @@ public class BinaryPrimeConstantSequenceTests
     public void First10ElementsCorrect()
     {
         var sequence = new BinaryPrimeConstantSequence().Sequence.Take(10);
-        sequence.SequenceEqual(new BigInteger[] { 0, 1, 1, 0, 1, 0, 1, 0, 0, 0 })
-            .Should().BeTrue();
+        sequence.SequenceEqual(new BigInteger[] { 0, 1, 1, 0, 1, 0, 1, 0, 0, 0 }).Should().BeTrue();
     }
 }

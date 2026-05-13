@@ -10,6 +10,6 @@
 // - Avoid placing rarely used namespaces here to maintain clarity.
 // -----------------------------------------------------------------------------
 
-global using System;                        // Core base classes and fundamental types
-global using System.Collections.Generic;    // Generic collection types (List, Dictionary, etc.)
-global using System.Linq;                   // LINQ query operators for collections
+global using System; // Core base classes and fundamental types
+global using System.Collections.Generic; // Generic collection types (List, Dictionary, etc.)
+global using System.Linq; // LINQ query operators for collections

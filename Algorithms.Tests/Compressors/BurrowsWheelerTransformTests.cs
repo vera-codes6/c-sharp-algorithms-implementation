@@ -5,7 +5,11 @@ namespace Algorithms.Tests.Compressors;
 public class BurrowsWheelerTransformTests
 {
     [TestCase("banana", "nnbaaa", 3)]
-    [TestCase("SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES", "TEXYDST.E.IXIXIXXSSMPPS.B..E.S.EUSFXDIIOIIIT", 29)]
+    [TestCase(
+        "SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES",
+        "TEXYDST.E.IXIXIXXSSMPPS.B..E.S.EUSFXDIIOIIIT",
+        29
+    )]
     [TestCase("", "", 0)]
     public void Encode(string input, string expectedString, int expectedIndex)
     {
@@ -18,7 +22,11 @@ public class BurrowsWheelerTransformTests
     }
 
     [TestCase("nnbaaa", 3, "banana")]
-    [TestCase("TEXYDST.E.IXIXIXXSSMPPS.B..E.S.EUSFXDIIOIIIT", 29, "SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES")]
+    [TestCase(
+        "TEXYDST.E.IXIXIXXSSMPPS.B..E.S.EUSFXDIIOIIIT",
+        29,
+        "SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES"
+    )]
     [TestCase("", 0, "")]
     public void Decode(string encoded, int index, string expected)
     {

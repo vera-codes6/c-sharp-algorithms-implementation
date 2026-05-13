@@ -1,6 +1,6 @@
-using NUnit.Framework;
-using Algorithms.MachineLearning;
 using System;
+using Algorithms.MachineLearning;
+using NUnit.Framework;
 
 namespace Algorithms.Tests.MachineLearning;
 
@@ -40,7 +40,9 @@ public class KNearestNeighborsTests
     [Test]
     public void EuclideanDistance_DifferentLengths_ThrowsException()
     {
-        Assert.Throws<ArgumentException>(() => KNearestNeighbors<string>.EuclideanDistance(new[] { 1.0 }, new[] { 1.0, 2.0 }));
+        Assert.Throws<ArgumentException>(() =>
+            KNearestNeighbors<string>.EuclideanDistance(new[] { 1.0 }, new[] { 1.0, 2.0 })
+        );
     }
 
     [Test]

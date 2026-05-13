@@ -53,7 +53,10 @@ public static class FibonacciSearcherTests
     [TestCase(null, "a")]
     [TestCase(new[] { "a", "b", "c" }, null)]
     [TestCase(null, null)]
-    public static void FindIndex_ArrayNull_ItemNull_ArgumentNullExceptionThrown(string[] sortedArray, string searchItem)
+    public static void FindIndex_ArrayNull_ItemNull_ArgumentNullExceptionThrown(
+        string[] sortedArray,
+        string searchItem
+    )
     {
         // Arranges
         var searcher = new FibonacciSearcher<string>();

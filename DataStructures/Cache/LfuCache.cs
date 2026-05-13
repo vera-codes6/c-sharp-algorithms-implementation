@@ -27,7 +27,8 @@ namespace DataStructures.Cache;
 /// Initializes a new instance of the <see cref="LfuCache{TKey, TValue}"/> class.
 /// </remarks>
 /// <param name="capacity">The max number of items the cache can store.</param>
-public class LfuCache<TKey, TValue>(int capacity = LfuCache<TKey, TValue>.DefaultCapacity) where TKey : notnull
+public class LfuCache<TKey, TValue>(int capacity = LfuCache<TKey, TValue>.DefaultCapacity)
+    where TKey : notnull
 {
     private class CachedItem
     {

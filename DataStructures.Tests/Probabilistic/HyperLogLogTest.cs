@@ -19,10 +19,10 @@ public class HyperLogLogTest
             actual.Add(k);
         }
 
-        hll.Cardinality().Should()
+        hll.Cardinality()
+            .Should()
             .BeGreaterOrEqualTo((int)(actual.Count * (1 - tolerance)))
-            .And
-            .BeLessOrEqualTo((int)(actual.Count * (1 + tolerance)));
+            .And.BeLessOrEqualTo((int)(actual.Count * (1 + tolerance)));
     }
 
     [Test]
@@ -48,9 +48,9 @@ public class HyperLogLogTest
         }
 
         var hll = HyperLogLog<int>.Merge(hll1, hll2);
-        hll.Cardinality().Should()
+        hll.Cardinality()
+            .Should()
             .BeGreaterOrEqualTo((int)(actual.Count * (1 - tolerance)))
-            .And
-            .BeLessOrEqualTo((int)(actual.Count * (1 + tolerance)));
+            .And.BeLessOrEqualTo((int)(actual.Count * (1 + tolerance)));
     }
 }

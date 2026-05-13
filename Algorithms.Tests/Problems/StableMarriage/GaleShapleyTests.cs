@@ -21,7 +21,9 @@ public static class GaleShapleyTests
 
         foreach (var proposer in proposers)
         {
-            proposer.PreferenceOrder = new LinkedList<Accepter>(acceptors.OrderBy(_ => random.Next()));
+            proposer.PreferenceOrder = new LinkedList<Accepter>(
+                acceptors.OrderBy(_ => random.Next())
+            );
         }
 
         foreach (var acceptor in acceptors)
@@ -37,11 +39,13 @@ public static class GaleShapleyTests
     }
 
     private static bool AreMatchesStable(Proposer[] proposers, Accepter[] accepters) =>
-        proposers.ToList().TrueForAll(p =>
-            p.EngagedTo is not null
-            && Score(p, p.EngagedTo) <= accepters
-                .Where(a => a.PrefersOverCurrent(p))
-                .Min(a => Score(p, a)));
+        proposers
+            .ToList()
+            .TrueForAll(p =>
+                p.EngagedTo is not null
+                && Score(p, p.EngagedTo)
+                    <= accepters.Where(a => a.PrefersOverCurrent(p)).Min(a => Score(p, a))
+            );
 
     private static int Score(Proposer proposer, Accepter accepter) =>
         proposer.PreferenceOrder.ToList().IndexOf(accepter);

@@ -115,7 +115,9 @@ public static class VectorExtensions
     {
         if (source.GetLength(1) != 1)
         {
-            throw new InvalidOperationException("The column vector should have only 1 element in width.");
+            throw new InvalidOperationException(
+                "The column vector should have only 1 element in width."
+            );
         }
 
         var rowVector = new double[source.Length];

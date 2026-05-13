@@ -8,7 +8,6 @@ public class FermatPrimesSequenceTests
     public void All5ElementsCorrect()
     {
         var sequence = new FermatPrimesSequence().Sequence.Take(5);
-        sequence.SequenceEqual(new BigInteger[] { 3, 5, 17, 257, 65537 })
-            .Should().BeTrue();
+        sequence.SequenceEqual(new BigInteger[] { 3, 5, 17, 257, 65537 }).Should().BeTrue();
     }
 }

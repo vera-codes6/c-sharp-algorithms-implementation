@@ -26,7 +26,9 @@ public class X932PaddingTests
 
         Action action = () => zeroPadding.AddPadding(inputData, inputOffset);
 
-        action.Should().Throw<ArgumentException>()
+        action
+            .Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -38,10 +40,11 @@ public class X932PaddingTests
 
         Action action = () => zeroPadding.AddPadding(inputData, inputOffset);
 
-        action.Should().Throw<ArgumentException>()
+        action
+            .Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
-
 
     [Test]
     public void AddPadding_WhenCalledWithRandomPadding_ShouldReturnCorrectCode()
@@ -62,7 +65,9 @@ public class X932PaddingTests
 
         Action action = () => randomPadding.AddPadding(inputData, inputOffset);
 
-        action.Should().Throw<ArgumentException>()
+        action
+            .Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -74,7 +79,9 @@ public class X932PaddingTests
 
         Action action = () => randomPadding.AddPadding(inputData, inputOffset);
 
-        action.Should().Throw<ArgumentException>()
+        action
+            .Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -142,8 +149,7 @@ public class X932PaddingTests
 
         Action act = () => zeroPadding.RemovePadding(inputData);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Invalid padding length");
+        act.Should().Throw<ArgumentException>().WithMessage("Invalid padding length");
     }
 
     [Test]
@@ -163,7 +169,6 @@ public class X932PaddingTests
 
         Action action = () => zeroPadding.GetPaddingCount(inputData);
 
-        action.Should().Throw<ArgumentException>()
-            .WithMessage("Pad block corrupted");
+        action.Should().Throw<ArgumentException>().WithMessage("Pad block corrupted");
     }
 }

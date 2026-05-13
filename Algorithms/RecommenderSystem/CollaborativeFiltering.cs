@@ -10,7 +10,10 @@ public class CollaborativeFiltering(ISimilarityCalculator similarityCalculator)
     /// <param name="user1Ratings">Rating of User 1.</param>
     /// <param name="user2Ratings">Rating of User 2.</param>
     /// <returns>double value to reflect the index of similarity between two users.</returns>
-    public double CalculateSimilarity(Dictionary<string, double> user1Ratings, Dictionary<string, double> user2Ratings)
+    public double CalculateSimilarity(
+        Dictionary<string, double> user1Ratings,
+        Dictionary<string, double> user2Ratings
+    )
     {
         var commonItems = user1Ratings.Keys.Intersect(user2Ratings.Keys).ToList();
         if (commonItems.Count == 0)
@@ -56,7 +59,11 @@ public class CollaborativeFiltering(ISimilarityCalculator similarityCalculator)
     /// <returns>The predicted rating for the target item by the target user.
     /// If there is insufficient data to predict a rating, the method returns 0.
     /// </returns>
-    public double PredictRating(string targetItem, string targetUser, Dictionary<string, Dictionary<string, double>> ratings)
+    public double PredictRating(
+        string targetItem,
+        string targetUser,
+        Dictionary<string, Dictionary<string, double>> ratings
+    )
     {
         var targetUserRatings = ratings[targetUser];
         double totalSimilarity = 0;
@@ -68,7 +75,10 @@ public class CollaborativeFiltering(ISimilarityCalculator similarityCalculator)
             var otherUserRatings = ratings[otherUser];
             if (otherUserRatings.ContainsKey(targetItem))
             {
-                var similarity = similarityCalculator.CalculateSimilarity(targetUserRatings, otherUserRatings);
+                var similarity = similarityCalculator.CalculateSimilarity(
+                    targetUserRatings,
+                    otherUserRatings
+                );
                 totalSimilarity += Math.Abs(similarity);
                 weightedSum += similarity * otherUserRatings[targetItem];
             }

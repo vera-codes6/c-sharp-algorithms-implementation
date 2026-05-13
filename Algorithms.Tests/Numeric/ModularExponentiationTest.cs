@@ -25,7 +25,8 @@ public class ModularExponentiationTest
     {
         var modularExponentiation = new ModularExponentiation();
         Action res = () => modularExponentiation.ModularPow(b, e, m);
-        res.Should().Throw<ArgumentException>()
-        .WithMessage(String.Format("{0} is not a positive integer", m));
+        res.Should()
+            .Throw<ArgumentException>()
+            .WithMessage(String.Format("{0} is not a positive integer", m));
     }
 }

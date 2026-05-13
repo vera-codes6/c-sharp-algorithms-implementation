@@ -12,9 +12,12 @@ namespace Algorithms.Tests.Crypto.Exceptions
             var exception = new DataLengthException();
 
             // Assert
-            exception.Should().BeOfType<DataLengthException>()
+            exception
+                .Should()
+                .BeOfType<DataLengthException>()
                 .And.Subject.As<DataLengthException>()
-                .Message.Should().NotBeNullOrEmpty();
+                .Message.Should()
+                .NotBeNullOrEmpty();
             exception.InnerException.Should().BeNull();
         }
 
@@ -28,9 +31,12 @@ namespace Algorithms.Tests.Crypto.Exceptions
             var exception = new DataLengthException(expectedMessage);
 
             // Assert
-            exception.Should().BeOfType<DataLengthException>()
+            exception
+                .Should()
+                .BeOfType<DataLengthException>()
                 .And.Subject.As<DataLengthException>()
-                .Message.Should().Be(expectedMessage);
+                .Message.Should()
+                .Be(expectedMessage);
             exception.InnerException.Should().BeNull();
         }
 
@@ -45,9 +51,12 @@ namespace Algorithms.Tests.Crypto.Exceptions
             var exception = new DataLengthException(expectedMessage, innerException);
 
             // Assert
-            exception.Should().BeOfType<DataLengthException>()
+            exception
+                .Should()
+                .BeOfType<DataLengthException>()
                 .And.Subject.As<DataLengthException>()
-                .Message.Should().Be(expectedMessage);
+                .Message.Should()
+                .Be(expectedMessage);
             exception.InnerException.Should().Be(innerException);
         }
 

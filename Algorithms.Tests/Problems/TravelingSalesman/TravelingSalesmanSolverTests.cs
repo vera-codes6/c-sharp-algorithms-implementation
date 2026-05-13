@@ -21,7 +21,7 @@ public class TravelingSalesmanSolverTests
             { 0, 10, 15, 20 },
             { 10, 0, 35, 25 },
             { 15, 35, 0, 30 },
-            { 20, 25, 30, 0 }
+            { 20, 25, 30, 0 },
         };
         var (route, distance) = TravelingSalesmanSolver.SolveBruteForce(matrix);
         // Optimal route: 0 -> 1 -> 3 -> 2 -> 0, total distance = 80
@@ -40,7 +40,7 @@ public class TravelingSalesmanSolverTests
             { 0, 10, 15, 20 },
             { 10, 0, 35, 25 },
             { 15, 35, 0, 30 },
-            { 20, 25, 30, 0 }
+            { 20, 25, 30, 0 },
         };
         var (route, distance) = TravelingSalesmanSolver.SolveNearestNeighbor(matrix, 0);
         // Route: 0 -> 1 -> 3 -> 2 -> 0, total distance = 80
@@ -59,12 +59,16 @@ public class TravelingSalesmanSolverTests
         double[,] matrix =
         {
             { 0, 1 },
-            { 1, 0 }
+            { 1, 0 },
         };
-        Assert.Throws<ArgumentOutOfRangeException>(() => TravelingSalesmanSolver.SolveNearestNeighbor(matrix, -1));
-        Assert.Throws<ArgumentOutOfRangeException>(() => TravelingSalesmanSolver.SolveNearestNeighbor(matrix, 2));
+        Assert.Throws<ArgumentOutOfRangeException>(() =>
+            TravelingSalesmanSolver.SolveNearestNeighbor(matrix, -1)
+        );
+        Assert.Throws<ArgumentOutOfRangeException>(() =>
+            TravelingSalesmanSolver.SolveNearestNeighbor(matrix, 2)
+        );
     }
-    
+
     /// <summary>
     /// Tests nearest neighbor when no unvisited cities remain (should throw InvalidOperationException).
     /// </summary>
@@ -76,10 +80,12 @@ public class TravelingSalesmanSolverTests
         {
             { 0, double.MaxValue, 1 },
             { double.MaxValue, 0, double.MaxValue },
-            { 1, double.MaxValue, 0 }
+            { 1, double.MaxValue, 0 },
         };
         // Start at city 0, city 1 is unreachable from both 0 and 2
-        Assert.Throws<InvalidOperationException>(() => TravelingSalesmanSolver.SolveNearestNeighbor(matrix, 0));
+        Assert.Throws<InvalidOperationException>(() =>
+            TravelingSalesmanSolver.SolveNearestNeighbor(matrix, 0)
+        );
     }
 
     /// <summary>
@@ -90,7 +96,9 @@ public class TravelingSalesmanSolverTests
     {
         double[,] matrix = new double[2, 3];
         Assert.Throws<ArgumentException>(() => TravelingSalesmanSolver.SolveBruteForce(matrix));
-        Assert.Throws<ArgumentException>(() => TravelingSalesmanSolver.SolveNearestNeighbor(matrix, 0));
+        Assert.Throws<ArgumentException>(() =>
+            TravelingSalesmanSolver.SolveNearestNeighbor(matrix, 0)
+        );
     }
 
     /// <summary>
@@ -99,7 +107,10 @@ public class TravelingSalesmanSolverTests
     [Test]
     public void SolveBruteForce_TooFewCities_ThrowsException()
     {
-        double[,] matrix = { { 0 } };
+        double[,] matrix =
+        {
+            { 0 },
+        };
         Assert.Throws<ArgumentException>(() => TravelingSalesmanSolver.SolveBruteForce(matrix));
     }
 
@@ -112,7 +123,7 @@ public class TravelingSalesmanSolverTests
         double[,] matrix =
         {
             { 0, 5 },
-            { 5, 0 }
+            { 5, 0 },
         };
         var (route, distance) = TravelingSalesmanSolver.SolveNearestNeighbor(matrix, 0);
         Assert.That(route, Is.EquivalentTo(new[] { 0, 1, 0 }));

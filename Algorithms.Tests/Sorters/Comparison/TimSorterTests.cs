@@ -9,8 +9,7 @@ public static class TimSorterTests
     private static readonly TimSorterSettings Settings = new();
 
     [Test]
-    public static void Sort_ShouldBeEquivalentToSuccessfulBasicSort(
-        [Random(0, 10_000, 5000)] int n)
+    public static void Sort_ShouldBeEquivalentToSuccessfulBasicSort([Random(0, 10_000, 5000)] int n)
     {
         // Arrange
         var sorter = new TimSorter<int>(Settings, IntComparer);

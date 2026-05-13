@@ -20,9 +20,7 @@ public static class MillerRabinPrimalityChecker
     /// <exception cref="ArgumentException">Error: number should be more than 3.</exception>
     public static bool IsProbablyPrimeNumber(BigInteger n, BigInteger rounds, int? seed = null)
     {
-        Random rand = seed is null
-            ? new()
-            : new(seed.Value);
+        Random rand = seed is null ? new() : new(seed.Value);
         return IsProbablyPrimeNumber(n, rounds, rand);
     }
 

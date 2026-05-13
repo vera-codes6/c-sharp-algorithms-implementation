@@ -6,6 +6,4 @@ namespace Algorithms.Knapsack;
 ///     while sum of weights of taken items is less than capacity.
 /// </summary>
 /// <typeparam name="T">Type of items in knapsack.</typeparam>
-public interface IKnapsackSolver<T> : IHeuristicKnapsackSolver<T>
-{
-}
+public interface IKnapsackSolver<T> : IHeuristicKnapsackSolver<T> { }

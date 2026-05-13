@@ -14,64 +14,118 @@ public static class Tests
     [Test]
     public static void BreadthFirstSearch_ThrowsArgumentOutOfRangeException()
     {
-        Action act = () => Algorithms.Other.FloodFill.BreadthFirstSearch(GenerateTestBitmap(), (10, 10), Black, White);
+        Action act = () =>
+            Algorithms.Other.FloodFill.BreadthFirstSearch(
+                GenerateTestBitmap(),
+                (10, 10),
+                Black,
+                White
+            );
         act.Should().Throw<ArgumentOutOfRangeException>();
     }
 
     [Test]
     public static void DepthFirstSearch_ThrowsArgumentOutOfRangeException()
     {
-        Action act = () => Algorithms.Other.FloodFill.DepthFirstSearch(GenerateTestBitmap(), (-1, -1), Black, White);
+        Action act = () =>
+            Algorithms.Other.FloodFill.DepthFirstSearch(
+                GenerateTestBitmap(),
+                (-1, -1),
+                Black,
+                White
+            );
         act.Should().Throw<ArgumentOutOfRangeException>();
     }
 
     [Test]
     public static void BreadthFirstSearch_Test1()
     {
-        TestAlgorithm(Algorithms.Other.FloodFill.BreadthFirstSearch, (1, 1), Green, Orange, (1, 1), Orange);
+        TestAlgorithm(
+            Algorithms.Other.FloodFill.BreadthFirstSearch,
+            (1, 1),
+            Green,
+            Orange,
+            (1, 1),
+            Orange
+        );
     }
 
     [Test]
     public static void BreadthFirstSearch_Test2()
     {
-        TestAlgorithm(Algorithms.Other.FloodFill.BreadthFirstSearch, (1, 1), Green, Orange, (0, 1), Violet);
+        TestAlgorithm(
+            Algorithms.Other.FloodFill.BreadthFirstSearch,
+            (1, 1),
+            Green,
+            Orange,
+            (0, 1),
+            Violet
+        );
     }
 
     [Test]
     public static void BreadthFirstSearch_Test3()
     {
-        TestAlgorithm(Algorithms.Other.FloodFill.BreadthFirstSearch, (1, 1), Green, Orange, (6, 4), White);
+        TestAlgorithm(
+            Algorithms.Other.FloodFill.BreadthFirstSearch,
+            (1, 1),
+            Green,
+            Orange,
+            (6, 4),
+            White
+        );
     }
 
     [Test]
     public static void DepthFirstSearch_Test1()
     {
-        TestAlgorithm(Algorithms.Other.FloodFill.DepthFirstSearch, (1, 1), Green, Orange, (1, 1), Orange);
+        TestAlgorithm(
+            Algorithms.Other.FloodFill.DepthFirstSearch,
+            (1, 1),
+            Green,
+            Orange,
+            (1, 1),
+            Orange
+        );
     }
 
     [Test]
     public static void DepthFirstSearch_Test2()
     {
-        TestAlgorithm(Algorithms.Other.FloodFill.DepthFirstSearch, (1, 1), Green, Orange, (0, 1), Violet);
+        TestAlgorithm(
+            Algorithms.Other.FloodFill.DepthFirstSearch,
+            (1, 1),
+            Green,
+            Orange,
+            (0, 1),
+            Violet
+        );
     }
 
     [Test]
     public static void DepthFirstSearch_Test3()
     {
-        TestAlgorithm(Algorithms.Other.FloodFill.DepthFirstSearch, (1, 1), Green, Orange, (6, 4), White);
+        TestAlgorithm(
+            Algorithms.Other.FloodFill.DepthFirstSearch,
+            (1, 1),
+            Green,
+            Orange,
+            (6, 4),
+            White
+        );
     }
 
     private static SKBitmap GenerateTestBitmap()
     {
         SKColor[,] layout =
         {
-            {Violet, Violet, Green, Green, Black, Green, Green},
-            {Violet, Green, Green, Black, Green, Green, Green},
-            {Green, Green, Green, Black, Green, Green, Green},
-            {Black, Black, Green, Black, White, White, Green},
-            {Violet, Violet, Black, Violet, Violet, White, White},
-            {Green, Green, Green, Violet, Violet, Violet, Violet},
-            {Violet, Violet, Violet, Violet, Violet, Violet, Violet},
+            { Violet, Violet, Green, Green, Black, Green, Green },
+            { Violet, Green, Green, Black, Green, Green, Green },
+            { Green, Green, Green, Black, Green, Green, Green },
+            { Black, Black, Green, Black, White, White, Green },
+            { Violet, Violet, Black, Violet, Violet, White, White },
+            { Green, Green, Green, Violet, Violet, Violet, Violet },
+            { Violet, Violet, Violet, Violet, Violet, Violet, Violet },
         };
 
         SKBitmap bitmap = new(7, 7);
@@ -92,7 +146,8 @@ public static class Tests
         SKColor targetColor,
         SKColor replacementColor,
         ValueTuple<int, int> testLocation,
-        SKColor expectedColor)
+        SKColor expectedColor
+    )
     {
         SKBitmap bitmap = GenerateTestBitmap();
         algorithm(bitmap, fillLocation, targetColor, replacementColor);

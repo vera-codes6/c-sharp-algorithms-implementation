@@ -23,7 +23,13 @@ public class BinaryInsertionSorter<T> : IComparisonSorter<T>
             var target = array[i];
             var moveIndex = i - 1;
             var targetInsertLocation = BinarySearch(array, 0, moveIndex, target, comparer);
-            Array.Copy(array, targetInsertLocation, array, targetInsertLocation + 1, i - targetInsertLocation);
+            Array.Copy(
+                array,
+                targetInsertLocation,
+                array,
+                targetInsertLocation + 1,
+                i - targetInsertLocation
+            );
 
             array[targetInsertLocation] = target;
         }

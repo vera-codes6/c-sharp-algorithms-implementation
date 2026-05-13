@@ -72,23 +72,22 @@ public static class ArrayBasedStackTests
         var stack = new ArrayBasedStack<int>();
 
         Assert.Multiple(() =>
-            Enumerable.Range(0, 5)
+            Enumerable
+                .Range(0, 5)
                 .ToList()
                 .ForEach(number =>
                 {
                     stack.Push(number);
                     stack.Peek().Should().Be(number);
-                }));
+                })
+        );
     }
 
     [Test]
     public static void AutomaticResizesTest()
     {
         const int initialCapacity = 2;
-        var stack = new ArrayBasedStack<int>
-        {
-            Capacity = initialCapacity,
-        };
+        var stack = new ArrayBasedStack<int> { Capacity = initialCapacity };
 
         stack.Push(0);
         stack.Push(1);
@@ -106,10 +105,10 @@ public static class ArrayBasedStackTests
 
         Action poppingAnEmptyStack = () => stack.Pop();
 
-        poppingAnEmptyStack.Should()
+        poppingAnEmptyStack
+            .Should()
             .Throw<InvalidOperationException>()
             .WithMessage(StackEmptyErrorMessage);
-
     }
 
     [Test]
@@ -119,7 +118,8 @@ public static class ArrayBasedStackTests
 
         Action peekingAnEmptyStack = () => stack.Peek();
 
-        peekingAnEmptyStack.Should()
+        peekingAnEmptyStack
+            .Should()
             .Throw<InvalidOperationException>()
             .WithMessage(StackEmptyErrorMessage);
     }

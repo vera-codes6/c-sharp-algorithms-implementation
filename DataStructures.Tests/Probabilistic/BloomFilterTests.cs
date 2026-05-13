@@ -4,7 +4,16 @@ namespace DataStructures.Tests.Probabilistic;
 
 public class BloomFilterTests
 {
-    static readonly string[] TestNames = ["kal;jsnfka", "alkjsdfn;lakm", "aljfopiawjf", "afowjeaofeij", "oajwsefoaiwje", "aoiwjfaoiejmf", "aoijfoawiejf"];
+    static readonly string[] TestNames =
+    [
+        "kal;jsnfka",
+        "alkjsdfn;lakm",
+        "aljfopiawjf",
+        "afowjeaofeij",
+        "oajwsefoaiwje",
+        "aoiwjfaoiejmf",
+        "aoijfoawiejf",
+    ];
 
     private class SimpleObject(string name, int number)
     {
@@ -34,7 +43,9 @@ public class BloomFilterTests
 
         public override bool Equals(object? obj)
         {
-            return obj is SimpleObjectOverridenHash asSimpleObj && asSimpleObj.Name == Name && asSimpleObj.Number == Number;
+            return obj is SimpleObjectOverridenHash asSimpleObj
+                && asSimpleObj.Name == Name
+                && asSimpleObj.Number == Number;
         }
     }
 
@@ -67,7 +78,10 @@ public class BloomFilterTests
         var rand = new Random();
         for (var i = 0; i < 1000; i++)
         {
-            var simpleObject = new SimpleObject(TestNames[rand.Next(TestNames.Length)], rand.Next(15));
+            var simpleObject = new SimpleObject(
+                TestNames[rand.Next(TestNames.Length)],
+                rand.Next(15)
+            );
             filter.Insert(simpleObject);
             Assert.That(filter.Search(simpleObject), Is.True);
         }
@@ -95,6 +109,5 @@ public class BloomFilterTests
         filter.Insert(simpleObjectInserted);
         Assert.That(filter.Search(simpleObjectNotInserted), Is.False);
         Assert.That(filter.Search(simpleObjectInserted), Is.True);
-
     }
 }

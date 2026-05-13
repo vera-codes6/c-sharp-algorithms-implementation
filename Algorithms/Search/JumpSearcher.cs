@@ -7,7 +7,8 @@ namespace Algorithms.Search;
 ///     Note: The array has to be sorted beforehand.
 /// </summary>
 /// <typeparam name="T">Type of the array element.</typeparam>
-public class JumpSearcher<T> where T : IComparable<T>
+public class JumpSearcher<T>
+    where T : IComparable<T>
 {
     /// <summary>
     ///     Find the index of the item searched for in the array.

@@ -42,7 +42,8 @@ public static class RgbHsvConversionTest
         double value,
         byte expectedRed,
         byte exptectedGreen,
-        byte exptectedBlue)
+        byte exptectedBlue
+    )
     {
         var rgb = RgbHsvConversion.HsvToRgb(hue, saturation, value);
         rgb.Item1.Should().Be(expectedRed);
@@ -67,7 +68,8 @@ public static class RgbHsvConversionTest
         byte blue,
         double expectedHue,
         double expectedSaturation,
-        double expectedValue)
+        double expectedValue
+    )
     {
         var hsv = RgbHsvConversion.RgbToHsv(red, green, blue);
 

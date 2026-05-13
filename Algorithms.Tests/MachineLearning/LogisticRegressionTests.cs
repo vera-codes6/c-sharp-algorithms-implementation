@@ -1,6 +1,6 @@
-using NUnit.Framework;
-using Algorithms.MachineLearning;
 using System;
+using Algorithms.MachineLearning;
+using NUnit.Framework;
 
 namespace Algorithms.Tests.MachineLearning;
 
@@ -11,7 +11,9 @@ public class LogisticRegressionTests
     public void Fit_ThrowsOnEmptyInput()
     {
         var model = new LogisticRegression();
-        Assert.Throws<ArgumentException>(() => model.Fit(Array.Empty<double[]>(), Array.Empty<int>()));
+        Assert.Throws<ArgumentException>(() =>
+            model.Fit(Array.Empty<double[]>(), Array.Empty<int>())
+        );
     }
 
     [Test]
@@ -32,7 +34,7 @@ public class LogisticRegressionTests
             new[] { 0.0, 0.0 },
             new[] { 0.0, 1.0 },
             new[] { 1.0, 0.0 },
-            new[] { 1.0, 1.0 }
+            new[] { 1.0, 1.0 },
         };
         int[] y = { 0, 0, 0, 1 };
         var model = new LogisticRegression();

@@ -10,9 +10,7 @@ internal class TrieNode
     /// </summary>
     /// <param name="value">Character of the alphabet that represents the node.</param>
     internal TrieNode(char value)
-        : this(value, null)
-    {
-    }
+        : this(value, null) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TrieNode"/> class. This instance was created with a character from the alphabet, and its parent.

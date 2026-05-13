@@ -4,7 +4,8 @@ namespace Algorithms.Search;
 ///     Class that implements Fibonacci search algorithm.
 /// </summary>
 /// <typeparam name="T">Type of array element.</typeparam>
-public class FibonacciSearcher<T> where T : IComparable<T>
+public class FibonacciSearcher<T>
+    where T : IComparable<T>
 {
     /// <summary>
     ///     Finds the index of the item searched for in the array.

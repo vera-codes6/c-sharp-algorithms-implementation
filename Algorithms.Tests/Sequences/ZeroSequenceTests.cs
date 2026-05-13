@@ -8,8 +8,6 @@ public class ZeroSequenceTests
     public void First10ElementsCorrect()
     {
         var sequence = new ZeroSequence().Sequence.Take(10);
-        sequence.SequenceEqual(Enumerable.Repeat(BigInteger.Zero, 10))
-                .Should().BeTrue();
+        sequence.SequenceEqual(Enumerable.Repeat(BigInteger.Zero, 10)).Should().BeTrue();
     }
-
 }

@@ -17,8 +17,7 @@ public static class Maclaurin
     /// <param name="x">Given point.</param>
     /// <param name="n">The number of terms in polynomial.</param>
     /// <returns>Approximated value of the function in the given point.</returns>
-    public static double Exp(double x, int n) =>
-        Enumerable.Range(0, n).Sum(i => ExpTerm(x, i));
+    public static double Exp(double x, int n) => Enumerable.Range(0, n).Sum(i => ExpTerm(x, i));
 
     /// <summary>
     ///     Calculates approximation of sin(x) function:
@@ -29,8 +28,7 @@ public static class Maclaurin
     /// <param name="x">Given point.</param>
     /// <param name="n">The number of terms in polynomial.</param>
     /// <returns>Approximated value of the function in the given point.</returns>
-    public static double Sin(double x, int n) =>
-        Enumerable.Range(0, n).Sum(i => SinTerm(x, i));
+    public static double Sin(double x, int n) => Enumerable.Range(0, n).Sum(i => SinTerm(x, i));
 
     /// <summary>
     ///     Calculates approximation of cos(x) function:
@@ -41,8 +39,7 @@ public static class Maclaurin
     /// <param name="x">Given point.</param>
     /// <param name="n">The number of terms in polynomial.</param>
     /// <returns>Approximated value of the function in the given point.</returns>
-    public static double Cos(double x, int n) =>
-        Enumerable.Range(0, n).Sum(i => CosTerm(x, i));
+    public static double Cos(double x, int n) => Enumerable.Range(0, n).Sum(i => CosTerm(x, i));
 
     /// <summary>
     ///     Calculates approximation of e^x function:
@@ -53,7 +50,8 @@ public static class Maclaurin
     /// <param name="error">Last term error value.</param>
     /// <returns>Approximated value of the function in the given point.</returns>
     /// <exception cref="ArgumentException">Error value is not on interval (0.0; 1.0).</exception>
-    public static double Exp(double x, double error = 0.00001) => ErrorTermWrapper(x, error, ExpTerm);
+    public static double Exp(double x, double error = 0.00001) =>
+        ErrorTermWrapper(x, error, ExpTerm);
 
     /// <summary>
     ///     Calculates approximation of sin(x) function:
@@ -64,7 +62,8 @@ public static class Maclaurin
     /// <param name="error">Last term error value.</param>
     /// <returns>Approximated value of the function in the given point.</returns>
     /// <exception cref="ArgumentException">Error value is not on interval (0.0; 1.0).</exception>
-    public static double Sin(double x, double error = 0.00001) => ErrorTermWrapper(x, error, SinTerm);
+    public static double Sin(double x, double error = 0.00001) =>
+        ErrorTermWrapper(x, error, SinTerm);
 
     /// <summary>
     ///     Calculates approximation of cos(x) function:
@@ -75,7 +74,8 @@ public static class Maclaurin
     /// <param name="error">Last term error value.</param>
     /// <returns>Approximated value of the function in the given point.</returns>
     /// <exception cref="ArgumentException">Error value is not on interval (0.0; 1.0).</exception>
-    public static double Cos(double x, double error = 0.00001) => ErrorTermWrapper(x, error, CosTerm);
+    public static double Cos(double x, double error = 0.00001) =>
+        ErrorTermWrapper(x, error, CosTerm);
 
     /// <summary>
     ///     Wrapper function for calculating approximation with estimated
@@ -102,8 +102,7 @@ public static class Maclaurin
             result += termCoefficient;
             termCoefficient = term(x, i);
             i++;
-        }
-        while (Math.Abs(termCoefficient) > error);
+        } while (Math.Abs(termCoefficient) > error);
 
         return result;
     }

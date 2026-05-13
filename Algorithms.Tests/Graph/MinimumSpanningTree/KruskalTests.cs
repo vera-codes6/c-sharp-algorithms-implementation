@@ -63,7 +63,7 @@ internal class KruskalTests
 
         /* Expected MST
          *      (1)
-         *        \ 
+         *        \
          *         2
          *          \
          *  (0)--2--(2)
@@ -116,9 +116,27 @@ internal class KruskalTests
         {
             { float.PositiveInfinity, 3, 4, float.PositiveInfinity, float.PositiveInfinity },
             { 3, float.PositiveInfinity, float.PositiveInfinity, 6, 2 },
-            { 4, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, 6, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, 2, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
+            {
+                4,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                6,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                2,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
         };
 
         Kruskal.Solve(adj).Cast<float>().SequenceEqual(expected.Cast<float>()).Should().BeTrue();
@@ -141,7 +159,14 @@ internal class KruskalTests
             { 3, 1, 0, 4, float.PositiveInfinity, float.PositiveInfinity },
             { float.PositiveInfinity, 2, 4, 0, 6, float.PositiveInfinity },
             { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 6, 0, 2 },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 2, 0 },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                2,
+                0,
+            },
         };
 
         /* Graph
@@ -153,12 +178,54 @@ internal class KruskalTests
          */
         var expected = new[,]
         {
-            { float.PositiveInfinity, float.PositiveInfinity, 3, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, 1, 2, float.PositiveInfinity, float.PositiveInfinity },
-            { 3, 1, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, 2, float.PositiveInfinity, float.PositiveInfinity, 6, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 6, float.PositiveInfinity, 2 },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 2, float.PositiveInfinity },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                3,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                1,
+                2,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                3,
+                1,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                2,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                6,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                6,
+                float.PositiveInfinity,
+                2,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                2,
+                float.PositiveInfinity,
+            },
         };
 
         Kruskal.Solve(adj).Cast<float>().SequenceEqual(expected.Cast<float>()).Should().BeTrue();
@@ -180,13 +247,37 @@ internal class KruskalTests
          */
         var adj = new[,]
         {
-            { 0, 7, float.PositiveInfinity, 5, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
+            {
+                0,
+                7,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
             { 7, 0, 8, 9, 7, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, 8, 0, float.PositiveInfinity, 5, float.PositiveInfinity, float.PositiveInfinity },
+            {
+                float.PositiveInfinity,
+                8,
+                0,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
             { 5, 9, float.PositiveInfinity, 0, 15, 6, float.PositiveInfinity },
             { float.PositiveInfinity, 7, 5, 15, 0, 8, 9 },
             { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 6, 8, 0, 11 },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 9, 11, 0 },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                9,
+                11,
+                0,
+            },
         };
 
         /* Expected MST
@@ -202,13 +293,69 @@ internal class KruskalTests
          */
         var expected = new[,]
         {
-            { float.PositiveInfinity, 7, float.PositiveInfinity, 5, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { 7, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 7, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 5, float.PositiveInfinity, float.PositiveInfinity },
-            { 5, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 6, float.PositiveInfinity },
-            { float.PositiveInfinity, 7, 5, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 9 },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 6, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 9, float.PositiveInfinity, float.PositiveInfinity },
+            {
+                float.PositiveInfinity,
+                7,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                7,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                7,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                6,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                7,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                9,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                6,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                9,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
         };
 
         Kruskal.Solve(adj).Cast<float>().SequenceEqual(expected.Cast<float>()).Should().BeTrue();
@@ -220,7 +367,7 @@ internal class KruskalTests
         /* Graph
          *  (0)--8--(1)--15-(2)
          *   |\     /     __/|\
-         *   | 4   5  __25  13 12 
+         *   | 4   5  __25  13 12
          *   |  \ /__/       |   \
          *  10  (3)----14---(4)  (5)
          *   |  / \        _/|   /
@@ -230,21 +377,101 @@ internal class KruskalTests
          */
         var adj = new[,]
         {
-            { 0, 8, float.PositiveInfinity, 4, float.PositiveInfinity, float.PositiveInfinity, 10, float.PositiveInfinity, float.PositiveInfinity },
-            { 8, 0, 15, 5, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, 15, 0, 25, 13, 12, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
+            {
+                0,
+                8,
+                float.PositiveInfinity,
+                4,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                10,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                8,
+                0,
+                15,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                15,
+                0,
+                25,
+                13,
+                12,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
             { 4, 5, 25, 0, 14, float.PositiveInfinity, 9, 6, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, 13, 14, 0, float.PositiveInfinity, float.PositiveInfinity, 16, 18 },
-            { float.PositiveInfinity, float.PositiveInfinity, 12, float.PositiveInfinity, float.PositiveInfinity, 0, float.PositiveInfinity, float.PositiveInfinity, 30 },
-            { 10, float.PositiveInfinity, float.PositiveInfinity, 9, float.PositiveInfinity, float.PositiveInfinity, 0, 18, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 6, 16, float.PositiveInfinity, 18, 0, 20 },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 18, 30, float.PositiveInfinity, 20, 0 },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                13,
+                14,
+                0,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                16,
+                18,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                12,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                0,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                30,
+            },
+            {
+                10,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                9,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                0,
+                18,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                6,
+                16,
+                float.PositiveInfinity,
+                18,
+                0,
+                20,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                18,
+                30,
+                float.PositiveInfinity,
+                20,
+                0,
+            },
         };
 
         /* Expected MST
          *  (0)     (1)     (2)
          *    \     /        |\
-         *     4   5        13 12 
+         *     4   5        13 12
          *      \ /          |   \
          *      (3)----14---(4)  (5)
          *      / \          |
@@ -374,12 +601,52 @@ internal class KruskalTests
          */
         var adj = new[,]
         {
-            { 0, 7, float.PositiveInfinity, 5, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { 7, 0, float.PositiveInfinity, 9, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, 0, float.PositiveInfinity, 5, float.PositiveInfinity, 2 },
-            { 5, 9, float.PositiveInfinity, 0, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
+            {
+                0,
+                7,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                7,
+                0,
+                float.PositiveInfinity,
+                9,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                0,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                2,
+            },
+            {
+                5,
+                9,
+                float.PositiveInfinity,
+                0,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
             { float.PositiveInfinity, float.PositiveInfinity, 5, float.PositiveInfinity, 0, 8, 9 },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 8, 0, 11 },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                8,
+                0,
+                11,
+            },
             { float.PositiveInfinity, float.PositiveInfinity, 2, float.PositiveInfinity, 9, 11, 0 },
         };
 
@@ -396,13 +663,69 @@ internal class KruskalTests
          */
         var expected = new[,]
         {
-            { float.PositiveInfinity, 7, float.PositiveInfinity, 5, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { 7, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 5, float.PositiveInfinity, 2 },
-            { 5, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, 5, float.PositiveInfinity, float.PositiveInfinity, 8, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, 8, float.PositiveInfinity, float.PositiveInfinity },
-            { float.PositiveInfinity, float.PositiveInfinity, 2, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity },
+            {
+                float.PositiveInfinity,
+                7,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                7,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                2,
+            },
+            {
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                5,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                8,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                8,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
+            {
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                2,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+                float.PositiveInfinity,
+            },
         };
 
         Kruskal.Solve(adj).Cast<float>().SequenceEqual(expected.Cast<float>()).Should().BeTrue();
@@ -413,11 +736,17 @@ internal class KruskalTests
     {
         var adj = new[]
         {
-            new Dictionary<int, float>{ { 2, 4 } },
-            new Dictionary<int, float>{ { 0, 3 }, { 2, 5 }, { 3, 6 }, { 4, 2 } },
-            new Dictionary<int, float>{ { 0, 4 }, { 1, 5 } },
-            new Dictionary<int, float>{ { 1, 6 } },
-            new Dictionary<int, float>{ { 1, 2 } },
+            new Dictionary<int, float> { { 2, 4 } },
+            new Dictionary<int, float>
+            {
+                { 0, 3 },
+                { 2, 5 },
+                { 3, 6 },
+                { 4, 2 },
+            },
+            new Dictionary<int, float> { { 0, 4 }, { 1, 5 } },
+            new Dictionary<int, float> { { 1, 6 } },
+            new Dictionary<int, float> { { 1, 2 } },
         };
         Assert.Throws<ArgumentException>(() => Kruskal.Solve(adj), "Graph must be undirected!");
     }
@@ -434,23 +763,23 @@ internal class KruskalTests
          */
         var adj = new[]
         {
-            new Dictionary<int, float>{ { 1, 3 }, { 2, 2 } },
-            new Dictionary<int, float>{ { 0, 3 }, { 2, 2 } },
-            new Dictionary<int, float>{ { 0, 2 }, { 1, 2 } },
+            new Dictionary<int, float> { { 1, 3 }, { 2, 2 } },
+            new Dictionary<int, float> { { 0, 3 }, { 2, 2 } },
+            new Dictionary<int, float> { { 0, 2 }, { 1, 2 } },
         };
 
         /* Expected MST
          *      (1)
-         *        \ 
+         *        \
          *         2
          *          \
          *  (0)--2--(2)
          */
         var expected = new[]
         {
-            new Dictionary<int, float>{ { 2, 2 } },
-            new Dictionary<int, float>{ { 2, 2 } },
-            new Dictionary<int, float>{ { 0, 2 }, { 1, 2 } },
+            new Dictionary<int, float> { { 2, 2 } },
+            new Dictionary<int, float> { { 2, 2 } },
+            new Dictionary<int, float> { { 0, 2 }, { 1, 2 } },
         };
 
         var res = Kruskal.Solve(adj);
@@ -476,11 +805,17 @@ internal class KruskalTests
          */
         var adj = new[]
         {
-            new Dictionary<int, float>{ { 1, 3 }, { 2, 4 } },
-            new Dictionary<int, float>{ { 0, 3 }, { 2, 5 }, { 3, 6 }, { 4, 2 } },
-            new Dictionary<int, float>{ { 0, 4 }, { 1, 5 } },
-            new Dictionary<int, float>{ { 1, 6 } },
-            new Dictionary<int, float>{ { 1, 2 } },
+            new Dictionary<int, float> { { 1, 3 }, { 2, 4 } },
+            new Dictionary<int, float>
+            {
+                { 0, 3 },
+                { 2, 5 },
+                { 3, 6 },
+                { 4, 2 },
+            },
+            new Dictionary<int, float> { { 0, 4 }, { 1, 5 } },
+            new Dictionary<int, float> { { 1, 6 } },
+            new Dictionary<int, float> { { 1, 2 } },
         };
 
         /* Expected MST
@@ -496,11 +831,16 @@ internal class KruskalTests
          */
         var expected = new[]
         {
-            new Dictionary<int, float>{ { 1, 3 }, { 2, 4 } },
-            new Dictionary<int, float>{ { 0, 3 }, { 3, 6 }, { 4, 2 } },
-            new Dictionary<int, float>{ { 0, 4 } },
-            new Dictionary<int, float>{ { 1, 6 } },
-            new Dictionary<int, float>{ { 1, 2 } },
+            new Dictionary<int, float> { { 1, 3 }, { 2, 4 } },
+            new Dictionary<int, float>
+            {
+                { 0, 3 },
+                { 3, 6 },
+                { 4, 2 },
+            },
+            new Dictionary<int, float> { { 0, 4 } },
+            new Dictionary<int, float> { { 1, 6 } },
+            new Dictionary<int, float> { { 1, 2 } },
         };
 
         var res = Kruskal.Solve(adj);
@@ -522,12 +862,27 @@ internal class KruskalTests
          */
         var adj = new[]
         {
-            new Dictionary<int, float>{ { 1, 4 }, { 2, 3 } },
-            new Dictionary<int, float>{ { 0, 4 }, { 2, 1 }, { 3, 2 } },
-            new Dictionary<int, float>{ { 0, 3 }, { 1, 1 }, { 3, 4 } },
-            new Dictionary<int, float>{ { 1, 2 }, { 2, 4 }, { 4, 6 } },
-            new Dictionary<int, float>{ { 3, 6 }, { 5, 2 } },
-            new Dictionary<int, float>{ { 4, 2 } },
+            new Dictionary<int, float> { { 1, 4 }, { 2, 3 } },
+            new Dictionary<int, float>
+            {
+                { 0, 4 },
+                { 2, 1 },
+                { 3, 2 },
+            },
+            new Dictionary<int, float>
+            {
+                { 0, 3 },
+                { 1, 1 },
+                { 3, 4 },
+            },
+            new Dictionary<int, float>
+            {
+                { 1, 2 },
+                { 2, 4 },
+                { 4, 6 },
+            },
+            new Dictionary<int, float> { { 3, 6 }, { 5, 2 } },
+            new Dictionary<int, float> { { 4, 2 } },
         };
 
         /* Graph
@@ -539,12 +894,12 @@ internal class KruskalTests
          */
         var expected = new[]
         {
-            new Dictionary<int, float>{ { 2, 3 } },
-            new Dictionary<int, float>{ { 2, 1 }, { 3, 2 } },
-            new Dictionary<int, float>{ { 0, 3 }, { 1, 1 } },
-            new Dictionary<int, float>{ { 1, 2 }, { 4, 6 } },
-            new Dictionary<int, float>{ { 3, 6 }, { 5, 2 } },
-            new Dictionary<int, float>{ { 4, 2 } },
+            new Dictionary<int, float> { { 2, 3 } },
+            new Dictionary<int, float> { { 2, 1 }, { 3, 2 } },
+            new Dictionary<int, float> { { 0, 3 }, { 1, 1 } },
+            new Dictionary<int, float> { { 1, 2 }, { 4, 6 } },
+            new Dictionary<int, float> { { 3, 6 }, { 5, 2 } },
+            new Dictionary<int, float> { { 4, 2 } },
         };
 
         var res = Kruskal.Solve(adj);
@@ -570,13 +925,37 @@ internal class KruskalTests
          */
         var adj = new[]
         {
-            new Dictionary<int, float>{ { 1, 7 }, { 3, 5 } },
-            new Dictionary<int, float>{ { 0, 7 }, { 2, 8 }, { 3, 9 }, { 4, 7 } },
-            new Dictionary<int, float>{ { 1, 8 }, { 4, 5 } },
-            new Dictionary<int, float>{ { 0, 5 }, { 1, 9 }, { 4, 15 }, { 5, 6 } },
-            new Dictionary<int, float>{ { 1, 7 }, { 2, 5 }, { 3, 15 }, { 5, 8 }, { 6, 9 } },
-            new Dictionary<int, float>{ { 3, 6 }, { 4, 8 }, { 6, 11 } },
-            new Dictionary<int, float>{ { 4, 9 }, { 5, 11 } },
+            new Dictionary<int, float> { { 1, 7 }, { 3, 5 } },
+            new Dictionary<int, float>
+            {
+                { 0, 7 },
+                { 2, 8 },
+                { 3, 9 },
+                { 4, 7 },
+            },
+            new Dictionary<int, float> { { 1, 8 }, { 4, 5 } },
+            new Dictionary<int, float>
+            {
+                { 0, 5 },
+                { 1, 9 },
+                { 4, 15 },
+                { 5, 6 },
+            },
+            new Dictionary<int, float>
+            {
+                { 1, 7 },
+                { 2, 5 },
+                { 3, 15 },
+                { 5, 8 },
+                { 6, 9 },
+            },
+            new Dictionary<int, float>
+            {
+                { 3, 6 },
+                { 4, 8 },
+                { 6, 11 },
+            },
+            new Dictionary<int, float> { { 4, 9 }, { 5, 11 } },
         };
 
         /* Expected MST
@@ -592,13 +971,18 @@ internal class KruskalTests
          */
         var expected = new[]
         {
-            new Dictionary<int, float>{ { 1, 7 }, { 3, 5 } },
-            new Dictionary<int, float>{ { 0, 7 }, { 4, 7 } },
-            new Dictionary<int, float>{ { 4, 5 } },
-            new Dictionary<int, float>{ { 0, 5 }, { 5, 6 } },
-            new Dictionary<int, float>{ { 1, 7 }, { 2, 5 }, { 6, 9 } },
-            new Dictionary<int, float>{ { 3, 6 } },
-            new Dictionary<int, float>{ { 4, 9 } },
+            new Dictionary<int, float> { { 1, 7 }, { 3, 5 } },
+            new Dictionary<int, float> { { 0, 7 }, { 4, 7 } },
+            new Dictionary<int, float> { { 4, 5 } },
+            new Dictionary<int, float> { { 0, 5 }, { 5, 6 } },
+            new Dictionary<int, float>
+            {
+                { 1, 7 },
+                { 2, 5 },
+                { 6, 9 },
+            },
+            new Dictionary<int, float> { { 3, 6 } },
+            new Dictionary<int, float> { { 4, 9 } },
         };
 
         var res = Kruskal.Solve(adj);
@@ -614,7 +998,7 @@ internal class KruskalTests
         /* Graph
          *  (0)--8--(1)--15-(2)
          *   |\     /     __/|\
-         *   | 4   5  __25  13 12 
+         *   | 4   5  __25  13 12
          *   |  \ /__/       |   \
          *  10  (3)----14---(4)  (5)
          *   |  / \        _/|   /
@@ -624,21 +1008,67 @@ internal class KruskalTests
          */
         var adj = new[]
         {
-            new Dictionary<int, float>{ { 1, 8 }, { 3, 4 }, { 6, 10 } },
-            new Dictionary<int, float>{ { 0, 8 }, { 2, 15 }, { 3, 5 } },
-            new Dictionary<int, float>{ { 1, 15 }, { 3, 25 }, { 4, 13 }, { 5, 12 } },
-            new Dictionary<int, float>{ { 0, 4 }, { 1, 5 }, { 2, 25 }, { 4, 14 }, { 6, 9 }, { 7, 6 } },
-            new Dictionary<int, float>{ { 2, 13 }, { 3, 14 }, { 7, 16 }, { 8, 18 } },
-            new Dictionary<int, float>{ { 2, 12 }, { 8, 30 } },
-            new Dictionary<int, float>{ { 0, 10 }, { 3, 9 }, { 7, 18 } },
-            new Dictionary<int, float>{ { 3, 6 }, { 4, 16 }, { 6, 18 }, { 8, 20 } },
-            new Dictionary<int, float>{ { 4, 18 }, { 5, 30 }, { 7, 20 } },
+            new Dictionary<int, float>
+            {
+                { 1, 8 },
+                { 3, 4 },
+                { 6, 10 },
+            },
+            new Dictionary<int, float>
+            {
+                { 0, 8 },
+                { 2, 15 },
+                { 3, 5 },
+            },
+            new Dictionary<int, float>
+            {
+                { 1, 15 },
+                { 3, 25 },
+                { 4, 13 },
+                { 5, 12 },
+            },
+            new Dictionary<int, float>
+            {
+                { 0, 4 },
+                { 1, 5 },
+                { 2, 25 },
+                { 4, 14 },
+                { 6, 9 },
+                { 7, 6 },
+            },
+            new Dictionary<int, float>
+            {
+                { 2, 13 },
+                { 3, 14 },
+                { 7, 16 },
+                { 8, 18 },
+            },
+            new Dictionary<int, float> { { 2, 12 }, { 8, 30 } },
+            new Dictionary<int, float>
+            {
+                { 0, 10 },
+                { 3, 9 },
+                { 7, 18 },
+            },
+            new Dictionary<int, float>
+            {
+                { 3, 6 },
+                { 4, 16 },
+                { 6, 18 },
+                { 8, 20 },
+            },
+            new Dictionary<int, float>
+            {
+                { 4, 18 },
+                { 5, 30 },
+                { 7, 20 },
+            },
         };
 
         /* Expected MST
          *  (0)     (1)     (2)
          *    \     /        |\
-         *     4   5        13 12 
+         *     4   5        13 12
          *      \ /          |   \
          *      (3)----14---(4)  (5)
          *      / \          |
@@ -648,15 +1078,27 @@ internal class KruskalTests
          */
         var expected = new[]
         {
-            new Dictionary<int, float>{ { 3, 4 } },
-            new Dictionary<int, float>{ { 3, 5 } },
-            new Dictionary<int, float>{ { 4, 13 }, { 5, 12 } },
-            new Dictionary<int, float>{ { 0, 4 }, { 1, 5 }, { 4, 14 }, { 6, 9 }, { 7, 6 } },
-            new Dictionary<int, float>{ { 2, 13 }, { 3, 14 }, { 8, 18 } },
-            new Dictionary<int, float>{ { 2, 12 } },
-            new Dictionary<int, float>{ { 3, 9 } },
-            new Dictionary<int, float>{ { 3, 6 } },
-            new Dictionary<int, float>{ { 4, 18 } },
+            new Dictionary<int, float> { { 3, 4 } },
+            new Dictionary<int, float> { { 3, 5 } },
+            new Dictionary<int, float> { { 4, 13 }, { 5, 12 } },
+            new Dictionary<int, float>
+            {
+                { 0, 4 },
+                { 1, 5 },
+                { 4, 14 },
+                { 6, 9 },
+                { 7, 6 },
+            },
+            new Dictionary<int, float>
+            {
+                { 2, 13 },
+                { 3, 14 },
+                { 8, 18 },
+            },
+            new Dictionary<int, float> { { 2, 12 } },
+            new Dictionary<int, float> { { 3, 9 } },
+            new Dictionary<int, float> { { 3, 6 } },
+            new Dictionary<int, float> { { 4, 18 } },
         };
 
         var res = Kruskal.Solve(adj);
@@ -682,13 +1124,23 @@ internal class KruskalTests
          */
         var adj = new[]
         {
-            new Dictionary<int, float>{ { 1, 7 }, { 3, 5 } },
-            new Dictionary<int, float>{ { 0, 7 }, { 3, 9 } },
-            new Dictionary<int, float>{ { 4, 5 }, { 6, 2 } },
-            new Dictionary<int, float>{ { 0, 5 }, { 1, 9 } },
-            new Dictionary<int, float>{ { 2, 5 }, { 5, 8 }, { 6, 9 } },
-            new Dictionary<int, float>{ { 4, 8 }, { 6, 11 } },
-            new Dictionary<int, float>{ { 2, 2 }, { 4, 9 }, { 5, 11 } },
+            new Dictionary<int, float> { { 1, 7 }, { 3, 5 } },
+            new Dictionary<int, float> { { 0, 7 }, { 3, 9 } },
+            new Dictionary<int, float> { { 4, 5 }, { 6, 2 } },
+            new Dictionary<int, float> { { 0, 5 }, { 1, 9 } },
+            new Dictionary<int, float>
+            {
+                { 2, 5 },
+                { 5, 8 },
+                { 6, 9 },
+            },
+            new Dictionary<int, float> { { 4, 8 }, { 6, 11 } },
+            new Dictionary<int, float>
+            {
+                { 2, 2 },
+                { 4, 9 },
+                { 5, 11 },
+            },
         };
 
         /* Expected MST
@@ -704,13 +1156,13 @@ internal class KruskalTests
          */
         var expected = new[]
         {
-            new Dictionary<int, float>{ { 1, 7 }, { 3, 5 } },
-            new Dictionary<int, float>{ { 0, 7 } },
-            new Dictionary<int, float>{ { 4, 5 }, { 6, 2 } },
-            new Dictionary<int, float>{ { 0, 5 } },
-            new Dictionary<int, float>{ { 2, 5 }, { 5, 8 } },
-            new Dictionary<int, float>{ { 4, 8 } },
-            new Dictionary<int, float>{ { 2, 2 } },
+            new Dictionary<int, float> { { 1, 7 }, { 3, 5 } },
+            new Dictionary<int, float> { { 0, 7 } },
+            new Dictionary<int, float> { { 4, 5 }, { 6, 2 } },
+            new Dictionary<int, float> { { 0, 5 } },
+            new Dictionary<int, float> { { 2, 5 }, { 5, 8 } },
+            new Dictionary<int, float> { { 4, 8 } },
+            new Dictionary<int, float> { { 2, 2 } },
         };
 
         var res = Kruskal.Solve(adj);

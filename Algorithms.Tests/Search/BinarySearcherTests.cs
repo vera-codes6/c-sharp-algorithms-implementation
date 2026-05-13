@@ -10,7 +10,11 @@ public static class BinarySearcherTests
         // Arrange
         var searcher = new BinarySearcher<int>();
         var random = Randomizer.CreateRandomizer();
-        var arrayToSearch = Enumerable.Range(0, n).Select(_ => random.Next(0, 1000)).OrderBy(x => x).ToArray();
+        var arrayToSearch = Enumerable
+            .Range(0, n)
+            .Select(_ => random.Next(0, 1000))
+            .OrderBy(x => x)
+            .ToArray();
         var selectedIndex = random.Next(0, n);
 
         // Act
@@ -23,15 +27,18 @@ public static class BinarySearcherTests
     [Test]
     public static void FindIndex_ItemMissing_MinusOneReturned(
         [Random(0, 1000, 10)] int n,
-        [Random(-100, 1100, 10)] int missingItem)
+        [Random(-100, 1100, 10)] int missingItem
+    )
     {
         // Arrange
         var searcher = new BinarySearcher<int>();
         var random = Randomizer.CreateRandomizer();
-        var arrayToSearch = Enumerable.Range(0, n)
+        var arrayToSearch = Enumerable
+            .Range(0, n)
             .Select(_ => random.Next(0, 1000))
             .Where(x => x != missingItem)
-            .OrderBy(x => x).ToArray();
+            .OrderBy(x => x)
+            .ToArray();
 
         // Act
         var actualIndex = searcher.FindIndex(arrayToSearch, missingItem);

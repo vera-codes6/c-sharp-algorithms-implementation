@@ -13,7 +13,8 @@ public class Pkcs7PaddingTests
 
         Action act = () => new Pkcs7Padding(blockSize);
 
-        act.Should().Throw<ArgumentOutOfRangeException>()
+        act.Should()
+            .Throw<ArgumentOutOfRangeException>()
             .WithMessage("Invalid block size: 0 (Parameter 'blockSize')");
     }
 
@@ -24,7 +25,8 @@ public class Pkcs7PaddingTests
 
         Action act = () => new Pkcs7Padding(blockSize);
 
-        act.Should().Throw<ArgumentOutOfRangeException>()
+        act.Should()
+            .Throw<ArgumentOutOfRangeException>()
             .WithMessage("Invalid block size: 256 (Parameter 'blockSize')");
     }
 
@@ -48,7 +50,8 @@ public class Pkcs7PaddingTests
 
         Action act = () => padding.AddPadding(size16Input, inputOffset);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -106,7 +109,8 @@ public class Pkcs7PaddingTests
 
         Action act = () => padding.RemovePadding(input);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Input length must be a multiple of block size");
     }
 
@@ -134,8 +138,7 @@ public class Pkcs7PaddingTests
 
         Action act = () => padding.RemovePadding(size32Input);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Invalid padding");
+        act.Should().Throw<ArgumentException>().WithMessage("Invalid padding");
     }
 
     [Test]
@@ -178,7 +181,6 @@ public class Pkcs7PaddingTests
 
         Action act = () => padding.GetPaddingCount(size32Input);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Padding block is corrupted");
+        act.Should().Throw<ArgumentException>().WithMessage("Padding block is corrupted");
     }
 }

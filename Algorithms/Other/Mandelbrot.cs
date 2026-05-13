@@ -47,27 +47,31 @@ public static class Mandelbrot
         double figureCenterY = 0,
         double figureWidth = 3.2,
         int maxStep = 50,
-        bool useDistanceColorCoding = true)
+        bool useDistanceColorCoding = true
+    )
     {
         if (bitmapWidth <= 0)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(bitmapWidth),
-                $"{nameof(bitmapWidth)} should be greater than zero");
+                $"{nameof(bitmapWidth)} should be greater than zero"
+            );
         }
 
         if (bitmapHeight <= 0)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(bitmapHeight),
-                $"{nameof(bitmapHeight)} should be greater than zero");
+                $"{nameof(bitmapHeight)} should be greater than zero"
+            );
         }
 
         if (maxStep <= 0)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(maxStep),
-                $"{nameof(maxStep)} should be greater than zero");
+                $"{nameof(maxStep)} should be greater than zero"
+            );
         }
 
         var bitmap = new SKBitmap(bitmapWidth, bitmapHeight);
@@ -88,7 +92,10 @@ public static class Mandelbrot
                 bitmap.SetPixel(
                     bitmapX,
                     bitmapY,
-                    useDistanceColorCoding ? ColorCodedColorMap(distance) : BlackAndWhiteColorMap(distance));
+                    useDistanceColorCoding
+                        ? ColorCodedColorMap(distance)
+                        : BlackAndWhiteColorMap(distance)
+                );
             }
         }
 
@@ -102,9 +109,7 @@ public static class Mandelbrot
     /// <param name="distance">Distance until divergence threshold.</param>
     /// <returns>The color corresponding to the distance.</returns>
     private static SKColor BlackAndWhiteColorMap(double distance) =>
-        distance >= 1
-            ? new SKColor(0, 0, 0, Alpha)
-            : new SKColor(255, 255, 255, Alpha);
+        distance >= 1 ? new SKColor(0, 0, 0, Alpha) : new SKColor(255, 255, 255, Alpha);
 
     /// <summary>
     ///     Color-coding taking the relative distance into account. The Mandelbrot set
@@ -134,12 +139,18 @@ public static class Mandelbrot
 
         switch (hi)
         {
-            case 0: return new SKColor(v, t, p, Alpha);
-            case 1: return new SKColor(q, v, p, Alpha);
-            case 2: return new SKColor(p, v, t, Alpha);
-            case 3: return new SKColor(p, q, v, Alpha);
-            case 4: return new SKColor(t, p, v, Alpha);
-            default: return new SKColor(v, p, q, Alpha);
+            case 0:
+                return new SKColor(v, t, p, Alpha);
+            case 1:
+                return new SKColor(q, v, p, Alpha);
+            case 2:
+                return new SKColor(p, v, t, Alpha);
+            case 3:
+                return new SKColor(p, q, v, Alpha);
+            case 4:
+                return new SKColor(t, p, v, Alpha);
+            default:
+                return new SKColor(v, p, q, Alpha);
         }
     }
 

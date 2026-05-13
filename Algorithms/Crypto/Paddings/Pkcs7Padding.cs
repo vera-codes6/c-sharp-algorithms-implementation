@@ -26,7 +26,10 @@ public class Pkcs7Padding : IBlockCipherPadding
     {
         if (blockSize is < 1 or > 255)
         {
-            throw new ArgumentOutOfRangeException(nameof(blockSize), $"Invalid block size: {blockSize}");
+            throw new ArgumentOutOfRangeException(
+                nameof(blockSize),
+                $"Invalid block size: {blockSize}"
+            );
         }
 
         this.blockSize = blockSize;

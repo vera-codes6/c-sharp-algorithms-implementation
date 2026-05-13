@@ -26,7 +26,12 @@ public class BranchAndBoundKnapsackSolver<T>
     ///     The array of items that provides the maximum value of the
     ///     knapsack without exceeding the specified weight <paramref name="capacity">capacity</paramref>.
     /// </returns>
-    public T[] Solve(T[] items, int capacity, Func<T, int> weightSelector, Func<T, double> valueSelector)
+    public T[] Solve(
+        T[] items,
+        int capacity,
+        Func<T, int> weightSelector,
+        Func<T, double> valueSelector
+    )
     {
         // This is required for greedy approach in upper bound calculation to work.
         items = items.OrderBy(i => valueSelector(i) / weightSelector(i)).ToArray();
@@ -78,8 +83,20 @@ public class BranchAndBoundKnapsackSolver<T>
                 lastNodeOfOptimalPath = left;
             }
 
-            left.UpperBound = ComputeUpperBound(left, items, capacity, weightSelector, valueSelector);
-            right.UpperBound = ComputeUpperBound(right, items, capacity, weightSelector, valueSelector);
+            left.UpperBound = ComputeUpperBound(
+                left,
+                items,
+                capacity,
+                weightSelector,
+                valueSelector
+            );
+            right.UpperBound = ComputeUpperBound(
+                right,
+                items,
+                capacity,
+                weightSelector,
+                valueSelector
+            );
 
             // IF upperBound of this node is larger than maxCumulativeValue,
             // the current path is still possible to reach or surpass the maximum value,
@@ -133,7 +150,13 @@ public class BranchAndBoundKnapsackSolver<T>
     /// <returns>
     ///     upper bound value of the given <paramref name="aNode">node</paramref>.
     /// </returns>
-    private static double ComputeUpperBound(BranchAndBoundNode aNode, T[] items, int capacity, Func<T, int> weightSelector, Func<T, double> valueSelector)
+    private static double ComputeUpperBound(
+        BranchAndBoundNode aNode,
+        T[] items,
+        int capacity,
+        Func<T, int> weightSelector,
+        Func<T, double> valueSelector
+    )
     {
         var upperBound = aNode.CumulativeValue;
         var availableWeight = capacity - aNode.CumulativeWeight;
@@ -148,7 +171,10 @@ public class BranchAndBoundKnapsackSolver<T>
             }
             else
             {
-                upperBound += valueSelector(items[nextLevel]) / weightSelector(items[nextLevel]) * availableWeight;
+                upperBound +=
+                    valueSelector(items[nextLevel])
+                    / weightSelector(items[nextLevel])
+                    * availableWeight;
                 availableWeight = 0;
             }
 

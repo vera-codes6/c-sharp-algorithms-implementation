@@ -121,17 +121,23 @@ public static class ChineseRemainderTheorem
     {
         if (listOfAs == null || listOfNs == null || listOfAs.Count != listOfNs.Count)
         {
-            throw new ArgumentException("The parameters 'listOfAs' and 'listOfNs' must not be null and have to be of equal length!");
+            throw new ArgumentException(
+                "The parameters 'listOfAs' and 'listOfNs' must not be null and have to be of equal length!"
+            );
         }
 
         if (listOfNs.Any(x => x <= 1))
         {
-            throw new ArgumentException($"The value {listOfNs.First(x => x <= 1)} for some n_i is smaller than or equal to 1.");
+            throw new ArgumentException(
+                $"The value {listOfNs.First(x => x <= 1)} for some n_i is smaller than or equal to 1."
+            );
         }
 
         if (listOfAs.Any(x => x < 0))
         {
-            throw new ArgumentException($"The value {listOfAs.First(x => x < 0)} for some a_i is smaller than 0.");
+            throw new ArgumentException(
+                $"The value {listOfAs.First(x => x < 0)} for some a_i is smaller than 0."
+            );
         }
 
         // Check if all pairs of (n_i, n_j) are coprime:
@@ -142,7 +148,9 @@ public static class ChineseRemainderTheorem
                 long gcd;
                 if ((gcd = ExtendedEuclideanAlgorithm.Compute(listOfNs[i], listOfNs[j]).Gcd) != 1L)
                 {
-                    throw new ArgumentException($"The GCD of n_{i} = {listOfNs[i]} and n_{j} = {listOfNs[j]} equals {gcd} and thus these values aren't coprime.");
+                    throw new ArgumentException(
+                        $"The GCD of n_{i} = {listOfNs[i]} and n_{j} = {listOfNs[j]} equals {gcd} and thus these values aren't coprime."
+                    );
                 }
             }
         }
@@ -158,17 +166,23 @@ public static class ChineseRemainderTheorem
     {
         if (listOfAs == null || listOfNs == null || listOfAs.Count != listOfNs.Count)
         {
-            throw new ArgumentException("The parameters 'listOfAs' and 'listOfNs' must not be null and have to be of equal length!");
+            throw new ArgumentException(
+                "The parameters 'listOfAs' and 'listOfNs' must not be null and have to be of equal length!"
+            );
         }
 
         if (listOfNs.Any(x => x <= 1))
         {
-            throw new ArgumentException($"The value {listOfNs.First(x => x <= 1)} for some n_i is smaller than or equal to 1.");
+            throw new ArgumentException(
+                $"The value {listOfNs.First(x => x <= 1)} for some n_i is smaller than or equal to 1."
+            );
         }
 
         if (listOfAs.Any(x => x < 0))
         {
-            throw new ArgumentException($"The value {listOfAs.First(x => x < 0)} for some a_i is smaller than 0.");
+            throw new ArgumentException(
+                $"The value {listOfAs.First(x => x < 0)} for some a_i is smaller than 0."
+            );
         }
 
         // Check if all pairs of (n_i, n_j) are coprime:
@@ -177,9 +191,14 @@ public static class ChineseRemainderTheorem
             for (var j = i + 1; j < listOfNs.Count; j++)
             {
                 BigInteger gcd;
-                if ((gcd = ExtendedEuclideanAlgorithm.Compute(listOfNs[i], listOfNs[j]).Gcd) != BigInteger.One)
+                if (
+                    (gcd = ExtendedEuclideanAlgorithm.Compute(listOfNs[i], listOfNs[j]).Gcd)
+                    != BigInteger.One
+                )
                 {
-                    throw new ArgumentException($"The GCD of n_{i} = {listOfNs[i]} and n_{j} = {listOfNs[j]} equals {gcd} and thus these values aren't coprime.");
+                    throw new ArgumentException(
+                        $"The GCD of n_{i} = {listOfNs[i]} and n_{j} = {listOfNs[j]} equals {gcd} and thus these values aren't coprime."
+                    );
                 }
             }
         }

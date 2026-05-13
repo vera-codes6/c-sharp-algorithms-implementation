@@ -14,7 +14,12 @@ public class NaiveKnapsackSolver<T> : IHeuristicKnapsackSolver<T>
     /// <param name="weightSelector">TODO. 4.</param>
     /// <param name="valueSelector">TODO. 5.</param>
     /// <returns>TODO. 6.</returns>
-    public T[] Solve(T[] items, double capacity, Func<T, double> weightSelector, Func<T, double> valueSelector)
+    public T[] Solve(
+        T[] items,
+        double capacity,
+        Func<T, double> weightSelector,
+        Func<T, double> valueSelector
+    )
     {
         var weight = 0d;
         var left = new List<T>();

@@ -17,9 +17,9 @@ public static class ZblockSubstringSearch
         var left = 0;
         var right = 0;
 
-        for(var i = 1; i < n; i++)
+        for (var i = 1; i < n; i++)
         {
-            if(i > right)
+            if (i > right)
             {
                 left = i;
                 right = ComputeNewRightValue(concatStr, n, left, i);
@@ -45,9 +45,9 @@ public static class ZblockSubstringSearch
         }
 
         var found = 0;
-        foreach(var z_value in zArray)
+        foreach (var z_value in zArray)
         {
-            if(z_value == patternLength)
+            if (z_value == patternLength)
             {
                 found++;
             }

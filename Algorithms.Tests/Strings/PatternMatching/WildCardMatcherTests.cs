@@ -30,6 +30,8 @@ public static class WildCardMatcherTests
         var pattern = "*abc";
 
         // Assert
-        Assert.Throws<System.ArgumentException>(() => WildCardMatcher.MatchPattern(inputString, pattern));
+        Assert.Throws<System.ArgumentException>(() =>
+            WildCardMatcher.MatchPattern(inputString, pattern)
+        );
     }
 }

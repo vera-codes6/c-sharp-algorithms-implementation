@@ -58,7 +58,7 @@ public class LuhnTests
     }
 
     [TestCase("")]
-    [TestCase("xxxx")] 
+    [TestCase("xxxx")]
     [TestCase("abcde")]
     [TestCase("1x345678901234567")]
     [TestCase("x1234567890123456")]

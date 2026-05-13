@@ -17,7 +17,12 @@ public class Geofence(double latitude, double longitude, double radiusInMeters)
     /// <returns>Returns true if the user is inside the geofence, otherwise returns false.</returns>
     public bool IsInside(double userLatitude, double userLongitude)
     {
-        double distance = GeoLocation.CalculateDistanceFromLatLng(Latitude, Longitude, userLatitude, userLongitude);
+        double distance = GeoLocation.CalculateDistanceFromLatLng(
+            Latitude,
+            Longitude,
+            userLatitude,
+            userLongitude
+        );
         return distance <= RadiusInMeters;
     }
 }

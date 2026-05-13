@@ -13,7 +13,12 @@ public static class HillEnconderTests
         var random = new Randomizer();
         var message = random.GetString();
 
-        var key = new double[,] { { 0, 4, 5 }, { 9, 2, -1 }, { 3, 17, 7 } };
+        var key = new double[,]
+        {
+            { 0, 4, 5 },
+            { 9, 2, -1 },
+            { 3, 17, 7 },
+        };
 
         // Act
         var encodedText = encoder.Encode(message, key);

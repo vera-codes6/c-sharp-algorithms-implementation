@@ -16,7 +16,7 @@ public class KnuthMorrisPrattSearcher
     {
         var lps = FindLongestPrefixSuffixValues(pat);
 
-        for (int i = 0, j = 0; i < str.Length;)
+        for (int i = 0, j = 0; i < str.Length; )
         {
             if (pat[j] == str[i])
             {
@@ -53,7 +53,7 @@ public class KnuthMorrisPrattSearcher
     public int[] FindLongestPrefixSuffixValues(string pat)
     {
         var lps = new int[pat.Length];
-        for (int i = 1, len = 0; i < pat.Length;)
+        for (int i = 1, len = 0; i < pat.Length; )
         {
             if (pat[i] == pat[len])
             {

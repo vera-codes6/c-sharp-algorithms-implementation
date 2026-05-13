@@ -11,7 +11,11 @@ public static class RecursiveBinarySearcherTests
         var subject = new RecursiveBinarySearcher<int>();
         var randomizer = Randomizer.CreateRandomizer();
         var selectedIndex = randomizer.Next(0, n);
-        var collection = Enumerable.Range(0, n).Select(_ => randomizer.Next(0, 1000)).OrderBy(x => x).ToList();
+        var collection = Enumerable
+            .Range(0, n)
+            .Select(_ => randomizer.Next(0, 1000))
+            .OrderBy(x => x)
+            .ToList();
 
         // Act
         var actualIndex = subject.FindIndex(collection, collection[selectedIndex]);
@@ -23,15 +27,18 @@ public static class RecursiveBinarySearcherTests
     [Test]
     public static void FindIndex_ItemMissing_MinusOneReturned(
         [Random(0, 1000, 10)] int n,
-        [Random(-100, 1100, 10)] int missingItem)
+        [Random(-100, 1100, 10)] int missingItem
+    )
     {
         // Arrange
         var subject = new RecursiveBinarySearcher<int>();
         var random = Randomizer.CreateRandomizer();
-        var collection = Enumerable.Range(0, n)
+        var collection = Enumerable
+            .Range(0, n)
             .Select(_ => random.Next(0, 1000))
             .Where(x => x != missingItem)
-            .OrderBy(x => x).ToList();
+            .OrderBy(x => x)
+            .ToList();
 
         // Act
         var actualIndex = subject.FindIndex(collection, missingItem);

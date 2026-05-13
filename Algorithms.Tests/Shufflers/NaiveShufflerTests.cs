@@ -7,8 +7,8 @@ namespace Algorithms.Tests.Shufflers
     {
         [Test]
         public static void ArrayShuffled_NewArraySameSize(
-            [Random(10, 1000, 100, Distinct = true)]
-            int n)
+            [Random(10, 1000, 100, Distinct = true)] int n
+        )
         {
             // Arrange
             var shuffler = new NaiveShuffler<int>();
@@ -23,8 +23,8 @@ namespace Algorithms.Tests.Shufflers
 
         [Test]
         public static void ArrayShuffled_NewArraySameValues(
-            [Random(10, 1000, 100, Distinct = true)]
-            int n)
+            [Random(10, 1000, 100, Distinct = true)] int n
+        )
         {
             // Arrange
             var shuffler = new NaiveShuffler<int>();
@@ -40,7 +40,8 @@ namespace Algorithms.Tests.Shufflers
         [Test]
         public static void ArrayShuffled_NewArraySameShuffle(
             [Random(0, 1000, 2, Distinct = true)] int n,
-            [Random(1000, 10000, 5, Distinct = true)] int seed)
+            [Random(1000, 10000, 5, Distinct = true)] int seed
+        )
         {
             // Arrange
             var shuffle = new NaiveShuffler<int>();
@@ -51,7 +52,9 @@ namespace Algorithms.Tests.Shufflers
             shuffle.Shuffle(correctArray, seed);
 
             // Assert
-            correctArray.Should().BeEquivalentTo(testArray, options => options.WithStrictOrdering());
+            correctArray
+                .Should()
+                .BeEquivalentTo(testArray, options => options.WithStrictOrdering());
         }
     }
 }

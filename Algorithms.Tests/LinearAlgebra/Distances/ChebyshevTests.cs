@@ -15,7 +15,10 @@ public class ChebyshevTests
 
     [TestCase(new[] { 2.0, 3.0 }, new[] { -1.0 })]
     [TestCase(new[] { 1.0 }, new[] { 1.0, 2.0, 3.0 })]
-    public void DistanceThrowsArgumentExceptionOnDifferentPointDimensions(double[] point1, double[] point2)
+    public void DistanceThrowsArgumentExceptionOnDifferentPointDimensions(
+        double[] point1,
+        double[] point2
+    )
     {
         Action action = () => Chebyshev.Distance(point1, point2);
         action.Should().Throw<ArgumentException>();

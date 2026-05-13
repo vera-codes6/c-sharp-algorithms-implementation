@@ -11,7 +11,8 @@ public static class Abs
     /// <typeparam name="T">Type of number.</typeparam>
     /// <param name="inputNum">Number to find the absolute value of.</param>
     /// <returns>Absolute value of the number.</returns>
-    public static T AbsVal<T>(T inputNum) where T : INumber<T>
+    public static T AbsVal<T>(T inputNum)
+        where T : INumber<T>
     {
         return T.IsNegative(inputNum) ? -inputNum : inputNum;
     }
@@ -22,7 +23,8 @@ public static class Abs
     /// <typeparam name="T">Type of number.</typeparam>
     /// <param name="inputNums">Array of numbers to find the smallest absolute.</param>
     /// <returns>Smallest absolute number.</returns>
-    public static T AbsMin<T>(T[] inputNums) where T : INumber<T>
+    public static T AbsMin<T>(T[] inputNums)
+        where T : INumber<T>
     {
         if (inputNums.Length == 0)
         {
@@ -48,7 +50,8 @@ public static class Abs
     /// <typeparam name="T">Type of number.</typeparam>
     /// <param name="inputNums">Array of numbers to find the largest absolute.</param>
     /// <returns>Largest absolute number.</returns>
-    public static T AbsMax<T>(T[] inputNums) where T : INumber<T>
+    public static T AbsMax<T>(T[] inputNums)
+        where T : INumber<T>
     {
         if (inputNums.Length == 0)
         {

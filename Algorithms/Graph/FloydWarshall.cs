@@ -26,9 +26,10 @@ public class FloydWarshall<T>
             {
                 for (var j = 0; j < vertexCount; j++)
                 {
-                    distances[i, j] = distances[i, j] > distances[i, k] + distances[k, j]
-                    ? distances[i, k] + distances[k, j]
-                    : distances[i, j];
+                    distances[i, j] =
+                        distances[i, j] > distances[i, k] + distances[k, j]
+                            ? distances[i, k] + distances[k, j]
+                            : distances[i, j];
                 }
             }
         }

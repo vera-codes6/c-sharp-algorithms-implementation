@@ -21,9 +21,7 @@ public class OutputLengthException : DataLengthException
     /// This constructor initializes a new instance of the <see cref="OutputLengthException"/> class without any additional message or inner exception.
     /// It is commonly used when a generic output length issue needs to be raised without specific details.
     /// </remarks>
-    public OutputLengthException()
-    {
-    }
+    public OutputLengthException() { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="OutputLengthException"/> class with a specified error message.
@@ -33,9 +31,7 @@ public class OutputLengthException : DataLengthException
     /// This constructor allows for a custom error message to be provided, giving more detail about the specific issue with the output length.
     /// </remarks>
     public OutputLengthException(string message)
-        : base(message)
-    {
-    }
+        : base(message) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="OutputLengthException"/> class with a specified error message
@@ -49,7 +45,5 @@ public class OutputLengthException : DataLengthException
     /// the root cause (e.g., an <see cref="ArgumentException"/>) can be passed in as the inner exception.
     /// </remarks>
     public OutputLengthException(string message, Exception inner)
-        : base(message, inner)
-    {
-    }
+        : base(message, inner) { }
 }

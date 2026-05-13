@@ -13,7 +13,8 @@ namespace DataStructures.Bag;
 /// See https://en.wikipedia.org/wiki/Multiset for more information.
 /// </remarks>
 /// <typeparam name="T">Generic Type.</typeparam>
-public class Bag<T> : IEnumerable<T> where T : notnull
+public class Bag<T> : IEnumerable<T>
+    where T : notnull
 {
     private BagNode<T>? head;
     private int totalCount;

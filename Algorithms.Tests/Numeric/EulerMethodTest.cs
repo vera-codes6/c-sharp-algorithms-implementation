@@ -45,13 +45,17 @@ public static class EulerMethodTest
     public static void StepsizeIsZeroOrNegative_ThrowsArgumentOutOfRangeException()
     {
         Func<double, double, double> exampleEquation = (x, _) => x;
-        Assert.Throws<ArgumentOutOfRangeException>(() => EulerMethod.EulerFull(0, 4, 0, 0, exampleEquation));
+        Assert.Throws<ArgumentOutOfRangeException>(() =>
+            EulerMethod.EulerFull(0, 4, 0, 0, exampleEquation)
+        );
     }
 
     [Test]
     public static void StartIsLargerThanEnd_ThrowsArgumentOutOfRangeException()
     {
         Func<double, double, double> exampleEquation = (x, _) => x;
-        Assert.Throws<ArgumentOutOfRangeException>(() => EulerMethod.EulerFull(0, -4, 0.1, 0, exampleEquation));
+        Assert.Throws<ArgumentOutOfRangeException>(() =>
+            EulerMethod.EulerFull(0, -4, 0.1, 0, exampleEquation)
+        );
     }
 }

@@ -105,7 +105,10 @@ public static class BacktrackingNQueensSolverTests
             var foundQueen = false;
             for (var j = 0; i - j >= 0 && solution.GetLength(0) - j > 0; j++)
             {
-                foundQueen = ValidateCell(foundQueen, solution[solution.GetLength(0) - j - 1, i - j]);
+                foundQueen = ValidateCell(
+                    foundQueen,
+                    solution[solution.GetLength(0) - j - 1, i - j]
+                );
             }
         }
     }

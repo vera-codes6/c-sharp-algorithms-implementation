@@ -6,7 +6,11 @@ namespace Algorithms.Graph;
 /// Bellman-Ford algorithm on directed weighted graph.
 /// </summary>
 /// <typeparam name="T">Generic type of data in the graph.</typeparam>
-public class BellmanFord<T>(DirectedWeightedGraph<T> graph, Dictionary<Vertex<T>, double> distances, Dictionary<Vertex<T>, Vertex<T>?> predecessors)
+public class BellmanFord<T>(
+    DirectedWeightedGraph<T> graph,
+    Dictionary<Vertex<T>, double> distances,
+    Dictionary<Vertex<T>, Vertex<T>?> predecessors
+)
 {
     private readonly DirectedWeightedGraph<T> graph = graph;
     private readonly Dictionary<Vertex<T>, double> distances = distances;

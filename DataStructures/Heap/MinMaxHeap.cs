@@ -153,7 +153,15 @@ public class MinMaxHeap<T>
     /// <returns>Index of the minimum descendant.</returns>
     private int IndexOfMinChildOrGrandchild(int index)
     {
-        var descendants = new[] { 2 * index + 1, 2 * index + 2, 4 * index + 3, 4 * index + 4, 4 * index + 5, 4 * index + 6 };
+        var descendants = new[]
+        {
+            2 * index + 1,
+            2 * index + 2,
+            4 * index + 3,
+            4 * index + 4,
+            4 * index + 5,
+            4 * index + 6,
+        };
         var resIndex = descendants[0];
         foreach (var descendant in descendants)
         {
@@ -184,7 +192,8 @@ public class MinMaxHeap<T>
 
     private bool HasChild(int index) => index * 2 + 1 < Count;
 
-    private bool IsGrandchild(int node, int grandchild) => grandchild > 2 && Grandparent(grandchild) == node;
+    private bool IsGrandchild(int node, int grandchild) =>
+        grandchild > 2 && Grandparent(grandchild) == node;
 
     /// <summary>
     ///     Checks if node at index belongs to Min or Max level of the heap.

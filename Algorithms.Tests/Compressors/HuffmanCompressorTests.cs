@@ -28,8 +28,8 @@ public static class HuffmanCompressorTests
 
     [Test]
     public static void DecompressedTextTheSameAsOriginal(
-        [Random(0, 1000, 100, Distinct = true)]
-        int length)
+        [Random(0, 1000, 100, Distinct = true)] int length
+    )
     {
         //Arrange
         var sorter = new BubbleSorter<HuffmanCompressor.ListNode>();

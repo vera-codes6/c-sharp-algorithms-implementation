@@ -195,7 +195,9 @@ public class DirectedWeightedGraph<T> : IDirectedWeightedGraph<T>
     {
         if (capacity < 0)
         {
-            throw new InvalidOperationException("Graph capacity should always be a non-negative integer.");
+            throw new InvalidOperationException(
+                "Graph capacity should always be a non-negative integer."
+            );
         }
     }
 

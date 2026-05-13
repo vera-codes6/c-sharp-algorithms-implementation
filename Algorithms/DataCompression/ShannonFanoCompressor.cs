@@ -7,7 +7,8 @@ namespace Algorithms.DataCompression;
 /// </summary>
 public class ShannonFanoCompressor(
     IHeuristicKnapsackSolver<(char Symbol, double Frequency)> splitter,
-    Translator translator)
+    Translator translator
+)
 {
     private readonly IHeuristicKnapsackSolver<(char Symbol, double Frequency)> splitter = splitter;
     private readonly Translator translator = translator;
@@ -18,7 +19,9 @@ public class ShannonFanoCompressor(
     /// </summary>
     /// <param name="uncompressedText">Text message to compress.</param>
     /// <returns>Compressed string and keys to decompress it.</returns>
-    public (string CompressedText, Dictionary<string, string> DecompressionKeys) Compress(string uncompressedText)
+    public (string CompressedText, Dictionary<string, string> DecompressionKeys) Compress(
+        string uncompressedText
+    )
     {
         if (string.IsNullOrEmpty(uncompressedText))
         {
@@ -27,10 +30,7 @@ public class ShannonFanoCompressor(
 
         if (uncompressedText.Distinct().Count() == 1)
         {
-            var dict = new Dictionary<string, string>
-            {
-                { "1", uncompressedText[0].ToString() },
-            };
+            var dict = new Dictionary<string, string> { { "1", uncompressedText[0].ToString() } };
             return (new string('1', uncompressedText.Length), dict);
         }
 
@@ -40,8 +40,10 @@ public class ShannonFanoCompressor(
         return (translator.Translate(uncompressedText, compressionKeys), decompressionKeys);
     }
 
-    private (Dictionary<string, string> CompressionKeys, Dictionary<string, string> DecompressionKeys) GetKeys(
-        ListNode tree)
+    private (
+        Dictionary<string, string> CompressionKeys,
+        Dictionary<string, string> DecompressionKeys
+    ) GetKeys(ListNode tree)
     {
         var compressionKeys = new Dictionary<string, string>();
         var decompressionKeys = new Dictionary<string, string>();
@@ -77,7 +79,12 @@ public class ShannonFanoCompressor(
             return node;
         }
 
-        var left = splitter.Solve(node.Data, 0.5 * node.Data.Sum(x => x.Frequency), x => x.Frequency, _ => 1);
+        var left = splitter.Solve(
+            node.Data,
+            0.5 * node.Data.Sum(x => x.Frequency),
+            x => x.Frequency,
+            _ => 1
+        );
         var right = node.Data.Except(left).ToArray();
 
         node.LeftChild = GenerateShannonFanoTree(new ListNode(left));
@@ -105,7 +112,9 @@ public class ShannonFanoCompressor(
             occurenceCounts[ch]++;
         }
 
-        return new ListNode(occurenceCounts.Select(kvp => (kvp.Key, 1d * kvp.Value / text.Length)).ToArray());
+        return new ListNode(
+            occurenceCounts.Select(kvp => (kvp.Key, 1d * kvp.Value / text.Length)).ToArray()
+        );
     }
 
     /// <summary>

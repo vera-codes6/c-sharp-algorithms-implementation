@@ -60,7 +60,12 @@ public class CycleSorter<T> : IComparisonSorter<T>
         return nextIndex;
     }
 
-    private static int CountSmallerElements(T[] array, int startingIndex, T element, IComparer<T> comparer)
+    private static int CountSmallerElements(
+        T[] array,
+        int startingIndex,
+        T element,
+        IComparer<T> comparer
+    )
     {
         var smallerElements = 0;
         for (var i = startingIndex; i < array.Length; i++)

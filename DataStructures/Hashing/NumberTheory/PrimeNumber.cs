@@ -60,10 +60,7 @@ public static class PrimeNumber
 
         if (number == firstValue)
         {
-            return NextPrime(
-                number + (desc ? -1 : 1),
-                factor,
-                desc);
+            return NextPrime(number + (desc ? -1 : 1), factor, desc);
         }
 
         return number;

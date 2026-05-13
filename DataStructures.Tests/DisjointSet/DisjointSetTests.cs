@@ -14,6 +14,7 @@ public class DisjointSetTests
         one.Data.Should().Be(1);
         two.Data.Should().Be(2);
     }
+
     [Test]
     public static void UnionTest()
     {

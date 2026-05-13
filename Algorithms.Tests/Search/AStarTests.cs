@@ -1,6 +1,4 @@
-
 using System.Reflection;
-
 using Algorithms.Search.AStar;
 
 namespace Algorithms.Tests.Search;
@@ -15,7 +13,7 @@ public static class AStarTests
             CurrentCost = 5,
             EstimatedCost = 10,
             Parent = new Node(new VecN(1, 1), true, 1.0),
-            State = NodeState.Closed
+            State = NodeState.Closed,
         };
         var nodes = new List<Node> { node };
 
@@ -93,13 +91,18 @@ public static class AStarTests
 
         var queue = new PriorityQueue<Node>();
 
-        Action act = () => {
+        Action act = () =>
+        {
             // Directly call the private method using reflection, otherwise we can't test this case
-            var method = typeof(AStar).GetMethod("AddOrUpdateConnected", BindingFlags.NonPublic | BindingFlags.Static);
+            var method = typeof(AStar).GetMethod(
+                "AddOrUpdateConnected",
+                BindingFlags.NonPublic | BindingFlags.Static
+            );
             method!.Invoke(null, [node, node, queue]);
         };
 
-        act.Should().Throw<TargetInvocationException>()
+        act.Should()
+            .Throw<TargetInvocationException>()
             .WithInnerException<PathfindingException>()
             .WithMessage("*same node twice*");
     }

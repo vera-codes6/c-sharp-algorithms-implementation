@@ -132,7 +132,8 @@ public class Iso7816D4Padding : IBlockCipherPadding
             // Update the index of the first padding byte using bitwise operations.
             // If the current byte is 0x80 and still part of the padding, set the index to the current index.
             // Otherwise, keep the previous index.
-            paddingStartIndex ^= (currentIndex ^ paddingStartIndex) & (stillPaddingMask & isPaddingStartMask);
+            paddingStartIndex ^=
+                (currentIndex ^ paddingStartIndex) & (stillPaddingMask & isPaddingStartMask);
 
             // Update the mask to indicate if the current byte is still part of the padding using bitwise operations.
             // If the current byte is 0x00, keep the previous mask.

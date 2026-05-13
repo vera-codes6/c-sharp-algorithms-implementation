@@ -30,8 +30,7 @@ public static class ThinSvd
     /// </summary>
     /// <param name="matrix">The matrix.</param>
     /// <returns>A singular vector, with dimension equal to number of columns of the matrix.</returns>
-    public static double[] Decompose1D(double[,] matrix) =>
-        Decompose1D(matrix, 1E-5, 100);
+    public static double[] Decompose1D(double[,] matrix) => Decompose1D(matrix, 1E-5, 100);
 
     /// <summary>
     ///     Computes a single singular vector for the given matrix, corresponding to the largest singular value.
@@ -60,8 +59,7 @@ public static class ThinSvd
             }
 
             iterations++;
-        }
-        while (lastIteration.Dot(currIteration) < 1 - epsilon && iterations < maxIterations);
+        } while (lastIteration.Dot(currIteration) < 1 - epsilon && iterations < maxIterations);
 
         return currIteration;
     }
@@ -79,7 +77,8 @@ public static class ThinSvd
     public static (double[,] U, double[] S, double[,] V) Decompose(
         double[,] matrix,
         double epsilon,
-        int maxIterations)
+        int maxIterations
+    )
     {
         var m = matrix.GetLength(0);
         var n = matrix.GetLength(1);

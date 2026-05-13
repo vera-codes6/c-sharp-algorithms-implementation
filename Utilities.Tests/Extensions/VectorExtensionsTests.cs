@@ -41,7 +41,8 @@ public class VectorExtensionsTests
 
         var func = () => lhs.Dot(rhs);
 
-        func.Should().Throw<ArgumentException>()
+        func.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Dot product arguments must have same dimension");
     }
 
@@ -83,7 +84,13 @@ public class VectorExtensionsTests
     public void ToColumnVector_ShouldReturnColumnVector()
     {
         var vector = new double[] { 1, 2, 3, 4 };
-        var result = new double[,] { { 1 }, { 2 }, { 3 }, { 4 } };
+        var result = new double[,]
+        {
+            { 1 },
+            { 2 },
+            { 3 },
+            { 4 },
+        };
 
         var actualResult = vector.ToColumnVector();
 
@@ -93,18 +100,30 @@ public class VectorExtensionsTests
     [Test]
     public void ToRowVector_ShouldThrowInvalidOperationException_WhenSourceIsNotAColumnVector()
     {
-        var source = new double[,] { { 1, 2 }, { 3, 4 }, { 5, 6 } };
+        var source = new double[,]
+        {
+            { 1, 2 },
+            { 3, 4 },
+            { 5, 6 },
+        };
 
         var func = () => source.ToRowVector();
 
-        func.Should().Throw<InvalidOperationException>()
+        func.Should()
+            .Throw<InvalidOperationException>()
             .WithMessage("The column vector should have only 1 element in width.");
     }
 
     [Test]
     public void ToRowVector_ShouldReturnRowVector()
     {
-        var source = new double[,] { { 1 }, { 2 }, { 3 }, { 4 } };
+        var source = new double[,]
+        {
+            { 1 },
+            { 2 },
+            { 3 },
+            { 4 },
+        };
         var result = new double[] { 1, 2, 3, 4 };
 
         var actualResult = source.ToRowVector();

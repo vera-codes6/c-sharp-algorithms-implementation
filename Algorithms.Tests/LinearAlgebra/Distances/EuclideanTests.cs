@@ -24,7 +24,10 @@ public static class EuclideanTests
     /// <param name="point2">Second point of M dimensions, M != N.</param>
     [TestCase(new[] { 7.0, 4.5 }, new[] { -3.0 })]
     [TestCase(new[] { 12.0 }, new[] { 1.5, 7.0, 3.2 })]
-    public static void DistanceThrowsArgumentExceptionOnDifferentPointDimensions(double[] point1, double[] point2)
+    public static void DistanceThrowsArgumentExceptionOnDifferentPointDimensions(
+        double[] point1,
+        double[] point2
+    )
     {
         Action action = () => Euclidean.Distance(point1, point2);
         action.Should().Throw<ArgumentException>();

@@ -8,18 +8,14 @@ public class DataLengthException : CryptoException
     /// <summary>
     /// Initializes a new instance of the <see cref="DataLengthException"/> class.
     /// </summary>
-    public DataLengthException()
-    {
-    }
+    public DataLengthException() { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DataLengthException"/> class with a specified error message.
     /// </summary>
     /// <param name="message">The message that describes the error.</param>
     public DataLengthException(string message)
-        : base(message)
-    {
-    }
+        : base(message) { }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DataLengthException"/> class with a specified error message
@@ -28,7 +24,5 @@ public class DataLengthException : CryptoException
     /// <param name="message">The message that describes the error.</param>
     /// <param name="inner">The exception that is the cause of the current exception.</param>
     public DataLengthException(string message, Exception inner)
-        : base(message, inner)
-    {
-    }
+        : base(message, inner) { }
 }

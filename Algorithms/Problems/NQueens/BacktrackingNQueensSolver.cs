@@ -20,9 +20,10 @@ public class BacktrackingNQueensSolver
 
     private static IEnumerable<bool[,]> BacktrackSolve(bool[,] board, int col)
     {
-        var solutions = col < board.GetLength(0) - 1
-            ? HandleIntermediateColumn(board, col)
-            : HandleLastColumn(board);
+        var solutions =
+            col < board.GetLength(0) - 1
+                ? HandleIntermediateColumn(board, col)
+                : HandleLastColumn(board);
         return solutions;
     }
 

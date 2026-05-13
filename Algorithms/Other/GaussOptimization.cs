@@ -26,7 +26,8 @@ public class GaussOptimization
         double step,
         double eps,
         double x1,
-        double x2)
+        double x2
+    )
     {
         // The initial value of the error
         double error = 1;

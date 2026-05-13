@@ -45,32 +45,27 @@ public class DijkstraTests
         shortestPathList[0].Vertex.Should().Be(a);
         shortestPathList[0].Distance.Should().Be(0);
         shortestPathList[0].PreviousVertex.Should().Be(a);
-        shortestPathList[0].ToString().Should()
-            .Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
+        shortestPathList[0].ToString().Should().Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
 
         shortestPathList[1].Vertex.Should().Be(b);
         shortestPathList[1].Distance.Should().Be(3);
         shortestPathList[1].PreviousVertex.Should().Be(d);
-        shortestPathList[1].ToString().Should()
-            .Be($"Vertex: {b} - Distance: {3} - Previous: {d}");
+        shortestPathList[1].ToString().Should().Be($"Vertex: {b} - Distance: {3} - Previous: {d}");
 
         shortestPathList[2].Vertex.Should().Be(c);
         shortestPathList[2].Distance.Should().Be(7);
         shortestPathList[2].PreviousVertex.Should().Be(e);
-        shortestPathList[2].ToString().Should()
-            .Be($"Vertex: {c} - Distance: {7} - Previous: {e}");
+        shortestPathList[2].ToString().Should().Be($"Vertex: {c} - Distance: {7} - Previous: {e}");
 
         shortestPathList[3].Vertex.Should().Be(d);
         shortestPathList[3].Distance.Should().Be(1);
         shortestPathList[3].PreviousVertex.Should().Be(a);
-        shortestPathList[3].ToString().Should()
-            .Be($"Vertex: {d} - Distance: {1} - Previous: {a}");
+        shortestPathList[3].ToString().Should().Be($"Vertex: {d} - Distance: {1} - Previous: {a}");
 
         shortestPathList[4].Vertex.Should().Be(e);
         shortestPathList[4].Distance.Should().Be(2);
         shortestPathList[4].PreviousVertex.Should().Be(d);
-        shortestPathList[4].ToString().Should()
-            .Be($"Vertex: {e} - Distance: {2} - Previous: {d}");
+        shortestPathList[4].ToString().Should().Be($"Vertex: {e} - Distance: {2} - Previous: {d}");
     }
 
     [Test]
@@ -96,20 +91,17 @@ public class DijkstraTests
         shortestPathList[0].Vertex.Should().Be(a);
         shortestPathList[0].Distance.Should().Be(0);
         shortestPathList[0].PreviousVertex.Should().Be(a);
-        shortestPathList[0].ToString().Should()
-            .Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
+        shortestPathList[0].ToString().Should().Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
 
         shortestPathList[1].Vertex.Should().Be(b);
         shortestPathList[1].Distance.Should().Be(1);
         shortestPathList[1].PreviousVertex.Should().Be(a);
-        shortestPathList[1].ToString().Should()
-            .Be($"Vertex: {b} - Distance: {1} - Previous: {a}");
+        shortestPathList[1].ToString().Should().Be($"Vertex: {b} - Distance: {1} - Previous: {a}");
 
         shortestPathList[2].Vertex.Should().Be(c);
         shortestPathList[2].Distance.Should().Be(2);
         shortestPathList[2].PreviousVertex.Should().Be(b);
-        shortestPathList[2].ToString().Should()
-            .Be($"Vertex: {c} - Distance: {2} - Previous: {b}");
+        shortestPathList[2].ToString().Should().Be($"Vertex: {c} - Distance: {2} - Previous: {b}");
     }
 
     [Test]
@@ -132,20 +124,17 @@ public class DijkstraTests
         shortestPathList[0].Vertex.Should().Be(a);
         shortestPathList[0].Distance.Should().Be(0);
         shortestPathList[0].PreviousVertex.Should().Be(a);
-        shortestPathList[0].ToString().Should()
-            .Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
+        shortestPathList[0].ToString().Should().Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
 
         shortestPathList[1].Vertex.Should().Be(b);
         shortestPathList[1].Distance.Should().Be(1);
         shortestPathList[1].PreviousVertex.Should().Be(a);
-        shortestPathList[1].ToString().Should()
-            .Be($"Vertex: {b} - Distance: {1} - Previous: {a}");
+        shortestPathList[1].ToString().Should().Be($"Vertex: {b} - Distance: {1} - Previous: {a}");
 
         shortestPathList[2].Vertex.Should().Be(c);
         shortestPathList[2].Distance.Should().Be(3);
         shortestPathList[2].PreviousVertex.Should().Be(a);
-        shortestPathList[2].ToString().Should()
-            .Be($"Vertex: {c} - Distance: {3} - Previous: {a}");
+        shortestPathList[2].ToString().Should().Be($"Vertex: {c} - Distance: {3} - Previous: {a}");
     }
 
     [Test]
@@ -172,26 +161,22 @@ public class DijkstraTests
         shortestPathList[0].Vertex.Should().Be(a);
         shortestPathList[0].Distance.Should().Be(0);
         shortestPathList[0].PreviousVertex.Should().Be(a);
-        shortestPathList[0].ToString().Should()
-            .Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
+        shortestPathList[0].ToString().Should().Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
 
         shortestPathList[1].Vertex.Should().Be(b);
         shortestPathList[1].Distance.Should().Be(1);
         shortestPathList[1].PreviousVertex.Should().Be(a);
-        shortestPathList[1].ToString().Should()
-            .Be($"Vertex: {b} - Distance: {1} - Previous: {a}");
+        shortestPathList[1].ToString().Should().Be($"Vertex: {b} - Distance: {1} - Previous: {a}");
 
         shortestPathList[2].Vertex.Should().Be(c);
         shortestPathList[2].Distance.Should().Be(3);
         shortestPathList[2].PreviousVertex.Should().Be(a);
-        shortestPathList[2].ToString().Should()
-            .Be($"Vertex: {c} - Distance: {3} - Previous: {a}");
+        shortestPathList[2].ToString().Should().Be($"Vertex: {c} - Distance: {3} - Previous: {a}");
 
         shortestPathList[3].Vertex.Should().Be(d);
         shortestPathList[3].Distance.Should().Be(8);
         shortestPathList[3].PreviousVertex.Should().Be(c);
-        shortestPathList[3].ToString().Should()
-            .Be($"Vertex: {d} - Distance: {8} - Previous: {c}");
+        shortestPathList[3].ToString().Should().Be($"Vertex: {d} - Distance: {8} - Previous: {c}");
     }
 
     [Test]
@@ -241,44 +226,37 @@ public class DijkstraTests
         shortestPathList[0].Vertex.Should().Be(a);
         shortestPathList[0].Distance.Should().Be(0);
         shortestPathList[0].PreviousVertex.Should().Be(a);
-        shortestPathList[0].ToString().Should()
-            .Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
+        shortestPathList[0].ToString().Should().Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
 
         shortestPathList[1].Vertex.Should().Be(b);
         shortestPathList[1].Distance.Should().Be(3);
         shortestPathList[1].PreviousVertex.Should().Be(d);
-        shortestPathList[1].ToString().Should()
-            .Be($"Vertex: {b} - Distance: {3} - Previous: {d}");
+        shortestPathList[1].ToString().Should().Be($"Vertex: {b} - Distance: {3} - Previous: {d}");
 
         shortestPathList[2].Vertex.Should().Be(c);
         shortestPathList[2].Distance.Should().Be(7);
         shortestPathList[2].PreviousVertex.Should().Be(e);
-        shortestPathList[2].ToString().Should()
-            .Be($"Vertex: {c} - Distance: {7} - Previous: {e}");
+        shortestPathList[2].ToString().Should().Be($"Vertex: {c} - Distance: {7} - Previous: {e}");
 
         shortestPathList[3].Vertex.Should().Be(d);
         shortestPathList[3].Distance.Should().Be(1);
         shortestPathList[3].PreviousVertex.Should().Be(a);
-        shortestPathList[3].ToString().Should()
-            .Be($"Vertex: {d} - Distance: {1} - Previous: {a}");
+        shortestPathList[3].ToString().Should().Be($"Vertex: {d} - Distance: {1} - Previous: {a}");
 
         shortestPathList[4].Vertex.Should().Be(e);
         shortestPathList[4].Distance.Should().Be(2);
         shortestPathList[4].PreviousVertex.Should().Be(d);
-        shortestPathList[4].ToString().Should()
-            .Be($"Vertex: {e} - Distance: {2} - Previous: {d}");
+        shortestPathList[4].ToString().Should().Be($"Vertex: {e} - Distance: {2} - Previous: {d}");
 
         shortestPathList[5].Vertex.Should().Be(w);
         shortestPathList[5].Distance.Should().Be(50);
         shortestPathList[5].PreviousVertex.Should().Be(a);
-        shortestPathList[5].ToString().Should()
-            .Be($"Vertex: {w} - Distance: {50} - Previous: {a}");
+        shortestPathList[5].ToString().Should().Be($"Vertex: {w} - Distance: {50} - Previous: {a}");
 
         shortestPathList[6].Vertex.Should().Be(z);
         shortestPathList[6].Distance.Should().Be(51);
         shortestPathList[6].PreviousVertex.Should().Be(w);
-        shortestPathList[6].ToString().Should()
-            .Be($"Vertex: {z} - Distance: {51} - Previous: {w}");
+        shortestPathList[6].ToString().Should().Be($"Vertex: {z} - Distance: {51} - Previous: {w}");
     }
 
     [Test]
@@ -302,25 +280,27 @@ public class DijkstraTests
         shortestPathList[0].Vertex.Should().Be(a);
         shortestPathList[0].Distance.Should().Be(0);
         shortestPathList[0].PreviousVertex.Should().Be(a);
-        shortestPathList[0].ToString().Should()
-            .Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
+        shortestPathList[0].ToString().Should().Be($"Vertex: {a} - Distance: {0} - Previous: {a}");
 
         shortestPathList[1].Vertex.Should().Be(b);
         shortestPathList[1].Distance.Should().Be(1);
         shortestPathList[1].PreviousVertex.Should().Be(a);
-        shortestPathList[1].ToString().Should()
-            .Be($"Vertex: {b} - Distance: {1} - Previous: {a}");
+        shortestPathList[1].ToString().Should().Be($"Vertex: {b} - Distance: {1} - Previous: {a}");
 
         shortestPathList[2].Vertex.Should().Be(c);
         shortestPathList[2].Distance.Should().Be(double.MaxValue);
         shortestPathList[2].PreviousVertex.Should().BeNull();
-        shortestPathList[2].ToString().Should()
+        shortestPathList[2]
+            .ToString()
+            .Should()
             .Be($"Vertex: {c} - Distance: {double.MaxValue} - Previous: {null}");
 
         shortestPathList[3].Vertex.Should().Be(d);
         shortestPathList[3].Distance.Should().Be(double.MaxValue);
         shortestPathList[3].PreviousVertex.Should().BeNull();
-        shortestPathList[3].ToString().Should()
+        shortestPathList[3]
+            .ToString()
+            .Should()
             .Be($"Vertex: {d} - Distance: {double.MaxValue} - Previous: {null}");
     }
 
@@ -332,7 +312,9 @@ public class DijkstraTests
 
         Func<DistanceModel<char>[]> action = () => DijkstraAlgorithm.GenerateShortestPath(null!, a);
 
-        action.Should().Throw<ArgumentNullException>()
+        action
+            .Should()
+            .Throw<ArgumentNullException>()
             .WithMessage($"Value cannot be null. (Parameter '{nameof(graph)}')");
     }
 
@@ -342,10 +324,12 @@ public class DijkstraTests
         var graph = new DirectedWeightedGraph<char>(5);
         var startVertex = graph.AddVertex('A');
 
-        Func<DistanceModel<char>[]> action = () => DijkstraAlgorithm.GenerateShortestPath(
-            new DirectedWeightedGraph<char>(5), startVertex);
+        Func<DistanceModel<char>[]> action = () =>
+            DijkstraAlgorithm.GenerateShortestPath(new DirectedWeightedGraph<char>(5), startVertex);
 
-        action.Should().Throw<ArgumentNullException>()
+        action
+            .Should()
+            .Throw<ArgumentNullException>()
             .WithMessage($"Value cannot be null. (Parameter '{nameof(graph)}')");
     }
 }

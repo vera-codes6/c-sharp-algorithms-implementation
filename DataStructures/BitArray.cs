@@ -533,7 +533,9 @@ public sealed class BitArray : ICloneable, IEnumerator<bool>, IEnumerable<bool>
         // precondition I
         if (sequence.Length > field.Length)
         {
-            throw new ArgumentException($"{nameof(sequence)} must be not longer than the bit array length");
+            throw new ArgumentException(
+                $"{nameof(sequence)} must be not longer than the bit array length"
+            );
         }
 
         // precondition II

@@ -16,9 +16,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.Count
-            .Should()
-            .Be(5);
+        timeline.Count.Should().Be(5);
     }
 
     [Test]
@@ -33,9 +31,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.TimesCount
-            .Should()
-            .Be(timeline.GetAllTimes().Length);
+        timeline.TimesCount.Should().Be(timeline.GetAllTimes().Length);
     }
 
     [Test]
@@ -50,9 +46,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.ValuesCount
-            .Should()
-            .Be(timeline.GetAllValues().Length);
+        timeline.ValuesCount.Should().Be(timeline.GetAllValues().Length);
     }
 
     [Test]
@@ -70,9 +64,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline[eventDate][0]
-            .Should()
-            .Be(eventName);
+        timeline[eventDate][0].Should().Be(eventName);
     }
 
     [Test]
@@ -94,9 +86,7 @@ public static class TimelineTests
 
         timeline[new DateTime(2000, 1, 1)] = [eventName];
 
-        timeline[new DateTime(2000, 1, 1)][0]
-            .Should()
-            .Be(eventName);
+        timeline[new DateTime(2000, 1, 1)][0].Should().Be(eventName);
     }
 
     [Test]
@@ -120,9 +110,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        (timeline1 == timeline2)
-            .Should()
-            .BeTrue();
+        (timeline1 == timeline2).Should().BeTrue();
     }
 
     [Test]
@@ -139,9 +127,7 @@ public static class TimelineTests
 
         timeline.Clear();
 
-        timeline.Count
-            .Should()
-            .Be(0);
+        timeline.Count.Should().Be(0);
     }
 
     [Test]
@@ -159,22 +145,16 @@ public static class TimelineTests
         var array = new (DateTime Time, string Value)[timeline.Count];
         timeline.CopyTo(array, 0);
 
-        timeline.Count
-            .Should()
-            .Be(array.Length);
+        timeline.Count.Should().Be(array.Length);
 
         var i = 0;
         using (new AssertionScope())
         {
             foreach (var (time, value) in timeline)
             {
-                array[i].Time
-                    .Should()
-                    .Be(time);
+                array[i].Time.Should().Be(time);
 
-                array[i].Value
-                    .Should()
-                    .Be(value);
+                array[i].Value.Should().Be(value);
 
                 ++i;
             }
@@ -200,9 +180,7 @@ public static class TimelineTests
         {
             foreach (var (time, _) in timeline)
             {
-                times[i++]
-                    .Should()
-                    .Be(time);
+                times[i++].Should().Be(time);
             }
         }
     }
@@ -222,9 +200,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.GetTimesByValue(eventName)[0]
-            .Should()
-            .Be(eventDate);
+        timeline.GetTimesByValue(eventName)[0].Should().Be(eventDate);
     }
 
     [Test]
@@ -243,17 +219,11 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            times.Length
-                .Should()
-                .Be(2);
+            times.Length.Should().Be(2);
 
-            times[0]
-                .Should()
-                .Be(new DateTime(1995, 1, 1));
+            times[0].Should().Be(new DateTime(1995, 1, 1));
 
-            times[1]
-                .Should()
-                .Be(new DateTime(2000, 1, 1));
+            times[1].Should().Be(new DateTime(2000, 1, 1));
         }
     }
 
@@ -273,21 +243,13 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            times.Length
-                .Should()
-                .Be(3);
+            times.Length.Should().Be(3);
 
-            times[0]
-                .Should()
-                .Be(new DateTime(2005, 1, 1));
+            times[0].Should().Be(new DateTime(2005, 1, 1));
 
-            times[1]
-                .Should()
-                .Be(new DateTime(2010, 1, 1));
+            times[1].Should().Be(new DateTime(2010, 1, 1));
 
-            times[2]
-                .Should()
-                .Be(new DateTime(2015, 1, 1));
+            times[2].Should().Be(new DateTime(2015, 1, 1));
         }
     }
 
@@ -310,9 +272,7 @@ public static class TimelineTests
         {
             foreach (var (_, value) in timeline)
             {
-                values[i++]
-                    .Should()
-                    .Be(value);
+                values[i++].Should().Be(value);
             }
         }
     }
@@ -329,9 +289,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.GetValuesByTime(new DateTime(2000, 1, 1))[0]
-            .Should()
-            .Be("TestTime2");
+        timeline.GetValuesByTime(new DateTime(2000, 1, 1))[0].Should().Be("TestTime2");
     }
 
     [Test]
@@ -350,17 +308,11 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            array.Length
-                .Should()
-                .Be(2);
+            array.Length.Should().Be(2);
 
-            array[0].Time
-                .Should()
-                .Be(new DateTime(1995, 1, 1));
+            array[0].Time.Should().Be(new DateTime(1995, 1, 1));
 
-            array[1].Time
-                .Should()
-                .Be(new DateTime(2000, 1, 1));
+            array[1].Time.Should().Be(new DateTime(2000, 1, 1));
         }
     }
 
@@ -380,21 +332,13 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            array.Length
-                .Should()
-                .Be(3);
+            array.Length.Should().Be(3);
 
-            array[0].Time
-                .Should()
-                .Be(new DateTime(2005, 1, 1));
+            array[0].Time.Should().Be(new DateTime(2005, 1, 1));
 
-            array[1].Time
-                .Should()
-                .Be(new DateTime(2010, 1, 1));
+            array[1].Time.Should().Be(new DateTime(2010, 1, 1));
 
-            array[2].Time
-                .Should()
-                .Be(new DateTime(2015, 1, 1));
+            array[2].Time.Should().Be(new DateTime(2015, 1, 1));
         }
     }
 
@@ -412,9 +356,7 @@ public static class TimelineTests
 
         var query = timeline.GetValuesByMillisecond(750);
 
-        query.Count
-            .Should()
-            .Be(2);
+        query.Count.Should().Be(2);
     }
 
     [Test]
@@ -433,13 +375,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -459,13 +397,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -485,13 +419,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -511,13 +441,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -537,13 +463,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -563,13 +485,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -589,13 +507,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -615,13 +529,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -641,13 +551,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            query.Count
-                .Should()
-                .Be(2);
+            query.Count.Should().Be(2);
 
-            timeline
-                .Should()
-                .Contain(query);
+            timeline.Should().Contain(query);
         }
     }
 
@@ -657,18 +563,11 @@ public static class TimelineTests
         var eventDate = new DateTime(2015, 1, 1);
         const string eventName = "TestTime";
 
-        var timeline = new Timeline<string>
-        {
-            { eventDate, eventName }
-        };
+        var timeline = new Timeline<string> { { eventDate, eventName } };
 
-        timeline.Count
-            .Should()
-            .Be(1);
+        timeline.Count.Should().Be(1);
 
-        timeline[eventDate][0]
-            .Should()
-            .Be(eventName);
+        timeline[eventDate][0].Should().Be(eventName);
     }
 
     [Test]
@@ -682,25 +581,16 @@ public static class TimelineTests
 
         var timeline = new Timeline<string>
         {
-            {
-                (eventDate1, eventName1),
-                (eventDate2, eventName2)
-            }
+            { (eventDate1, eventName1), (eventDate2, eventName2) },
         };
 
         using (new AssertionScope())
         {
-            timeline.Count
-                .Should()
-                .Be(2);
+            timeline.Count.Should().Be(2);
 
-            timeline[eventDate1][0]
-                .Should()
-                .Be(eventName1);
+            timeline[eventDate1][0].Should().Be(eventName1);
 
-            timeline[eventDate2][0]
-                .Should()
-                .Be(eventName2);
+            timeline[eventDate2][0].Should().Be(eventName2);
         }
     }
 
@@ -710,20 +600,13 @@ public static class TimelineTests
         var eventDate = new DateTime(2015, 1, 1);
         const string eventName = "TestTime";
 
-        var timeline = new Timeline<string>
-        {
-            new Timeline<string>(eventDate, eventName)
-        };
+        var timeline = new Timeline<string> { new Timeline<string>(eventDate, eventName) };
 
         using (new AssertionScope())
         {
-            timeline.Count
-                .Should()
-                .Be(1);
+            timeline.Count.Should().Be(1);
 
-            timeline[eventDate][0]
-                .Should()
-                .Be(eventName);
+            timeline[eventDate][0].Should().Be(eventName);
         }
     }
 
@@ -736,13 +619,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            timeline.Count
-                .Should()
-                .Be(1);
+            timeline.Count.Should().Be(1);
 
-            timeline.ContainsValue("Now")
-                .Should()
-                .BeTrue();
+            timeline.ContainsValue("Now").Should().BeTrue();
         }
     }
 
@@ -758,9 +637,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.Contains(new DateTime(2000, 1, 1), "TestTime2")
-            .Should()
-            .BeTrue();
+        timeline.Contains(new DateTime(2000, 1, 1), "TestTime2").Should().BeTrue();
     }
 
     [Test]
@@ -775,9 +652,11 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.Contains(
+        timeline
+            .Contains(
                 (new DateTime(1995, 1, 1), "TestTime1"),
-                (new DateTime(2000, 1, 1), "TestTime2"))
+                (new DateTime(2000, 1, 1), "TestTime2")
+            )
             .Should()
             .BeTrue();
     }
@@ -794,7 +673,8 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.Contains(new Timeline<string>(new DateTime(2000, 1, 1), "TestTime2"))
+        timeline
+            .Contains(new Timeline<string>(new DateTime(2000, 1, 1), "TestTime2"))
             .Should()
             .BeTrue();
     }
@@ -811,9 +691,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.ContainsTime(new DateTime(2000, 1, 1))
-            .Should()
-            .BeTrue();
+        timeline.ContainsTime(new DateTime(2000, 1, 1)).Should().BeTrue();
     }
 
     [Test]
@@ -828,9 +706,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        timeline.ContainsValue("TestTime1")
-            .Should()
-            .BeTrue();
+        timeline.ContainsValue("TestTime1").Should().BeTrue();
     }
 
     [Test]
@@ -849,13 +725,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            timeline.Count
-                .Should()
-                .Be(4);
+            timeline.Count.Should().Be(4);
 
-            timeline.Contains(new DateTime(2000, 1, 1), "TestTime2")
-                .Should()
-                .BeFalse();
+            timeline.Contains(new DateTime(2000, 1, 1), "TestTime2").Should().BeFalse();
         }
     }
 
@@ -873,17 +745,18 @@ public static class TimelineTests
 
         timeline.Remove(
             (new DateTime(1995, 1, 1), "TestTime1"),
-            (new DateTime(2000, 1, 1), "TestTime2"));
+            (new DateTime(2000, 1, 1), "TestTime2")
+        );
 
         using (new AssertionScope())
         {
-            timeline.Count
-                .Should()
-                .Be(3);
+            timeline.Count.Should().Be(3);
 
-            timeline.Contains(
+            timeline
+                .Contains(
                     (new DateTime(1995, 1, 1), "TestTime1"),
-                    (new DateTime(2000, 1, 1), "TestTime2"))
+                    (new DateTime(2000, 1, 1), "TestTime2")
+                )
                 .Should()
                 .BeFalse();
         }
@@ -905,13 +778,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            timeline.Count
-                .Should()
-                .Be(4);
+            timeline.Count.Should().Be(4);
 
-            timeline.Contains(new DateTime(2000, 1, 1), "TestTime2")
-                .Should()
-                .BeFalse();
+            timeline.Contains(new DateTime(2000, 1, 1), "TestTime2").Should().BeFalse();
         }
     }
 
@@ -931,13 +800,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            timeline.Count
-                .Should()
-                .Be(4);
+            timeline.Count.Should().Be(4);
 
-            timeline.ContainsTime(new DateTime(2000, 1, 1))
-                .Should()
-                .BeFalse();
+            timeline.ContainsTime(new DateTime(2000, 1, 1)).Should().BeFalse();
         }
     }
 
@@ -957,13 +822,9 @@ public static class TimelineTests
 
         using (new AssertionScope())
         {
-            timeline.Count
-                .Should()
-                .Be(4);
+            timeline.Count.Should().Be(4);
 
-            timeline.ContainsValue("TestTime1")
-                .Should()
-                .BeFalse();
+            timeline.ContainsValue("TestTime1").Should().BeFalse();
         }
     }
 
@@ -981,22 +842,16 @@ public static class TimelineTests
 
         var array = timeline.ToArray();
 
-        timeline.Count
-            .Should()
-            .Be(array.Length);
+        timeline.Count.Should().Be(array.Length);
 
         using (new AssertionScope())
         {
             var i = 0;
             foreach (var (time, value) in timeline)
             {
-                time
-                    .Should()
-                    .Be(array[i].Time);
+                time.Should().Be(array[i].Time);
 
-                value
-                    .Should()
-                    .Be(array[i].Value);
+                value.Should().Be(array[i].Value);
 
                 ++i;
             }
@@ -1017,22 +872,16 @@ public static class TimelineTests
 
         var list = timeline.ToList();
 
-        timeline.Count
-            .Should()
-            .Be(list.Count);
+        timeline.Count.Should().Be(list.Count);
 
         using (new AssertionScope())
         {
             var i = 0;
             foreach (var (time, value) in timeline)
             {
-                time
-                    .Should()
-                    .Be(list[i].Time);
+                time.Should().Be(list[i].Time);
 
-                value
-                    .Should()
-                    .Be(list[i].Value);
+                value.Should().Be(list[i].Value);
 
                 ++i;
             }
@@ -1068,21 +917,15 @@ public static class TimelineTests
         timelineList.OrderBy(pair => pair.Time);
         dictionaryList.OrderBy(pair => pair.Time);
 
-        timelineList.Count
-            .Should()
-            .Be(dictionaryList.Count);
+        timelineList.Count.Should().Be(dictionaryList.Count);
 
         using (new AssertionScope())
         {
             for (var i = 0; i < timelineList.Count; ++i)
             {
-                timelineList[i].Time
-                    .Should()
-                    .Be(dictionaryList[i].Time);
+                timelineList[i].Time.Should().Be(dictionaryList[i].Time);
 
-                timelineList[i].Value
-                    .Should()
-                    .Be(dictionaryList[i].Value);
+                timelineList[i].Value.Should().Be(dictionaryList[i].Value);
             }
         }
     }
@@ -1108,9 +951,7 @@ public static class TimelineTests
             { new DateTime(2015, 1, 1), "TestTime5" },
         };
 
-        (timeline1 == timeline2)
-            .Should()
-            .BeTrue();
+        (timeline1 == timeline2).Should().BeTrue();
     }
 
     [Test]
@@ -1134,8 +975,6 @@ public static class TimelineTests
             { new DateTime(1915, 1, 1), "TestTime10" },
         };
 
-        (timeline1 == timeline2)
-            .Should()
-            .BeFalse();
+        (timeline1 == timeline2).Should().BeFalse();
     }
 }

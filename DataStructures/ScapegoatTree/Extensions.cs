@@ -8,7 +8,8 @@ public static class Extensions
     /// <param name="root">Scapegoat tree provided as root node.</param>
     /// <param name="list">An empty list.</param>
     /// <typeparam name="TKey">Scapegoat tree node key type.</typeparam>
-    public static void FlattenTree<TKey>(Node<TKey> root, List<Node<TKey>> list) where TKey : IComparable
+    public static void FlattenTree<TKey>(Node<TKey> root, List<Node<TKey>> list)
+        where TKey : IComparable
     {
         if (root.Left != null)
         {

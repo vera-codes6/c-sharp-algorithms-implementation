@@ -10,9 +10,24 @@ public class LuTests
     public void DecomposeIdentityMatrix()
     {
         // Arrange
-        var identityMatrix = new double[,] { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
-        var expectedLower = new double[,] { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
-        var expectedUpper = new double[,] { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+        var identityMatrix = new double[,]
+        {
+            { 1, 0, 0 },
+            { 0, 1, 0 },
+            { 0, 0, 1 },
+        };
+        var expectedLower = new double[,]
+        {
+            { 1, 0, 0 },
+            { 0, 1, 0 },
+            { 0, 0, 1 },
+        };
+        var expectedUpper = new double[,]
+        {
+            { 1, 0, 0 },
+            { 0, 1, 0 },
+            { 0, 0, 1 },
+        };
 
         // Act
         (double[,] lower, double[,] upper) = Lu.Decompose(identityMatrix);
@@ -27,9 +42,24 @@ public class LuTests
     public void DecomposeMatrix_Case3X3()
     {
         // Arrange
-        var source = new double[,] { { 2, 1, 4 }, { 7, 1, 1 }, { 4, 2, 9 } };
-        var expectedLower = new[,] { { 1, 0, 0 }, { 3.5, 1, 0 }, { 2, 0, 1 } };
-        var expectedUpper = new[,] { { 2, 1, 4 }, { 0, -2.5, -13 }, { 0, 0, 1 } };
+        var source = new double[,]
+        {
+            { 2, 1, 4 },
+            { 7, 1, 1 },
+            { 4, 2, 9 },
+        };
+        var expectedLower = new[,]
+        {
+            { 1, 0, 0 },
+            { 3.5, 1, 0 },
+            { 2, 0, 1 },
+        };
+        var expectedUpper = new[,]
+        {
+            { 2, 1, 4 },
+            { 0, -2.5, -13 },
+            { 0, 0, 1 },
+        };
 
         // Act
         (double[,] lower, double[,] upper) = Lu.Decompose(source);
@@ -44,9 +74,27 @@ public class LuTests
     public void DecomposeMatrix_Case4X4()
     {
         // Arrange
-        var source = new[,] { { 1, 2, 4.5, 7 }, { 3, 8, 0.5, 2 }, { 2, 6, 4, 1.5 }, { 4, 14, 2, 10.5 } };
-        var expectedLower = new[,] { { 1, 0, 0, 0 }, { 3, 1, 0, 0 }, { 2, 1, 1, 0 }, { 4, 3, 2.875, 1 } };
-        var expectedUpper = new[,] { { 1, 2, 4.5, 7 }, { 0, 2, -13, -19 }, { 0, 0, 8, 6.5 }, { 0, 0, 0, 20.8125 } };
+        var source = new[,]
+        {
+            { 1, 2, 4.5, 7 },
+            { 3, 8, 0.5, 2 },
+            { 2, 6, 4, 1.5 },
+            { 4, 14, 2, 10.5 },
+        };
+        var expectedLower = new[,]
+        {
+            { 1, 0, 0, 0 },
+            { 3, 1, 0, 0 },
+            { 2, 1, 1, 0 },
+            { 4, 3, 2.875, 1 },
+        };
+        var expectedUpper = new[,]
+        {
+            { 1, 2, 4.5, 7 },
+            { 0, 2, -13, -19 },
+            { 0, 0, 8, 6.5 },
+            { 0, 0, 0, 20.8125 },
+        };
 
         // Act
         (double[,] lower, double[,] upper) = Lu.Decompose(source);
@@ -61,7 +109,13 @@ public class LuTests
     public void FailOnDecomposeNonSquareMatrix()
     {
         // Arrange
-        var nonSquareMatrix = new double[,] { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 }, { 0, 0, 0 } };
+        var nonSquareMatrix = new double[,]
+        {
+            { 1, 0, 0 },
+            { 0, 1, 0 },
+            { 0, 0, 1 },
+            { 0, 0, 0 },
+        };
 
         // Act
         void Act(double[,] source) => Lu.Decompose(source);
@@ -74,7 +128,12 @@ public class LuTests
     public void EliminateIdentityEquation()
     {
         // Arrange
-        var identityMatrix = new double[,] { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 } };
+        var identityMatrix = new double[,]
+        {
+            { 1, 0, 0 },
+            { 0, 1, 0 },
+            { 0, 0, 1 },
+        };
         var coefficients = new double[] { 1, 2, 3 };
 
         // Act
@@ -88,7 +147,12 @@ public class LuTests
     public void EliminateEquation_Case3X3()
     {
         // Arrange
-        var source = new double[,] { { 2, 1, -1 }, { -3, -1, 2 }, { -2, 1, 2 } };
+        var source = new double[,]
+        {
+            { 2, 1, -1 },
+            { -3, -1, 2 },
+            { -2, 1, 2 },
+        };
         var coefficients = new double[] { 8, -11, -3 };
         var expectedSolution = new double[] { 2, 3, -1 };
 
@@ -124,7 +188,13 @@ public class LuTests
     public void FailOnEliminateEquationWithNonSquareMatrix()
     {
         // Arrange
-        var nonSquareMatrix = new double[,] { { 1, 0, 0 }, { 0, 1, 0 }, { 0, 0, 1 }, { 0, 0, 0 } };
+        var nonSquareMatrix = new double[,]
+        {
+            { 1, 0, 0 },
+            { 0, 1, 0 },
+            { 0, 0, 1 },
+            { 0, 0, 0 },
+        };
         var coefficients = new double[] { 1, 2, 3, 4 };
 
         // Act
