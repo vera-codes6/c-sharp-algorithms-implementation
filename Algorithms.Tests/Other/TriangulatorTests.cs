@@ -13,7 +13,7 @@ namespace Algorithms.Tests.Other
             {
                 (16.054407, 108.202167),
                 (16.049807, 108.218991),
-                (16.063597, 108.215553)
+                (16.063597, 108.215553),
             };
 
             var distances = new List<double> { 0.5, 0.7, 0.6 };
@@ -30,12 +30,15 @@ namespace Algorithms.Tests.Other
         {
             var triangulator = new Triangulator();
             var baseLocations = new List<(double Latitude, double Longitude)>
-        {
-            (10.762622, 106.660172)
-        };
+            {
+                (10.762622, 106.660172),
+            };
             var distances = new List<double> { 1.0 };
 
-            Assert.That(() => triangulator.CalculatePosition(baseLocations, distances), Throws.ArgumentException);
+            Assert.That(
+                () => triangulator.CalculatePosition(baseLocations, distances),
+                Throws.ArgumentException
+            );
         }
 
         [Test]
@@ -43,14 +46,17 @@ namespace Algorithms.Tests.Other
         {
             var triangulator = new Triangulator();
             var baseLocations = new List<(double Latitude, double Longitude)>
-        {
-            (10.762622, 106.660172),
-            (10.774981, 106.665504),
-            (10.771817, 106.681179)
-        };
+            {
+                (10.762622, 106.660172),
+                (10.774981, 106.665504),
+                (10.771817, 106.681179),
+            };
             var distances = new List<double> { 1.0 };
 
-            Assert.That(() => triangulator.CalculatePosition(baseLocations, distances), Throws.ArgumentException);
+            Assert.That(
+                () => triangulator.CalculatePosition(baseLocations, distances),
+                Throws.ArgumentException
+            );
         }
     }
 }

@@ -11,7 +11,8 @@ public static class Floor
     /// <typeparam name="T">Type of number.</typeparam>
     /// <param name="inputNum">Number to find the floor of.</param>
     /// <returns>Floor value of the number.</returns>
-    public static T FloorVal<T>(T inputNum) where T : INumber<T>
+    public static T FloorVal<T>(T inputNum)
+        where T : INumber<T>
     {
         T intPart = T.CreateChecked(Convert.ToInt32(inputNum));
 

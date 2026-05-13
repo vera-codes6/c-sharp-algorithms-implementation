@@ -5,7 +5,10 @@ namespace Algorithms.Tests.Numeric;
 public static class SoftMaxTests
 {
     [TestCase(new[] { 5.0, 5.0 }, new[] { 0.5, 0.5 })]
-    [TestCase(new[] { 1.0, 2.0, 3.0 }, new[] { 0.09003057317038046, 0.24472847105479767, 0.6652409557748219 })]
+    [TestCase(
+        new[] { 1.0, 2.0, 3.0 },
+        new[] { 0.09003057317038046, 0.24472847105479767, 0.6652409557748219 }
+    )]
     [TestCase(new[] { 0.0 }, new[] { 1.0 })]
     public static void SoftMaxFunction(double[] input, double[] expected)
     {

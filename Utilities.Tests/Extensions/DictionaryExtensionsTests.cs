@@ -74,16 +74,15 @@ public class DictionaryExtensionsTests
         dictionary.Should().ContainKey("two").WhoseValue.Should().Be(null);
     }
 
-
     [Test]
     public void AddMany_ShouldAllowNullValue_WhenValueIsNullable()
     {
-        var dictionary = new Dictionary<int, string?>();  // Key type is int, value type is nullable string
+        var dictionary = new Dictionary<int, string?>(); // Key type is int, value type is nullable string
         var enumerable = new[]
         {
-                (1, null),  // null value
-                (2, "banana")
-            };
+            (1, null), // null value
+            (2, "banana"),
+        };
 
         dictionary.AddMany(enumerable);
 
@@ -94,17 +93,17 @@ public class DictionaryExtensionsTests
     [Test]
     public void AddMany_ShouldThrowArgumentException_WhenAddingDuplicateKey()
     {
-        var dictionary = new Dictionary<int, string>();  // Key type is int, value type is nullable string
+        var dictionary = new Dictionary<int, string>(); // Key type is int, value type is nullable string
         var enumerable = new[]
         {
-                (1, "Things"),   // First entry
-                (2, "Stuff"),
-                (1, "That Thing")   // Duplicate key (should throw exception)
-            };
+            (1, "Things"), // First entry
+            (2, "Stuff"),
+            (1, "That Thing"), // Duplicate key (should throw exception)
+        };
 
         var action = () => dictionary.AddMany(enumerable);
 
-        action.Should().Throw<ArgumentException>();  // Adding a duplicate key should throw ArgumentException
+        action.Should().Throw<ArgumentException>(); // Adding a duplicate key should throw ArgumentException
     }
 
     [Test]

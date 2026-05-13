@@ -19,14 +19,20 @@ public sealed class GraphColoringSolverTests
     {
         var numVertices = adjacencyMatrix.GetLength(0);
 
-        Assert.That(colors, Has.Length.EqualTo(numVertices), 
-            "Color array length must match number of vertices.");
+        Assert.That(
+            colors,
+            Has.Length.EqualTo(numVertices),
+            "Color array length must match number of vertices."
+        );
 
         // Check all vertices are colored
         for (var i = 0; i < numVertices; i++)
         {
-            Assert.That(colors[i], Is.GreaterThanOrEqualTo(0),
-                $"Vertex {i} is not colored (has value -1).");
+            Assert.That(
+                colors[i],
+                Is.GreaterThanOrEqualTo(0),
+                $"Vertex {i} is not colored (has value -1)."
+            );
         }
 
         // Check no adjacent vertices have the same color
@@ -36,8 +42,11 @@ public sealed class GraphColoringSolverTests
             {
                 if (adjacencyMatrix[i, j])
                 {
-                    Assert.That(colors[i], Is.Not.EqualTo(colors[j]),
-                        $"Adjacent vertices {i} and {j} have the same color {colors[i]}.");
+                    Assert.That(
+                        colors[i],
+                        Is.Not.EqualTo(colors[j]),
+                        $"Adjacent vertices {i} and {j} have the same color {colors[i]}."
+                    );
                 }
             }
         }
@@ -77,7 +86,7 @@ public sealed class GraphColoringSolverTests
     {
         var total = setASize + setBSize;
         var graph = new bool[total, total];
-        
+
         // Connect all vertices in set A to all vertices in set B
         for (var i = 0; i < setASize; i++)
         {
@@ -181,7 +190,7 @@ public sealed class GraphColoringSolverTests
 
         Assert.That(result, Has.Length.EqualTo(5));
         AssertValidColoring(graph, result);
-        
+
         // All vertices should have the same color since there are no edges
         Assert.That(result.Distinct().Count(), Is.EqualTo(1));
     }
@@ -196,7 +205,7 @@ public sealed class GraphColoringSolverTests
 
         Assert.That(result, Has.Length.EqualTo(6));
         AssertValidColoring(graph, result);
-        
+
         // Bipartite graph should use exactly 2 colors
         Assert.That(result.Distinct().Count(), Is.LessThanOrEqualTo(2));
     }
@@ -221,7 +230,7 @@ public sealed class GraphColoringSolverTests
 
         Assert.That(result, Has.Length.EqualTo(5));
         AssertValidColoring(graph, result);
-        
+
         // Path graph can be colored with 2 colors
         Assert.That(result.Distinct().Count(), Is.LessThanOrEqualTo(2));
     }
@@ -236,7 +245,7 @@ public sealed class GraphColoringSolverTests
 
         Assert.That(result, Has.Length.EqualTo(6));
         AssertValidColoring(graph, result);
-        
+
         // Even cycle can be colored with 2 colors
         Assert.That(result.Distinct().Count(), Is.LessThanOrEqualTo(2));
     }
@@ -273,7 +282,7 @@ public sealed class GraphColoringSolverTests
 
         Assert.That(result, Has.Length.EqualTo(3));
         AssertValidColoring(graph, result);
-        
+
         // Complete graph K3 requires exactly 3 colors
         Assert.That(result.Distinct().Count(), Is.EqualTo(3));
     }
@@ -298,7 +307,7 @@ public sealed class GraphColoringSolverTests
 
         Assert.That(result, Has.Length.EqualTo(4));
         AssertValidColoring(graph, result);
-        
+
         // Complete graph K4 requires exactly 4 colors
         Assert.That(result.Distinct().Count(), Is.EqualTo(4));
     }
@@ -317,7 +326,7 @@ public sealed class GraphColoringSolverTests
     public void ColorGraph_ColorsStarGraph_WithTwoColors()
     {
         var solver = new GraphColoringSolver();
-        
+
         // Star graph: one central vertex connected to all others
         var graph = new bool[5, 5];
         for (var i = 1; i < 5; i++)
@@ -330,7 +339,7 @@ public sealed class GraphColoringSolverTests
 
         Assert.That(result, Has.Length.EqualTo(5));
         AssertValidColoring(graph, result);
-        
+
         // Star graph requires only 2 colors
         Assert.That(result.Distinct().Count(), Is.LessThanOrEqualTo(2));
     }
@@ -339,20 +348,20 @@ public sealed class GraphColoringSolverTests
     public void ColorGraph_HandlesPetersenGraph_WithThreeColors()
     {
         var solver = new GraphColoringSolver();
-        
+
         // Simplified version: a graph that requires 3 colors
         // Creating a graph with a triangle and additional connections
         var graph = new bool[5, 5];
-        
+
         // Triangle: vertices 0, 1, 2
         graph[0, 1] = graph[1, 0] = true;
         graph[1, 2] = graph[2, 1] = true;
         graph[2, 0] = graph[0, 2] = true;
-        
+
         // Additional edges to vertex 3
         graph[0, 3] = graph[3, 0] = true;
         graph[1, 3] = graph[3, 1] = true;
-        
+
         // Additional edges to vertex 4
         graph[2, 4] = graph[4, 2] = true;
         graph[3, 4] = graph[4, 3] = true;
@@ -383,7 +392,7 @@ public sealed class GraphColoringSolverTests
     public void ColorGraph_SymmetricMatrix_ProducesSameResult()
     {
         var solver = new GraphColoringSolver();
-        
+
         // Create a symmetric graph
         var graph = new bool[4, 4];
         graph[0, 1] = graph[1, 0] = true;
@@ -400,16 +409,16 @@ public sealed class GraphColoringSolverTests
     public void ColorGraph_LargerGraph_ProducesValidColoring()
     {
         var solver = new GraphColoringSolver();
-        
+
         // Create a larger graph (10 vertices, random edges)
         var graph = new bool[10, 10];
-        
+
         // Create edges forming a more complex structure
         for (var i = 0; i < 9; i++)
         {
             graph[i, i + 1] = graph[i + 1, i] = true;
         }
-        
+
         // Add some cross edges
         graph[0, 5] = graph[5, 0] = true;
         graph[2, 7] = graph[7, 2] = true;

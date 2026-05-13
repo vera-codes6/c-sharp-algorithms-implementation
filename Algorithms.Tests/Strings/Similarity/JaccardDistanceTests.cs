@@ -16,7 +16,6 @@ public class JaccardDistanceTests
         action.Should().Throw<ArgumentNullException>();
     }
 
-
     [TestCase("", "", 0.0d)]
     [TestCase("left", "", 1.0d)]
     [TestCase("", "right", 1.0d)]
@@ -24,7 +23,11 @@ public class JaccardDistanceTests
     [TestCase("fly", "ant", 1.0d)]
     [TestCase("elephant", "hippo", 0.777777d)]
     [TestCase("ABC Corporation", "ABC Corp", 0.36363d)]
-    public void Calculate_WhenProvidedWithStrings_CalculatesCorrectDistance(string left, string right, double expected)
+    public void Calculate_WhenProvidedWithStrings_CalculatesCorrectDistance(
+        string left,
+        string right,
+        double expected
+    )
     {
         var distance = jaccard.Calculate(left, right);
 

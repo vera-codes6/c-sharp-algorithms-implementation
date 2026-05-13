@@ -34,10 +34,12 @@ public static class DamerauLevenshteinDistance
                 // Calculate the minimum distance by considering three possible operations:
                 // deletion, insertion, and substitution.
                 distances[i, j] = Math.Min(
-                    Math.Min(// deletion
+                    Math.Min( // deletion
                         distances[i - 1, j] + 1, // delete the character from the left string
-                        distances[i, j - 1] + 1), // insert the character into the right string
-                    distances[i - 1, j - 1] + cost); // substitute the character in the left string with the character in the right string
+                        distances[i, j - 1] + 1
+                    ), // insert the character into the right string
+                    distances[i - 1, j - 1] + cost
+                ); // substitute the character in the left string with the character in the right string
 
                 // If the current character in the left string is the same as the character
                 // two positions to the left in the right string and the current character
@@ -47,7 +49,8 @@ public static class DamerauLevenshteinDistance
                 {
                     distances[i, j] = Math.Min(
                         distances[i, j], // current minimum distance
-                        distances[i - 2, j - 2] + cost); // transpose the last two characters
+                        distances[i - 2, j - 2] + cost
+                    ); // transpose the last two characters
                 }
             }
         }

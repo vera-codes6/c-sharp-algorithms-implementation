@@ -5,11 +5,10 @@ namespace Algorithms.Tests.Graph;
 
 public class KosarajuTests
 {
-
     [Test]
     public void GetRepresentativesTest()
     {
-        // Create a graph with some SCC. 
+        // Create a graph with some SCC.
         var graph = new DirectedWeightedGraph<int>(10);
 
         var vertex1 = graph.AddVertex(1);
@@ -59,7 +58,7 @@ public class KosarajuTests
     [Test]
     public void GetSccTest()
     {
-        // Create a graph with some SCC. 
+        // Create a graph with some SCC.
         var graph = new DirectedWeightedGraph<int>(10);
 
         var vertex1 = graph.AddVertex(1);
@@ -79,7 +78,7 @@ public class KosarajuTests
         graph.AddEdge(vertex5, vertex4, 1);
         graph.AddEdge(vertex5, vertex6, 1);
 
-        // Run the algorithm and get SCC as lists of vertices. 
+        // Run the algorithm and get SCC as lists of vertices.
         var scc = Kosaraju<int>.GetScc(graph);
 
         // There should be 4 SCC: {1,2,3}, {4,5}, {6} and {7}

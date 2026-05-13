@@ -101,8 +101,7 @@ namespace DataStructures.LinkedList.CircularLinkedList
                 }
 
                 current = current.Next;
-            }
-            while (current != tail.Next);
+            } while (current != tail.Next);
         }
 
         /// <summary>
@@ -146,8 +145,7 @@ namespace DataStructures.LinkedList.CircularLinkedList
 
                 previous = current;
                 current = current.Next;
-            }
-            while (current != tail!.Next);
+            } while (current != tail!.Next);
         }
     }
 }

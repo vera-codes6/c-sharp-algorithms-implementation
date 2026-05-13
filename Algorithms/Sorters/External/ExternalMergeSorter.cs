@@ -5,7 +5,8 @@ public class ExternalMergeSorter<T> : IExternalSorter<T>
     public void Sort(
         ISequentialStorage<T> mainMemory,
         ISequentialStorage<T> temporaryMemory,
-        IComparer<T> comparer)
+        IComparer<T> comparer
+    )
     {
         var originalSource = mainMemory;
         var source = mainMemory;
@@ -22,10 +23,21 @@ public class ExternalMergeSorter<T> : IExternalSorter<T>
                 right.Read();
             }
 
-            Merge(left, right, output, stripLength, Math.Min(stripLength, totalLength - stripLength), comparer);
+            Merge(
+                left,
+                right,
+                output,
+                stripLength,
+                Math.Min(stripLength, totalLength - stripLength),
+                comparer
+            );
             var step = 2 * stripLength;
             long rightStripStart;
-            for (rightStripStart = stripLength + step; rightStripStart < mainMemory.Length; rightStripStart += step)
+            for (
+                rightStripStart = stripLength + step;
+                rightStripStart < mainMemory.Length;
+                rightStripStart += step
+            )
             {
                 for (var i = 0L; i < stripLength; i++)
                 {
@@ -39,7 +51,8 @@ public class ExternalMergeSorter<T> : IExternalSorter<T>
                     output,
                     stripLength,
                     Math.Min(stripLength, totalLength - rightStripStart),
-                    comparer);
+                    comparer
+                );
             }
 
             for (var i = 0L; i < totalLength + stripLength - rightStripStart; i++)
@@ -69,7 +82,8 @@ public class ExternalMergeSorter<T> : IExternalSorter<T>
         ISequentialStorageWriter<T> output,
         long leftLength,
         long rightLength,
-        IComparer<T> comparer)
+        IComparer<T> comparer
+    )
     {
         var leftIndex = 0L;
         var rightIndex = 0L;
@@ -115,7 +129,11 @@ public class ExternalMergeSorter<T> : IExternalSorter<T>
         }
     }
 
-    private static void Copy(ISequentialStorageReader<T> from, ISequentialStorageWriter<T> to, long count)
+    private static void Copy(
+        ISequentialStorageReader<T> from,
+        ISequentialStorageWriter<T> to,
+        long count
+    )
     {
         for (var i = 0; i < count; i++)
         {

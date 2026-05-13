@@ -4,7 +4,8 @@ namespace Algorithms.Search;
 ///     RecursiveBinarySearcher.
 /// </summary>
 /// <typeparam name="T">Type of searcher target.</typeparam>
-public class RecursiveBinarySearcher<T> where T : IComparable<T>
+public class RecursiveBinarySearcher<T>
+    where T : IComparable<T>
 {
     /// <summary>
     ///     Finds index of item in collection that equals to item searched for,

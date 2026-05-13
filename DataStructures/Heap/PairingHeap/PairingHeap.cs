@@ -6,10 +6,14 @@ namespace DataStructures.Heap.PairingHeap;
 /// A pairing minMax heap implementation.
 /// </summary>
 /// <typeparam name="T">Base type.</typeparam>
-public class PairingHeap<T>(Sorting sortDirection = Sorting.Ascending) : IEnumerable<T> where T : IComparable
+public class PairingHeap<T>(Sorting sortDirection = Sorting.Ascending) : IEnumerable<T>
+    where T : IComparable
 {
     private readonly Sorting sorting = sortDirection;
-    private readonly IComparer<T> comparer = new PairingNodeComparer<T>(sortDirection, Comparer<T>.Default);
+    private readonly IComparer<T> comparer = new PairingNodeComparer<T>(
+        sortDirection,
+        Comparer<T>.Default
+    );
     private readonly Dictionary<T, List<PairingHeapNode<T>>> mapping = [];
 
     private PairingHeapNode<T> root = null!;
@@ -57,7 +61,9 @@ public class PairingHeap<T>(Sorting sortDirection = Sorting.Ascending) : IEnumer
 
         if (comparer.Compare(newValue, node!.Value) > 0)
         {
-            throw new ArgumentException($"New value is not {(sorting != Sorting.Descending ? "less" : "greater")} than old value.");
+            throw new ArgumentException(
+                $"New value is not {(sorting != Sorting.Descending ? "less" : "greater")} than old value."
+            );
         }
 
         UpdateNodeValue(currentValue, newValue, node);

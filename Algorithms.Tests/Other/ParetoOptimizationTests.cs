@@ -18,7 +18,7 @@ public static class ParetoOptimizationTests
             new List<decimal> { 5, 6, 3, 6, 4, 5 },
             new List<decimal> { 1, 4, 8, 6, 3, 6 },
             new List<decimal> { 5, 1, 8, 6, 5, 1 },
-            new List<decimal> { 6, 8, 3, 6, 3, 5 }
+            new List<decimal> { 6, 8, 3, 6, 3, 5 },
         };
 
         var expectedMatrix = new List<List<decimal>>
@@ -27,7 +27,7 @@ public static class ParetoOptimizationTests
             new List<decimal> { 4, 8, 4, 4, 5, 3 },
             new List<decimal> { 1, 4, 8, 6, 3, 6 },
             new List<decimal> { 5, 1, 8, 6, 5, 1 },
-            new List<decimal> { 6, 8, 3, 6, 3, 5 }
+            new List<decimal> { 6, 8, 3, 6, 3, 5 },
         };
 
         // Act

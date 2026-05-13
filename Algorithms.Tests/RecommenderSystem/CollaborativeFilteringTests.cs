@@ -22,20 +22,20 @@ public class CollaborativeFilteringTests
             {
                 ["item1"] = 5.0,
                 ["item2"] = 3.0,
-                ["item3"] = 4.0
+                ["item3"] = 4.0,
             },
             ["user2"] = new()
             {
                 ["item1"] = 4.0,
                 ["item2"] = 2.0,
-                ["item3"] = 5.0
+                ["item3"] = 5.0,
             },
             ["user3"] = new()
             {
                 ["item1"] = 3.0,
                 ["item2"] = 4.0,
-                ["item4"] = 3.0
-            }
+                ["item4"] = 3.0,
+            },
         };
     }
 
@@ -45,7 +45,8 @@ public class CollaborativeFilteringTests
     public void CalculateSimilarity_WithValidInputs_ReturnsExpectedResults(
         string commonItem,
         double rating1,
-        double rating2)
+        double rating2
+    )
     {
         var user1Ratings = new Dictionary<string, double> { [commonItem] = rating1 };
         var user2Ratings = new Dictionary<string, double> { [commonItem] = rating2 };
@@ -81,8 +82,13 @@ public class CollaborativeFilteringTests
         var targetItem = "item1";
         var targetUser = "user1";
 
-        mockSimilarityCalculator?
-            .Setup(s => s.CalculateSimilarity(It.IsAny<Dictionary<string, double>>(), It.IsAny<Dictionary<string, double>>()))
+        mockSimilarityCalculator
+            ?.Setup(s =>
+                s.CalculateSimilarity(
+                    It.IsAny<Dictionary<string, double>>(),
+                    It.IsAny<Dictionary<string, double>>()
+                )
+            )
             .Returns(0.8);
 
         var predictedRating = recommender?.PredictRating(targetItem, targetUser, testRatings);

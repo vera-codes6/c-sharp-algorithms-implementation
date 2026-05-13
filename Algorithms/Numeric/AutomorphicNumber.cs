@@ -30,7 +30,9 @@ public static class AutomorphicNumber
 
         if (lowerBound > upperBound)
         {
-            throw new ArgumentException($"The lower bound must be less than or equal to the upper bound.");
+            throw new ArgumentException(
+                $"The lower bound must be less than or equal to the upper bound."
+            );
         }
 
         return Enumerable.Range(lowerBound, upperBound).Where(IsAutomorphic);

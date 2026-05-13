@@ -22,8 +22,14 @@ public class ParetoOptimization
         {
             for (int j = i + 1; j < optimizedMatrix.Count; j++)
             {
-                decimal directParwiseDifference = GetMinimalPairwiseDifference(optimizedMatrix[i], optimizedMatrix[j]);
-                decimal indirectParwiseDifference = GetMinimalPairwiseDifference(optimizedMatrix[j], optimizedMatrix[i]);
+                decimal directParwiseDifference = GetMinimalPairwiseDifference(
+                    optimizedMatrix[i],
+                    optimizedMatrix[j]
+                );
+                decimal indirectParwiseDifference = GetMinimalPairwiseDifference(
+                    optimizedMatrix[j],
+                    optimizedMatrix[i]
+                );
                 /*
                  * in case all criteria of one set are larger that the criteria of another, this
                  * decision is not optimal and it has to be removed

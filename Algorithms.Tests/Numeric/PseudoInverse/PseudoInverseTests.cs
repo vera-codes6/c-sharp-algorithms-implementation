@@ -6,8 +6,18 @@ public static class PseudoInverseTests
     public static void SquaredMatrixInverseWorks()
     {
         // Arrange
-        var inMat = new double[,] { { 2, 4, 6 }, { 2, 0, 2 }, { 6, 8, 14 } };
-        var inMatCopy = new double[,] { { 2, 4, 6 }, { 2, 0, 2 }, { 6, 8, 14 } };
+        var inMat = new double[,]
+        {
+            { 2, 4, 6 },
+            { 2, 0, 2 },
+            { 6, 8, 14 },
+        };
+        var inMatCopy = new double[,]
+        {
+            { 2, 4, 6 },
+            { 2, 0, 2 },
+            { 6, 8, 14 },
+        };
 
         // Act
         // using AA+A = A
@@ -24,8 +34,18 @@ public static class PseudoInverseTests
     public static void NonSquaredMatrixPseudoInverseMatrixWorks()
     {
         // Arrange
-        var inMat = new double[,] { { 1, 2, 3, 4 }, { 0, 1, 4, 7 }, { 5, 6, 0, 1 } };
-        var inMatCopy = new double[,] { { 1, 2, 3, 4 }, { 0, 1, 4, 7 }, { 5, 6, 0, 1 } };
+        var inMat = new double[,]
+        {
+            { 1, 2, 3, 4 },
+            { 0, 1, 4, 7 },
+            { 5, 6, 0, 1 },
+        };
+        var inMatCopy = new double[,]
+        {
+            { 1, 2, 3, 4 },
+            { 0, 1, 4, 7 },
+            { 5, 6, 0, 1 },
+        };
 
         // Act
         // using (A+)+ = A

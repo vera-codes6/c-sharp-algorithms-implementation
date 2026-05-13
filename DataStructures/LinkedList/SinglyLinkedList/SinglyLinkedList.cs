@@ -14,10 +14,7 @@ public class SinglyLinkedList<T>
     /// <returns>Added list node.</returns>
     public SinglyLinkedListNode<T> AddFirst(T data)
     {
-        var newListElement = new SinglyLinkedListNode<T>(data)
-        {
-            Next = Head,
-        };
+        var newListElement = new SinglyLinkedListNode<T>(data) { Next = Head };
 
         Head = newListElement;
         return newListElement;
@@ -125,8 +122,10 @@ public class SinglyLinkedList<T>
         while (currentElement is not null)
         {
             // checks if the element, which should get deleted is in this list element
-            if (currentElement.Data is null && element is null ||
-                currentElement.Data is not null && currentElement.Data.Equals(element))
+            if (
+                currentElement.Data is null && element is null
+                || currentElement.Data is not null && currentElement.Data.Equals(element)
+            )
             {
                 // if element is head just take the next one as head
                 if (currentElement.Equals(Head))

@@ -17,7 +17,12 @@ public static class Kosaraju<T>
     /// <param name="graph">Graph instance.</param>
     /// <param name="visited">List of already visited vertex.</param>
     /// <param name="reversed">Reversed list of vertex for the second DFS.</param>
-    public static void Visit(Vertex<T> v, IDirectedWeightedGraph<T> graph, HashSet<Vertex<T>> visited, Stack<Vertex<T>> reversed)
+    public static void Visit(
+        Vertex<T> v,
+        IDirectedWeightedGraph<T> graph,
+        HashSet<Vertex<T>> visited,
+        Stack<Vertex<T>> reversed
+    )
     {
         if (visited.Contains(v))
         {
@@ -49,7 +54,12 @@ public static class Kosaraju<T>
     /// <param name="roots">
     /// Dictionary that assigns to each vertex the root of the SCC to which it corresponds.
     /// </param>
-    public static void Assign(Vertex<T> v, Vertex<T> root, IDirectedWeightedGraph<T> graph, Dictionary<Vertex<T>, Vertex<T>> roots)
+    public static void Assign(
+        Vertex<T> v,
+        Vertex<T> root,
+        IDirectedWeightedGraph<T> graph,
+        Dictionary<Vertex<T>, Vertex<T>> roots
+    )
     {
         // If v already has a representative vertex (root) already assigned, do nothing.
         if (roots.ContainsKey(v))
@@ -72,7 +82,9 @@ public static class Kosaraju<T>
     /// </summary>
     /// <param name="graph">Graph to explore.</param>
     /// <returns>A dictionary that assigns to each vertex a root vertex of the SCC they belong. </returns>
-    public static Dictionary<Vertex<T>, Vertex<T>> GetRepresentatives(IDirectedWeightedGraph<T> graph)
+    public static Dictionary<Vertex<T>, Vertex<T>> GetRepresentatives(
+        IDirectedWeightedGraph<T> graph
+    )
     {
         HashSet<Vertex<T>> visited = [];
         Stack<Vertex<T>> reversedL = new Stack<Vertex<T>>();

@@ -1,6 +1,7 @@
 namespace DataStructures.Probabilistic;
 
-public class BloomFilter<T> where T : notnull
+public class BloomFilter<T>
+    where T : notnull
 {
     private const uint FnvPrime = 16777619;
     private const uint FnvOffsetBasis = 2166136261;

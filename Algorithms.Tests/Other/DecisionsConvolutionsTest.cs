@@ -16,7 +16,7 @@ public static class DecisionsConvolutionsTest
             new List<decimal> { 5, 6, 3, 6, 4, 5 },
             new List<decimal> { 1, 4, 8, 6, 3, 6 },
             new List<decimal> { 5, 1, 8, 6, 5, 1 },
-            new List<decimal> { 6, 8, 3, 6, 3, 5 }
+            new List<decimal> { 6, 8, 3, 6, 3, 5 },
         };
 
         var expectedMatrix = new List<decimal> { 7, 6, 5, 8, 5, 6 };
@@ -42,7 +42,7 @@ public static class DecisionsConvolutionsTest
             new List<decimal> { 5, 6, 3, 6, 4, 5 },
             new List<decimal> { 1, 4, 8, 6, 3, 6 },
             new List<decimal> { 5, 1, 8, 6, 5, 1 },
-            new List<decimal> { 6, 8, 3, 6, 3, 5 }
+            new List<decimal> { 6, 8, 3, 6, 3, 5 },
         };
 
         var expectedMatrix = new List<decimal> { 7, 6, 5, 8, 5, 6 };

@@ -40,18 +40,19 @@ public class InvertedIndex
     public IEnumerable<string> And(IEnumerable<string> terms)
     {
         var entries = terms
-            .Select(term => invertedIndex
-                .Where(x => x.Key.Equals(term))
-                .SelectMany(x => x.Value))
+            .Select(term => invertedIndex.Where(x => x.Key.Equals(term)).SelectMany(x => x.Value))
             .ToList();
 
         var intersection = entries
             .Skip(1)
-            .Aggregate(new HashSet<string>(entries.First()), (hashSet, enumerable) =>
-            {
-                hashSet.IntersectWith(enumerable);
-                return hashSet;
-            });
+            .Aggregate(
+                new HashSet<string>(entries.First()),
+                (hashSet, enumerable) =>
+                {
+                    hashSet.IntersectWith(enumerable);
+                    return hashSet;
+                }
+            );
 
         return intersection;
     }
@@ -66,9 +67,7 @@ public class InvertedIndex
         var sources = new List<string>();
         foreach (var term in terms)
         {
-            var source = invertedIndex
-                .Where(x => x.Key.Equals(term))
-                .SelectMany(x => x.Value);
+            var source = invertedIndex.Where(x => x.Key.Equals(term)).SelectMany(x => x.Value);
 
             sources.AddRange(source);
         }

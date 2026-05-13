@@ -61,7 +61,10 @@ public static class CosineSimilarity
     /// <param name="left">The first string.</param>
     /// <param name="right">The second string.</param>
     /// <returns>A tuple containing the vectors for the two strings.</returns>
-    private static (Dictionary<char, int> LeftVector, Dictionary<char, int> RightVector) GetVectors(string left, string right)
+    private static (Dictionary<char, int> LeftVector, Dictionary<char, int> RightVector) GetVectors(
+        string left,
+        string right
+    )
     {
         var leftVector = new Dictionary<char, int>();
         var rightVector = new Dictionary<char, int>();
@@ -91,7 +94,11 @@ public static class CosineSimilarity
     /// <param name="rightVector">The vector of the right string.</param>
     /// <param name="intersection">The intersection of the two vectors, represented as a set of characters.</param>
     /// <returns>The dot product of the two vectors.</returns>
-    private static double DotProduct(Dictionary<char, int> leftVector, Dictionary<char, int> rightVector, HashSet<char> intersection)
+    private static double DotProduct(
+        Dictionary<char, int> leftVector,
+        Dictionary<char, int> rightVector,
+        HashSet<char> intersection
+    )
     {
         // Initialize the dot product to 0
         double dotProduct = 0;
@@ -113,7 +120,10 @@ public static class CosineSimilarity
     /// <param name="leftVector">The vector of the left string.</param>
     /// <param name="rightVector">The vector of the right string.</param>
     /// <returns>A HashSet containing the characters that appear in both vectors.</returns>
-    private static HashSet<char> GetIntersection(Dictionary<char, int> leftVector, Dictionary<char, int> rightVector)
+    private static HashSet<char> GetIntersection(
+        Dictionary<char, int> leftVector,
+        Dictionary<char, int> rightVector
+    )
     {
         // Initialize a HashSet to store the intersection of the two vectors.
         var intersection = new HashSet<char>();

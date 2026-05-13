@@ -120,8 +120,8 @@ public class AsconDigest : IDigest
         // Determine the number of permutation rounds based on the Ascon variant.
         asconPbRounds = parameters switch
         {
-            AsconParameters.AsconHash => 12,  // 12 rounds for Ascon-Hash variant.
-            AsconParameters.AsconHashA => 8,  // 8 rounds for Ascon-HashA variant.
+            AsconParameters.AsconHash => 12, // 12 rounds for Ascon-Hash variant.
+            AsconParameters.AsconHashA => 8, // 8 rounds for Ascon-HashA variant.
             _ => throw new ArgumentException("Invalid parameter settings for Ascon Hash"), // Throw exception for invalid parameter.
         };
 
@@ -151,7 +151,7 @@ public class AsconDigest : IDigest
         {
             return asconParameters switch
             {
-                AsconParameters.AsconHash => "Ascon-Hash",  // Return "Ascon-Hash" for AsconHash variant.
+                AsconParameters.AsconHash => "Ascon-Hash", // Return "Ascon-Hash" for AsconHash variant.
                 AsconParameters.AsconHashA => "Ascon-HashA", // Return "Ascon-HashA" for AsconHashA variant.
                 _ => throw new InvalidOperationException(), // Throw an exception for unknown Ascon parameters.
             };
@@ -458,7 +458,9 @@ public class AsconDigest : IDigest
 
         // XOR the buffer (after padding) with the internal state x0, but only the relevant portion of the buffer is considered.
         // The (56 - (bufferPosition << 3)) shifts ensure that only the unprocessed part of the buffer is XORed into x0.
-        x0 ^= ByteEncodingUtils.BigEndianToUint64(buffer, 0) & (ulong.MaxValue << (56 - (bufferPosition << 3)));
+        x0 ^=
+            ByteEncodingUtils.BigEndianToUint64(buffer, 0)
+            & (ulong.MaxValue << (56 - (bufferPosition << 3)));
 
         // Apply 12 rounds of the permutation function to fully mix and finalize the internal state.
         P(12);

@@ -68,12 +68,14 @@ public static class ListBasedStackTests
         var stack = new ListBasedStack<int>();
 
         Assert.Multiple(() =>
-            Enumerable.Range(0, 5)
+            Enumerable
+                .Range(0, 5)
                 .ToList()
                 .ForEach(number =>
                 {
                     stack.Push(number);
                     stack.Peek().Should().Be(number);
-                }));
+                })
+        );
     }
 }

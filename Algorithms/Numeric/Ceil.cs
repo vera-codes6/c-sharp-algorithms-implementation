@@ -11,7 +11,8 @@ public static class Ceil
     /// <typeparam name="T">Type of number.</typeparam>
     /// <param name="inputNum">Number to find the ceiling of.</param>
     /// <returns>Ceiling value of the number.</returns>
-    public static T CeilVal<T>(T inputNum) where T : INumber<T>
+    public static T CeilVal<T>(T inputNum)
+        where T : INumber<T>
     {
         T intPart = T.CreateChecked(Convert.ToInt32(inputNum));
 

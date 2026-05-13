@@ -10,9 +10,9 @@
 // - Avoid placing rarely used namespaces here to maintain clarity.
 // -----------------------------------------------------------------------------
 
-global using System;                        // Core base classes and fundamental types
-global using System.Collections.Generic;    // Generic collection types (List, Dictionary, etc.)
-global using System.Linq;                   // LINQ query operators for collections
-global using System.Text;                   // Text encoding, StringBuilder, etc.
-global using NUnit.Framework;               // Testing framework providing attributes and assertions for test cases
-global using FluentAssertions;              // Assertion library for more readable and expressive unit tests
+global using System; // Core base classes and fundamental types
+global using System.Collections.Generic; // Generic collection types (List, Dictionary, etc.)
+global using System.Linq; // LINQ query operators for collections
+global using System.Text; // Text encoding, StringBuilder, etc.
+global using FluentAssertions; // Assertion library for more readable and expressive unit tests
+global using NUnit.Framework; // Testing framework providing attributes and assertions for test cases

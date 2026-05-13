@@ -41,7 +41,10 @@ public class HeapSorter<T> : IComparisonSorter<T>
         {
             var left = (rIndex + 1) * 2 - 1;
             var right = (rIndex + 1) * 2;
-            var largest = left < heapSize && comparer.Compare(input[left], input[rIndex]) == 1 ? left : rIndex;
+            var largest =
+                left < heapSize && comparer.Compare(input[left], input[rIndex]) == 1
+                    ? left
+                    : rIndex;
 
             // finds the index of the largest
             if (right < heapSize && comparer.Compare(input[right], input[largest]) == 1)

@@ -24,7 +24,8 @@ namespace DataStructures.Heap.FibonacciHeap;
 ///     </para>
 /// </remarks>
 /// <typeparam name="T">Type of elements in binary heap.</typeparam>
-public class FibonacciHeap<T> where T : IComparable
+public class FibonacciHeap<T>
+    where T : IComparable
 {
     /// <summary>
     ///     Gets or sets the count of the number of nodes in the Fibonacci heap.

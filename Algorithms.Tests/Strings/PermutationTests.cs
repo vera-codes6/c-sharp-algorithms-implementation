@@ -39,10 +39,13 @@ public class PermutationTests
         // now we know the values of A1, A2, ..., An
         // evaluate the above formula
         var expectedNumberOfAnagrams = Factorial.Calculate(word.Length);
-        expectedNumberOfAnagrams = charOccurrence.Aggregate(expectedNumberOfAnagrams, (current, keyValuePair) =>
-        {
-            return current / Factorial.Calculate(keyValuePair.Value);
-        });
+        expectedNumberOfAnagrams = charOccurrence.Aggregate(
+            expectedNumberOfAnagrams,
+            (current, keyValuePair) =>
+            {
+                return current / Factorial.Calculate(keyValuePair.Value);
+            }
+        );
         Assert.That(new BigInteger(permutations.Count), Is.EqualTo(expectedNumberOfAnagrams));
         // End 1.
 

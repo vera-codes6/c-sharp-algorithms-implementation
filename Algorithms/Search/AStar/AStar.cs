@@ -57,7 +57,8 @@ public static class AStar
             if (node.Traversable)
             {
                 // Calculate the Costs
-                node.CurrentCost = from.CurrentCost + from.DistanceTo(node) * node.TraversalCostMultiplier;
+                node.CurrentCost =
+                    from.CurrentCost + from.DistanceTo(node) * node.TraversalCostMultiplier;
                 node.EstimatedCost = from.CurrentCost + node.DistanceTo(to);
 
                 // Enqueue
@@ -102,8 +103,7 @@ public static class AStar
     {
         foreach (var connected in current.ConnectedNodes)
         {
-            if (!connected.Traversable ||
-                connected.State == NodeState.Closed)
+            if (!connected.Traversable || connected.State == NodeState.Closed)
             {
                 continue; // Do ignore already checked and not traversable nodes.
             }
@@ -113,7 +113,8 @@ public static class AStar
             {
                 connected.Parent = current;
                 connected.CurrentCost =
-                    current.CurrentCost + current.DistanceTo(connected) * connected.TraversalCostMultiplier;
+                    current.CurrentCost
+                    + current.DistanceTo(connected) * connected.TraversalCostMultiplier;
                 connected.EstimatedCost = connected.CurrentCost + connected.DistanceTo(to);
                 connected.State = NodeState.Open;
                 queue.Enqueue(connected);
@@ -133,7 +134,8 @@ public static class AStar
             {
                 // Codacy made me do it.
                 throw new PathfindingException(
-                    "Detected the same node twice. Confusion how this could ever happen");
+                    "Detected the same node twice. Confusion how this could ever happen"
+                );
             }
         }
     }

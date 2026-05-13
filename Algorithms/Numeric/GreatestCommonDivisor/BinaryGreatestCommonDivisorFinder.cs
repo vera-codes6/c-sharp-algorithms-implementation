@@ -59,8 +59,7 @@ public class BinaryGreatestCommonDivisorFinder : IGreatestCommonDivisorFinder
 
             // Here v >= u and v - u is even
             v -= u;
-        }
-        while (v != 0);
+        } while (v != 0);
 
         // Restore common factors of 2
         return u << shift;

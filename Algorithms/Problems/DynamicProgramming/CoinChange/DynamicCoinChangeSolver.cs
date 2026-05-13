@@ -131,7 +131,9 @@ public static class DynamicCoinChangeSolver
     {
         if (coin <= 0)
         {
-            throw new InvalidOperationException($"The coin cannot be lesser or equal to zero {nameof(coin)}.");
+            throw new InvalidOperationException(
+                $"The coin cannot be lesser or equal to zero {nameof(coin)}."
+            );
         }
     }
 
@@ -141,14 +143,18 @@ public static class DynamicCoinChangeSolver
 
         if (coinsAsArray.Length == 0)
         {
-            throw new InvalidOperationException($"Coins array cannot be empty {nameof(coinsAsArray)}.");
+            throw new InvalidOperationException(
+                $"Coins array cannot be empty {nameof(coinsAsArray)}."
+            );
         }
 
         var coinsContainOne = coinsAsArray.Any(x => x == 1);
 
         if (!coinsContainOne)
         {
-            throw new InvalidOperationException($"Coins array must contain coin 1 {nameof(coinsAsArray)}.");
+            throw new InvalidOperationException(
+                $"Coins array must contain coin 1 {nameof(coinsAsArray)}."
+            );
         }
 
         var containsNonPositive = coinsAsArray.Any(x => x <= 0);
@@ -156,14 +162,17 @@ public static class DynamicCoinChangeSolver
         if (containsNonPositive)
         {
             throw new InvalidOperationException(
-                $"{nameof(coinsAsArray)} cannot contain numbers less than or equal to zero");
+                $"{nameof(coinsAsArray)} cannot contain numbers less than or equal to zero"
+            );
         }
 
         var containsDuplicates = coinsAsArray.GroupBy(x => x).Any(g => g.Count() > 1);
 
         if (containsDuplicates)
         {
-            throw new InvalidOperationException($"Coins array cannot contain duplicates {nameof(coinsAsArray)}.");
+            throw new InvalidOperationException(
+                $"Coins array cannot contain duplicates {nameof(coinsAsArray)}."
+            );
         }
     }
 }

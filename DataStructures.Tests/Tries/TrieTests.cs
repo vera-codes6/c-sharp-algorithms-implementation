@@ -8,12 +8,7 @@ public static class TrieTests
     public static void FindWordInTrie()
     {
         // Arrange
-        string[] words = [
-            "trie",
-            "node",
-            "none",
-            "treatment",
-        ];
+        string[] words = ["trie", "node", "none", "treatment"];
 
         // Act
         Trie trie = new(words);
@@ -22,7 +17,11 @@ public static class TrieTests
         Assert.That(trie.Find("trie"), Is.True, "The word 'trie' isn't in Trie structure");
         Assert.That(trie.Find("node"), Is.True, "The word 'node' isn't in Trie structure");
         Assert.That(trie.Find("none"), Is.True, "The word 'none' isn't in Trie structure");
-        Assert.That(trie.Find("treatment"), Is.True, "The word 'treatment' isn't in Trie structure");
+        Assert.That(
+            trie.Find("treatment"),
+            Is.True,
+            "The word 'treatment' isn't in Trie structure"
+        );
 
         Assert.That(trie.Find("nodes"), Is.False, "The word 'nodes' is in Trie sturcture");
         Assert.That(trie.Find(""), Is.False, "The word empty is in Trie structure");
@@ -33,12 +32,7 @@ public static class TrieTests
     public static void InsertInTrie()
     {
         // Arrange
-        string[] words = [
-            "trie",
-            "node",
-            "none",
-            "treatment",
-        ];
+        string[] words = ["trie", "node", "none", "treatment"];
 
         Trie trie = new();
 
@@ -52,19 +46,18 @@ public static class TrieTests
         Assert.That(trie.Find("trie"), Is.True, "The word 'trie' isn't in Trie structure");
         Assert.That(trie.Find("node"), Is.True, "The word 'node' isn't in Trie structure");
         Assert.That(trie.Find("none"), Is.True, "The word 'none' isn't in Trie structure");
-        Assert.That(trie.Find("treatment"), Is.True, "The word 'treatment' isn't in Trie structure");
+        Assert.That(
+            trie.Find("treatment"),
+            Is.True,
+            "The word 'treatment' isn't in Trie structure"
+        );
     }
 
     [Test]
     public static void RemoveFromTrie()
     {
         // Arrange
-        string[] words = [
-            "trie",
-            "node",
-            "none",
-            "treatment",
-        ];
+        string[] words = ["trie", "node", "none", "treatment"];
 
         Trie trie = new();
 

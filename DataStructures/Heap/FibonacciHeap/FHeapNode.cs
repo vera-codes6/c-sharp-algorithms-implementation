@@ -6,7 +6,8 @@ namespace DataStructures.Heap.FibonacciHeap;
 ///     siblings comprise a circularly doubly linked list.
 /// </summary>
 /// <typeparam name="T">A type that can be compared.</typeparam>
-public class FHeapNode<T> where T : IComparable
+public class FHeapNode<T>
+    where T : IComparable
 {
     /// <summary>
     ///     Initializes a new instance of the <see cref="FHeapNode{T}" /> class.

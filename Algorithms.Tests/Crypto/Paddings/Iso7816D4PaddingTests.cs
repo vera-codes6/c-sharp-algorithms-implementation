@@ -27,7 +27,8 @@ public class Iso7816D4PaddingTests
 
         Action act = () => padding.AddPadding(inputData, inputOffset);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("not enough space in input array for padding");
     }
 
@@ -52,7 +53,8 @@ public class Iso7816D4PaddingTests
 
         Action act = () => padding.AddPadding(inputData, inputOffset);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -64,7 +66,8 @@ public class Iso7816D4PaddingTests
 
         Action act = () => padding.AddPadding(inputData, inputOffset);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -85,8 +88,7 @@ public class Iso7816D4PaddingTests
 
         Action act = () => padding.RemovePadding(inputData);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Invalid padding");
+        act.Should().Throw<ArgumentException>().WithMessage("Invalid padding");
     }
 
     [Test]
@@ -106,8 +108,7 @@ public class Iso7816D4PaddingTests
 
         Action act = () => padding.RemovePadding(input);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Invalid padding");
+        act.Should().Throw<ArgumentException>().WithMessage("Invalid padding");
     }
 
     [Test]
@@ -127,8 +128,7 @@ public class Iso7816D4PaddingTests
 
         Action act = () => padding.GetPaddingCount(inputData);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Pad block corrupted");
+        act.Should().Throw<ArgumentException>().WithMessage("Pad block corrupted");
     }
 
     [Test]
@@ -138,8 +138,7 @@ public class Iso7816D4PaddingTests
 
         Action act = () => padding.GetPaddingCount(inputData);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Pad block corrupted");
+        act.Should().Throw<ArgumentException>().WithMessage("Pad block corrupted");
     }
 
     [Test]
@@ -159,7 +158,6 @@ public class Iso7816D4PaddingTests
 
         Action act = () => padding.GetPaddingCount(inputData);
 
-        act.Should().Throw<ArgumentException>()
-            .WithMessage("Pad block corrupted");
+        act.Should().Throw<ArgumentException>().WithMessage("Pad block corrupted");
     }
 }

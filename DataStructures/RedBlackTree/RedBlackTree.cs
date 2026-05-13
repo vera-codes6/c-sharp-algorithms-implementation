@@ -75,10 +75,7 @@ public class RedBlackTree<TKey>
         {
             // Case 3
             // New node is root
-            root = new RedBlackTreeNode<TKey>(key, null)
-            {
-                Color = NodeColor.Black,
-            };
+            root = new RedBlackTreeNode<TKey>(key, null) { Color = NodeColor.Black };
             Count++;
             return;
         }
@@ -121,8 +118,7 @@ public class RedBlackTree<TKey>
                 default:
                     throw new InvalidOperationException("It should not be possible to get here!");
             }
-        }
-        while (addCase == 2 && node is not null);
+        } while (addCase == 2 && node is not null);
 
         Count++;
     }
@@ -164,8 +160,7 @@ public class RedBlackTree<TKey>
         do
         {
             node = RemoveRecolor(node);
-        }
-        while (node is not null && node.Parent is not null);    // Case 2: Reached root
+        } while (node is not null && node.Parent is not null); // Case 2: Reached root
 
         Count--;
     }
@@ -590,7 +585,11 @@ public class RedBlackTree<TKey>
     /// <param name="node">Node that was removed.</param>
     /// <param name="closeNephew">Close nephew of removed node.</param>
     /// <param name="childDir">Side of parent the removed node was.</param>
-    private void RemoveCase3(RedBlackTreeNode<TKey> node, RedBlackTreeNode<TKey>? closeNephew, int childDir)
+    private void RemoveCase3(
+        RedBlackTreeNode<TKey> node,
+        RedBlackTreeNode<TKey>? closeNephew,
+        int childDir
+    )
     {
         // Rotate and recolor
         var sibling = childDir < 0 ? RotateLeft(node.Parent!) : RotateRight(node.Parent!);
@@ -645,7 +644,11 @@ public class RedBlackTree<TKey>
     /// <param name="node">Node that was removed.</param>
     /// <param name="sibling">Sibling of removed node.</param>
     /// <param name="childDir">Side of parent removed node was on.</param>
-    private void RemoveCase5(RedBlackTreeNode<TKey> node, RedBlackTreeNode<TKey> sibling, int childDir)
+    private void RemoveCase5(
+        RedBlackTreeNode<TKey> node,
+        RedBlackTreeNode<TKey> sibling,
+        int childDir
+    )
     {
         sibling = childDir < 0 ? RotateRight(sibling) : RotateLeft(sibling);
         var distantNephew = childDir < 0 ? sibling.Right! : sibling.Left!;
@@ -662,7 +665,11 @@ public class RedBlackTree<TKey>
     /// <param name="node">Node that was removed.</param>
     /// <param name="distantNephew">Distant nephew of removed node.</param>
     /// <param name="childDir">Side of parent removed node was on.</param>
-    private void RemoveCase6(RedBlackTreeNode<TKey> node, RedBlackTreeNode<TKey> distantNephew, int childDir)
+    private void RemoveCase6(
+        RedBlackTreeNode<TKey> node,
+        RedBlackTreeNode<TKey> distantNephew,
+        int childDir
+    )
     {
         var oldParent = node.Parent!;
         node = childDir < 0 ? RotateLeft(oldParent) : RotateRight(oldParent);

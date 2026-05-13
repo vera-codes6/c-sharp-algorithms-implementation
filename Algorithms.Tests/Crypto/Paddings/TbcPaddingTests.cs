@@ -38,7 +38,8 @@ public class TbcPaddingTests
 
         Action act = () => padding.AddPadding(input, inputOffset);
 
-        act.Should().Throw<ArgumentException>()
+        act.Should()
+            .Throw<ArgumentException>()
             .WithMessage("Not enough space in input array for padding");
     }
 
@@ -121,7 +122,6 @@ public class TbcPaddingTests
     [Test]
     public void GetPaddingBytes_WhenCalledWithPaddedData_ShouldReturnCorrectPaddingCount()
     {
-
         var paddedData = new byte[] { 0x01, 0x02, 0x03, 0xff, 0xff };
         const int expectedPaddingCount = 2;
 
@@ -137,8 +137,7 @@ public class TbcPaddingTests
 
         Action action = () => padding.GetPaddingCount(unpaddedData);
 
-        action.Should().Throw<ArgumentException>()
-            .WithMessage("No padding found");
+        action.Should().Throw<ArgumentException>().WithMessage("No padding found");
     }
 
     [Test]
@@ -148,7 +147,6 @@ public class TbcPaddingTests
 
         Action action = () => padding.GetPaddingCount(emptyData);
 
-        action.Should().Throw<ArgumentException>()
-            .WithMessage("No padding found.");
+        action.Should().Throw<ArgumentException>().WithMessage("No padding found.");
     }
 }

@@ -18,5 +18,10 @@ public interface IHeuristicKnapsackSolver<T>
     /// <param name="weightSelector">Maps item to its weight.</param>
     /// <param name="valueSelector">Maps item to its value.</param>
     /// <returns>Items that were chosen.</returns>
-    T[] Solve(T[] items, double capacity, Func<T, double> weightSelector, Func<T, double> valueSelector);
+    T[] Solve(
+        T[] items,
+        double capacity,
+        Func<T, double> weightSelector,
+        Func<T, double> valueSelector
+    );
 }

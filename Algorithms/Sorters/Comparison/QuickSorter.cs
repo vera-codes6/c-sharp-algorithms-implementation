@@ -16,7 +16,8 @@ public abstract class QuickSorter<T> : IComparisonSorter<T>
     /// </summary>
     /// <param name="array">Array to sort.</param>
     /// <param name="comparer">Compares elements.</param>
-    public void Sort(T[] array, IComparer<T> comparer) => Sort(array, comparer, 0, array.Length - 1);
+    public void Sort(T[] array, IComparer<T> comparer) =>
+        Sort(array, comparer, 0, array.Length - 1);
 
     protected abstract T SelectPivot(T[] array, IComparer<T> comparer, int left, int right);
 

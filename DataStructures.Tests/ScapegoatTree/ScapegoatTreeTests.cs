@@ -258,7 +258,12 @@ public class ScapegoatTreeTests
     }
 
     [TestCase(3, new[] { 2, 5, 1, 6 }, -1, 0.5)]
-    public void Insert_TreeIsUnbalanced_RebuildsTree(int root, int[] keys, int candidate, double alpha)
+    public void Insert_TreeIsUnbalanced_RebuildsTree(
+        int root,
+        int[] keys,
+        int candidate,
+        double alpha
+    )
     {
         var tree = new ScapegoatTree<int>(root, alpha);
 
@@ -276,7 +281,12 @@ public class ScapegoatTreeTests
     }
 
     [TestCase(20, new[] { 10, 30, 5, 11, 29, 40, 50, 1, 12 }, new[] { 50, 40, 30, 29 }, 0.7)]
-    public void Delete_TreeIsUnbalanced_BalancesTree(int root, int[] keys, int[] candidates, double alpha)
+    public void Delete_TreeIsUnbalanced_BalancesTree(
+        int root,
+        int[] keys,
+        int[] candidates,
+        double alpha
+    )
     {
         var tree = new ScapegoatTree<int>(root, alpha);
 
@@ -300,7 +310,12 @@ public class ScapegoatTreeTests
     }
 
     [TestCase(20, new[] { 10, 30, 5, 11, 29, 40, 50 }, 10, 1)]
-    public void Delete_TreeIsUnbalanced_MaxSizeEqualsSize(int root, int[] keys, int candidate, double alpha)
+    public void Delete_TreeIsUnbalanced_MaxSizeEqualsSize(
+        int root,
+        int[] keys,
+        int candidate,
+        double alpha
+    )
     {
         var tree = new ScapegoatTree<int>(root, alpha);
 
@@ -320,7 +335,12 @@ public class ScapegoatTreeTests
 
     [TestCase(3, new[] { 2, 5, 1, 6 }, -1, 0.5)]
     [TestCase(3, new[] { 2, 5, 1, 6 }, 7, 0.5)]
-    public void Insert_TreeIsUnbalanced_BalancesTree(int root, int[] keys, int candidate, double alpha)
+    public void Insert_TreeIsUnbalanced_BalancesTree(
+        int root,
+        int[] keys,
+        int candidate,
+        double alpha
+    )
     {
         var tree = new ScapegoatTree<int>(root, alpha);
 

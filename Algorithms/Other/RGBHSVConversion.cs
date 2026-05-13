@@ -23,23 +23,31 @@ public static class RgbHsvConversion
     public static (byte Red, byte Green, byte Blue) HsvToRgb(
         double hue,
         double saturation,
-        double value)
+        double value
+    )
     {
         if (hue < 0 || hue > 360)
         {
-            throw new ArgumentOutOfRangeException(nameof(hue), $"{nameof(hue)} should be between 0 and 360");
+            throw new ArgumentOutOfRangeException(
+                nameof(hue),
+                $"{nameof(hue)} should be between 0 and 360"
+            );
         }
 
         if (saturation < 0 || saturation > 1)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(saturation),
-                $"{nameof(saturation)} should be between 0 and 1");
+                $"{nameof(saturation)} should be between 0 and 1"
+            );
         }
 
         if (value < 0 || value > 1)
         {
-            throw new ArgumentOutOfRangeException(nameof(value), $"{nameof(value)} should be between 0 and 1");
+            throw new ArgumentOutOfRangeException(
+                nameof(value),
+                $"{nameof(value)} should be between 0 and 1"
+            );
         }
 
         var chroma = value * saturation;
@@ -60,7 +68,8 @@ public static class RgbHsvConversion
     public static (double Hue, double Saturation, double Value) RgbToHsv(
         byte red,
         byte green,
-        byte blue)
+        byte blue
+    )
     {
         var dRed = (double)red / 255;
         var dGreen = (double)green / 255;
@@ -96,7 +105,8 @@ public static class RgbHsvConversion
         double hueSection,
         double chroma,
         double matchValue,
-        double secondLargestComponent)
+        double secondLargestComponent
+    )
     {
         byte red;
         byte green;

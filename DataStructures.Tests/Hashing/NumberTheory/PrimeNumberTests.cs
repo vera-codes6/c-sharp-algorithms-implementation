@@ -87,7 +87,7 @@ public static class PrimeNumberTests
         new object[] { 7, 1, true, 5 },
         new object[] { 8, 1, true, 7 },
         new object[] { 9, 1, true, 7 },
-        new object[] { 10, 1, true, 7 }
+        new object[] { 10, 1, true, 7 },
     ];
 
     [TestCaseSource(nameof(IsPrimeSource))]

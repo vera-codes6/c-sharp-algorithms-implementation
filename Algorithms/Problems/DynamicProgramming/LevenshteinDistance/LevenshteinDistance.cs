@@ -36,7 +36,10 @@ public static class LevenshteinDistance
             for (var j = 1; j <= target.Length; j++)
             {
                 var substitionCost = source[i - 1] == target[j - 1] ? 0 : 1;
-                distances[i, j] = Math.Min(distances[i - 1, j] + 1, Math.Min(distances[i, j - 1] + 1, distances[i - 1, j - 1] + substitionCost));
+                distances[i, j] = Math.Min(
+                    distances[i - 1, j] + 1,
+                    Math.Min(distances[i, j - 1] + 1, distances[i - 1, j - 1] + substitionCost)
+                );
             }
         }
 

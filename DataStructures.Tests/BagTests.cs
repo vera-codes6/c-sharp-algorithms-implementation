@@ -12,12 +12,7 @@ internal class BagTests
     public void Add_ShouldIncreaseCount()
     {
         // Arrange & Act
-        var bag = new Bag<int>
-        {
-            1,
-            2,
-            1
-        };
+        var bag = new Bag<int> { 1, 2, 1 };
 
         // Assert
         bag.Count.Should().Be(3);
@@ -27,11 +22,7 @@ internal class BagTests
     public void Add_ShouldHandleDuplicates()
     {
         // Arrange & Act
-        var bag = new Bag<string>
-        {
-            "apple",
-            "apple"
-        };
+        var bag = new Bag<string> { "apple", "apple" };
 
         // Assert
         bag.Count.Should().Be(2);
@@ -42,11 +33,7 @@ internal class BagTests
     public void Clear_ShouldEmptyTheBag()
     {
         // Arrange
-        var bag = new Bag<int>
-        {
-            1,
-            2
-        };
+        var bag = new Bag<int> { 1, 2 };
 
         // Act
         bag.Clear();
@@ -70,10 +57,7 @@ internal class BagTests
     public void IsEmpty_ShouldReturnFalseForNonEmptyBag()
     {
         // Arrange
-        var bag = new Bag<int>
-        {
-            1
-        };
+        var bag = new Bag<int> { 1 };
 
         // Act & Assert
         bag.IsEmpty().Should().BeFalse();
@@ -83,12 +67,7 @@ internal class BagTests
     public void GetEnumerator_ShouldIterateAllItems()
     {
         // Arrange
-        var bag = new Bag<int>
-        {
-            1,
-            2,
-            1
-        };
+        var bag = new Bag<int> { 1, 2, 1 };
 
         // Act
         var items = bag.ToList();
@@ -113,12 +92,7 @@ internal class BagTests
     public void Count_ShouldReturnCorrectCount()
     {
         // Arrange
-        var bag = new Bag<int>
-        {
-            1,
-            2,
-            1
-        };
+        var bag = new Bag<int> { 1, 2, 1 };
 
         // Act & Assert
         bag.Count.Should().Be(3);
@@ -128,12 +102,7 @@ internal class BagTests
     public void IEnumerableGetEnumerator_YieldsAllItemsWithCorrectMultiplicity()
     {
         // Arrange
-        var bag = new Bag<string>
-        {
-            "apple",
-            "banana",
-            "apple"
-        };
+        var bag = new Bag<string> { "apple", "banana", "apple" };
         var genericBag = bag as System.Collections.IEnumerable;
 
         // Act

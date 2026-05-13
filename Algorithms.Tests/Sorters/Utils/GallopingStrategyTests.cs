@@ -98,7 +98,7 @@ namespace Algorithms.Tests.Sorters.Utils
             int result = GallopingStrategy<int>.BoundLeftShift(shiftable);
 
             // Assert
-            Assert.That((shiftable << 1) + 1, Is.EqualTo(result));  // True branch
+            Assert.That((shiftable << 1) + 1, Is.EqualTo(result)); // True branch
         }
 
         // Test when (shiftable << 1) < 0 is false
@@ -106,13 +106,13 @@ namespace Algorithms.Tests.Sorters.Utils
         public void TestBoundLeftShift_WhenShiftableDoesNotCauseNegativeShift_ReturnsMaxValue()
         {
             // Arrange
-            int shiftable = 1;  // This will not cause a negative result after left shift
+            int shiftable = 1; // This will not cause a negative result after left shift
 
             // Act
             int result = GallopingStrategy<int>.BoundLeftShift(shiftable);
 
             // Assert
-            Assert.That(int.MaxValue, Is.EqualTo(result));  // False branch
+            Assert.That(int.MaxValue, Is.EqualTo(result)); // False branch
         }
     }
 }

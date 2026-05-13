@@ -23,7 +23,8 @@ public static class JaroWinklerDistance
     {
         var jaroSimilarity = JaroSimilarity.Calculate(s1, s2);
         var commonPrefixLength = s1.Zip(s2).Take(4).TakeWhile(x => x.First == x.Second).Count();
-        var jaroWinklerSimilarity = jaroSimilarity + commonPrefixLength * scalingFactor * (1 - jaroSimilarity);
+        var jaroWinklerSimilarity =
+            jaroSimilarity + commonPrefixLength * scalingFactor * (1 - jaroSimilarity);
 
         return 1 - jaroWinklerSimilarity;
     }

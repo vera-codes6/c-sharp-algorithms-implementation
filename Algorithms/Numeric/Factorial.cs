@@ -25,7 +25,11 @@ public static class Factorial
         // Factorial of numbers greater than 0.
         BigInteger result = BigInteger.One;
 
-        for (BigInteger i = BigInteger.One; BigInteger.Compare(i, num) <= 0; i = BigInteger.Add(i, BigInteger.One))
+        for (
+            BigInteger i = BigInteger.One;
+            BigInteger.Compare(i, num) <= 0;
+            i = BigInteger.Add(i, BigInteger.One)
+        )
         {
             result = BigInteger.Multiply(result, i);
         }

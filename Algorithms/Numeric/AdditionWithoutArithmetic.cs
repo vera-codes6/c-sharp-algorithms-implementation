@@ -15,9 +15,9 @@ public static class AdditionWithoutArithmetic
     {
         while (second != 0)
         {
-            int c = first & second;      // Carry
-            first ^= second;             // Sum without carry
-            second = c << 1;            // Carry shifted left
+            int c = first & second; // Carry
+            first ^= second; // Sum without carry
+            second = c << 1; // Carry shifted left
         }
 
         return first;

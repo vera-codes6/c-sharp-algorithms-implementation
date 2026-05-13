@@ -114,7 +114,12 @@ public static class PrimMatrix
     /// <param name="key">Currently known minimum edge weight connected to each node.</param>
     /// <param name="added">Whether or not a node has been added to the MST.</param>
     /// <param name="parent">The node that added the node to the MST. Used for building MST adjacency matrix.</param>
-    private static void GetNextNode(float[,] adjacencyMatrix, float[] key, bool[] added, int[] parent)
+    private static void GetNextNode(
+        float[,] adjacencyMatrix,
+        float[] key,
+        bool[] added,
+        int[] parent
+    )
     {
         var numNodes = adjacencyMatrix.GetLength(0);
         var minWeight = float.PositiveInfinity;

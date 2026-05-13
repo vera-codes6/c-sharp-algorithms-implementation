@@ -8,8 +8,11 @@ public class PrimorialNumbersSequenceTests
     public void First10ElementsCorrect()
     {
         var sequence = new PrimorialNumbersSequence().Sequence.Take(10);
-        sequence.SequenceEqual(new BigInteger[]
-            { 1, 2, 6, 30, 210, 2310, 30030, 510510, 9699690, 223092870 })
-            .Should().BeTrue();
+        sequence
+            .SequenceEqual(
+                new BigInteger[] { 1, 2, 6, 30, 210, 2310, 30030, 510510, 9699690, 223092870 }
+            )
+            .Should()
+            .BeTrue();
     }
 }

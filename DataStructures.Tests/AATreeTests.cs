@@ -11,7 +11,10 @@ internal class AaTreeTests
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         tree.GetMax().Should().Be(1);
         tree.GetMin().Should().Be(10);
-        tree.GetKeysInOrder().SequenceEqual(new[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 })
+            .Should()
+            .BeTrue();
         Validate(tree.Root);
     }
 
@@ -27,8 +30,14 @@ internal class AaTreeTests
             tree.Contains(elem).Should().BeTrue();
         }
 
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }).Should().BeTrue();
-        tree.GetKeysPostOrder().SequenceEqual(new[] { 1, 3, 2, 5, 7, 10, 9, 8, 6, 4 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPostOrder()
+            .SequenceEqual(new[] { 1, 3, 2, 5, 7, 10, 9, 8, 6, 4 })
+            .Should()
+            .BeTrue();
         Validate(tree.Root);
     }
 
@@ -46,8 +55,14 @@ internal class AaTreeTests
         var tree = new AaTree<int>();
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         tree.Count.Should().Be(10);
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }).Should().BeTrue();
-        tree.GetKeysPostOrder().SequenceEqual(new[] { 1, 3, 2, 5, 7, 10, 9, 8, 6, 4 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPostOrder()
+            .SequenceEqual(new[] { 1, 3, 2, 5, 7, 10, 9, 8, 6, 4 })
+            .Should()
+            .BeTrue();
         Validate(tree.Root);
     }
 
@@ -144,7 +159,10 @@ internal class AaTreeTests
     {
         var tree = new AaTree<int>();
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -159,8 +177,10 @@ internal class AaTreeTests
     {
         var tree = new AaTree<int>();
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 4, 2, 1, 3, 6, 5, 8, 7, 9, 10 })
-            .Should().BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 4, 2, 1, 3, 6, 5, 8, 7, 9, 10 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -175,8 +195,10 @@ internal class AaTreeTests
     {
         var tree = new AaTree<int>();
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-        tree.GetKeysPostOrder().SequenceEqual(new[] { 1, 3, 2, 5, 7, 10, 9, 8, 6, 4 })
-            .Should().BeTrue();
+        tree.GetKeysPostOrder()
+            .SequenceEqual(new[] { 1, 3, 2, 5, 7, 10, 9, 8, 6, 4 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -261,9 +283,10 @@ internal class AaTreeTests
     /// <returns>true if node passes check, false otherwise.</returns>
     private static bool CheckRightSubtree<T>(AaTreeNode<T> node)
     {
-        var condition = node.Right is not null &&
-                        node.Level - node.Right.Level != 1 &&
-                        node.Level != node.Right.Level;
+        var condition =
+            node.Right is not null
+            && node.Level - node.Right.Level != 1
+            && node.Level != node.Right.Level;
         return !condition;
     }
 

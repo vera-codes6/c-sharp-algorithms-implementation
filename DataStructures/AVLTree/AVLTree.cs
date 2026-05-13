@@ -377,8 +377,7 @@ public class AvlTree<TKey>
     {
         if (node == null)
         {
-            throw new KeyNotFoundException(
-                $"""Key "{key}" is not in the AVL tree.""");
+            throw new KeyNotFoundException($"""Key "{key}" is not in the AVL tree.""");
         }
 
         // Normal binary search tree removal

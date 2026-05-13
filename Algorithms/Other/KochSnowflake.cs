@@ -49,21 +49,23 @@ public static class KochSnowflake
     /// <param name="bitmapWidth">The width of the rendered bitmap.</param>
     /// <param name="steps">The number of iterations.</param>
     /// <returns>The bitmap of the rendered Koch snowflake.</returns>
-    public static SKBitmap GetKochSnowflake(
-        int bitmapWidth = 600,
-        int steps = 5)
+    public static SKBitmap GetKochSnowflake(int bitmapWidth = 600, int steps = 5)
     {
         if (bitmapWidth <= 0)
         {
             throw new ArgumentOutOfRangeException(
                 nameof(bitmapWidth),
-                $"{nameof(bitmapWidth)} should be greater than zero");
+                $"{nameof(bitmapWidth)} should be greater than zero"
+            );
         }
 
         var offsetX = bitmapWidth / 10f;
         var offsetY = bitmapWidth / 3.7f;
         var vector1 = new Vector2(offsetX, offsetY);
-        var vector2 = new Vector2(bitmapWidth / 2, (float)Math.Sin(Math.PI / 3) * bitmapWidth * 0.8f + offsetY);
+        var vector2 = new Vector2(
+            bitmapWidth / 2,
+            (float)Math.Sin(Math.PI / 3) * bitmapWidth * 0.8f + offsetY
+        );
         var vector3 = new Vector2(bitmapWidth - offsetX, offsetY);
         List<Vector2> initialVectors = [vector1, vector2, vector3, vector1];
         List<Vector2> vectors = Iterate(initialVectors, steps);
@@ -121,10 +123,7 @@ public static class KochSnowflake
     /// <param name="bitmapWidth">The width of the rendered bitmap.</param>
     /// <param name="bitmapHeight">The height of the rendered bitmap.</param>
     /// <returns>The bitmap of the rendered edges.</returns>
-    private static SKBitmap GetBitmap(
-        List<Vector2> vectors,
-        int bitmapWidth,
-        int bitmapHeight)
+    private static SKBitmap GetBitmap(List<Vector2> vectors, int bitmapWidth, int bitmapHeight)
     {
         SKBitmap bitmap = new(bitmapWidth, bitmapHeight);
         var canvas = new SKCanvas(bitmap);
@@ -132,11 +131,7 @@ public static class KochSnowflake
         // Set the background white
         var rect = SKRect.Create(0, 0, bitmapWidth, bitmapHeight);
 
-        var paint = new SKPaint
-        {
-            Style = SKPaintStyle.Fill,
-            Color = SKColors.White,
-        };
+        var paint = new SKPaint { Style = SKPaintStyle.Fill, Color = SKColors.White };
 
         canvas.DrawRect(rect, paint);
 

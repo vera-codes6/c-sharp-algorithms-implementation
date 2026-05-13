@@ -11,7 +11,10 @@ internal class RedBlackTreeTests
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
         tree.GetMin().Should().Be(10);
         tree.GetMax().Should().Be(1);
-        tree.GetKeysInOrder().SequenceEqual(new[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -77,8 +80,14 @@ internal class RedBlackTreeTests
             tree.Count.Should().Be(value);
         }
 
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 4, 2, 1, 3, 6, 5, 8, 7, 9, 10 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 4, 2, 1, 3, 6, 5, 8, 7, 9, 10 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -95,8 +104,14 @@ internal class RedBlackTreeTests
         var tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 9, 0, 1, 6, 7, 5, 2, 8, 4, 3 });
         tree.Count.Should().Be(10);
-        tree.GetKeysInOrder().SequenceEqual(new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 5, 1, 0, 3, 2, 4, 7, 6, 9, 8 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 5, 1, 0, 3, 2, 4, 7, 6, 9, 8 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -107,32 +122,56 @@ internal class RedBlackTreeTests
         tree.Remove(6);
         tree.Count.Should().Be(9);
         tree.Contains(6).Should().BeFalse();
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 8, 11, 13, 15, 17, 22, 25, 27 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 13, 8, 1, 11, 17, 15, 25, 22, 27 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 8, 11, 13, 15, 17, 22, 25, 27 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 13, 8, 1, 11, 17, 15, 25, 22, 27 })
+            .Should()
+            .BeTrue();
 
         tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 13, 8, 17, 1, 11, 15, 25, 6, 22, 27 });
         tree.Remove(1);
         tree.Count.Should().Be(9);
         tree.Contains(1).Should().BeFalse();
-        tree.GetKeysInOrder().SequenceEqual(new[] { 6, 8, 11, 13, 15, 17, 22, 25, 27 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 13, 8, 6, 11, 17, 15, 25, 22, 27 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 6, 8, 11, 13, 15, 17, 22, 25, 27 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 13, 8, 6, 11, 17, 15, 25, 22, 27 })
+            .Should()
+            .BeTrue();
 
         tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 13, 8, 17, 1, 11, 15, 25, 6, 22, 27 });
         tree.Remove(17);
         tree.Count.Should().Be(9);
         tree.Contains(17).Should().BeFalse();
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 6, 8, 11, 13, 15, 22, 25, 27 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 13, 8, 1, 6, 11, 22, 15, 25, 27 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 6, 8, 11, 13, 15, 22, 25, 27 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 13, 8, 1, 6, 11, 22, 15, 25, 27 })
+            .Should()
+            .BeTrue();
 
         tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 13, 8, 17, 1, 11, 15, 25, 6, 22, 27 });
         tree.Remove(25);
         tree.Count.Should().Be(9);
         tree.Contains(25).Should().BeFalse();
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 6, 8, 11, 13, 15, 17, 22, 27 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 13, 8, 1, 6, 11, 17, 15, 27, 22 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 6, 8, 11, 13, 15, 17, 22, 27 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 13, 8, 1, 6, 11, 17, 15, 27, 22 })
+            .Should()
+            .BeTrue();
 
         tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 7, 3, 18, 10, 22, 8, 11, 26 });
@@ -220,16 +259,28 @@ internal class RedBlackTreeTests
         tree.Remove(8);
         tree.Count.Should().Be(9);
         tree.Contains(8).Should().BeFalse();
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 6, 11, 13, 15, 17, 22, 25, 27 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 13, 6, 1, 11, 17, 15, 25, 22, 27 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 6, 11, 13, 15, 17, 22, 25, 27 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 13, 6, 1, 11, 17, 15, 25, 22, 27 })
+            .Should()
+            .BeTrue();
 
         tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 13, 8, 17, 1, 11, 15, 25, 0, 6, 22 });
         tree.Remove(13);
         tree.Count.Should().Be(9);
         tree.Contains(13).Should().BeFalse();
-        tree.GetKeysInOrder().SequenceEqual(new[] { 0, 1, 6, 8, 11, 15, 17, 22, 25 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 15, 8, 1, 0, 6, 11, 22, 17, 25 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 0, 1, 6, 8, 11, 15, 17, 22, 25 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 15, 8, 1, 0, 6, 11, 22, 17, 25 })
+            .Should()
+            .BeTrue();
 
         tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 7, 0, 1, 4, 8, 2, 3, 6, 5, 9 });
@@ -250,16 +301,28 @@ internal class RedBlackTreeTests
         tree.Remove(13);
         tree.Count.Should().Be(9);
         tree.Contains(13).Should().BeFalse();
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 6, 8, 11, 15, 17, 22, 25, 27 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 15, 8, 1, 6, 11, 25, 17, 22, 27 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 6, 8, 11, 15, 17, 22, 25, 27 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 15, 8, 1, 6, 11, 25, 17, 22, 27 })
+            .Should()
+            .BeTrue();
 
         tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 13, 8, 17, 1, 11, 15, 25, 0, 6, 22 });
         tree.Remove(8);
         tree.Count.Should().Be(9);
         tree.Contains(8).Should().BeFalse();
-        tree.GetKeysInOrder().SequenceEqual(new[] { 0, 1, 6, 11, 13, 15, 17, 22, 25 }).Should().BeTrue();
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 13, 1, 0, 11, 6, 17, 15, 25, 22 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 0, 1, 6, 11, 13, 15, 17, 22, 25 })
+            .Should()
+            .BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 13, 1, 0, 11, 6, 17, 15, 25, 22 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -331,7 +394,10 @@ internal class RedBlackTreeTests
     {
         var tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-        tree.GetKeysInOrder().SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }).Should().BeTrue();
+        tree.GetKeysInOrder()
+            .SequenceEqual(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -346,7 +412,10 @@ internal class RedBlackTreeTests
     {
         var tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-        tree.GetKeysPreOrder().SequenceEqual(new[] { 4, 2, 1, 3, 6, 5, 8, 7, 9, 10 }).Should().BeTrue();
+        tree.GetKeysPreOrder()
+            .SequenceEqual(new[] { 4, 2, 1, 3, 6, 5, 8, 7, 9, 10 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]
@@ -361,7 +430,10 @@ internal class RedBlackTreeTests
     {
         var tree = new RedBlackTree<int>();
         tree.AddRange(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
-        tree.GetKeysPostOrder().SequenceEqual(new[] { 1, 3, 2, 5, 7, 10, 9, 8, 6, 4 }).Should().BeTrue();
+        tree.GetKeysPostOrder()
+            .SequenceEqual(new[] { 1, 3, 2, 5, 7, 10, 9, 8, 6, 4 })
+            .Should()
+            .BeTrue();
     }
 
     [Test]

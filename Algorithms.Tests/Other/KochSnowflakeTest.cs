@@ -35,11 +35,16 @@ public static class KochSnowflakeTest
         var offsetX = bitmapWidth / 10f;
         var offsetY = bitmapWidth / 3.7f;
         SKBitmap bitmap = KochSnowflake.GetKochSnowflake();
-        bitmap.GetPixel(0, 0)
+        bitmap
+            .GetPixel(0, 0)
             .Should()
             .Be(new SKColor(255, 255, 255, 255), "because the background should be white");
-        bitmap.GetPixel((int)offsetX, (int)offsetY)
+        bitmap
+            .GetPixel((int)offsetX, (int)offsetY)
             .Should()
-            .Be(new SKColor(0, 0, 0, 255), "because the snowflake is drawn in black and this is the position of the first vector");
+            .Be(
+                new SKColor(0, 0, 0, 255),
+                "because the snowflake is drawn in black and this is the position of the first vector"
+            );
     }
 }

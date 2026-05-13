@@ -170,8 +170,7 @@ public static class CircularLinkedListTests
         {
             result.Append(current!.Data + " ");
             current = current.Next;
-        }
-        while (current != head);
+        } while (current != head);
 
         return result.ToString().Trim();
     }

@@ -64,7 +64,10 @@ public static class TravelingSalesmanSolver
     /// <param name="distanceMatrix">A square matrix where element [i, j] represents the distance from city i to city j.</param>
     /// <param name="start">The starting city index.</param>
     /// <returns>A tuple containing the route (as an array of city indices) and the total distance.</returns>
-    public static (int[] Route, double Distance) SolveNearestNeighbor(double[,] distanceMatrix, int start = 0)
+    public static (int[] Route, double Distance) SolveNearestNeighbor(
+        double[,] distanceMatrix,
+        int start = 0
+    )
     {
         int n = distanceMatrix.GetLength(0);
         if (n != distanceMatrix.GetLength(1))
@@ -128,7 +131,7 @@ public static class TravelingSalesmanSolver
             var rest = arr.Where((_, idx) => idx != i).ToArray();
             foreach (var perm in Permute(rest))
             {
-                yield return [arr[i], ..perm];
+                yield return [arr[i], .. perm];
             }
         }
     }

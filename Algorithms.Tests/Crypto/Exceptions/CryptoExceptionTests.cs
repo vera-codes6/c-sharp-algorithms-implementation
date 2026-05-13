@@ -12,9 +12,12 @@ namespace Algorithms.Tests.Crypto.Exceptions
             var exception = new CryptoException();
 
             // Assert
-            exception.Should().BeOfType<CryptoException>()
+            exception
+                .Should()
+                .BeOfType<CryptoException>()
                 .And.Subject.As<CryptoException>()
-                .Message.Should().NotBeNullOrEmpty();
+                .Message.Should()
+                .NotBeNullOrEmpty();
             exception.InnerException.Should().BeNull();
         }
 
@@ -28,9 +31,12 @@ namespace Algorithms.Tests.Crypto.Exceptions
             var exception = new CryptoException(expectedMessage);
 
             // Assert
-            exception.Should().BeOfType<CryptoException>()
+            exception
+                .Should()
+                .BeOfType<CryptoException>()
                 .And.Subject.As<CryptoException>()
-                .Message.Should().Be(expectedMessage);
+                .Message.Should()
+                .Be(expectedMessage);
             exception.InnerException.Should().BeNull();
         }
 
@@ -45,9 +51,12 @@ namespace Algorithms.Tests.Crypto.Exceptions
             var exception = new CryptoException(expectedMessage, innerException);
 
             // Assert
-            exception.Should().BeOfType<CryptoException>()
+            exception
+                .Should()
+                .BeOfType<CryptoException>()
                 .And.Subject.As<CryptoException>()
-                .Message.Should().Be(expectedMessage);
+                .Message.Should()
+                .Be(expectedMessage);
             exception.InnerException.Should().Be(innerException);
         }
 
@@ -62,4 +71,3 @@ namespace Algorithms.Tests.Crypto.Exceptions
         }
     }
 }
-

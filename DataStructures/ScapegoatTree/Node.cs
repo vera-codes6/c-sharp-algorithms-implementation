@@ -4,7 +4,8 @@ namespace DataStructures.ScapegoatTree;
 /// Scapegoat tree node class.
 /// </summary>
 /// <typeparam name="TKey">Scapegoat tree node key type.</typeparam>
-public class Node<TKey>(TKey key) where TKey : IComparable
+public class Node<TKey>(TKey key)
+    where TKey : IComparable
 {
     private Node<TKey>? right;
     private Node<TKey>? left;
@@ -18,7 +19,10 @@ public class Node<TKey>(TKey key) where TKey : IComparable
         {
             if (value != null && !value.IsGreaterThanOrSameAs(Key))
             {
-                throw new ArgumentException("The value's key is smaller than or equal to node's right child's key.", nameof(value));
+                throw new ArgumentException(
+                    "The value's key is smaller than or equal to node's right child's key.",
+                    nameof(value)
+                );
             }
 
             right = value;
@@ -32,7 +36,10 @@ public class Node<TKey>(TKey key) where TKey : IComparable
         {
             if (value != null && value.IsGreaterThanOrSameAs(Key))
             {
-                throw new ArgumentException("The value's key is greater than or equal to node's left child's key.", nameof(value));
+                throw new ArgumentException(
+                    "The value's key is greater than or equal to node's left child's key.",
+                    nameof(value)
+                );
             }
 
             left = value;

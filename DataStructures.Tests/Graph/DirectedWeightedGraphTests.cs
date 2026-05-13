@@ -10,9 +10,12 @@ public class DirectedWeightedGraphTests
     [TestCase(-3)]
     public void GraphInitializationTest_ShouldThrowOverflow(int capacity)
     {
-        Func<DirectedWeightedGraph<char>> createGraph = () => new DirectedWeightedGraph<char>(capacity);
+        Func<DirectedWeightedGraph<char>> createGraph = () =>
+            new DirectedWeightedGraph<char>(capacity);
 
-        createGraph.Should().Throw<InvalidOperationException>()
+        createGraph
+            .Should()
+            .Throw<InvalidOperationException>()
             .WithMessage("Graph capacity should always be a non-negative integer.");
     }
 
@@ -22,7 +25,8 @@ public class DirectedWeightedGraphTests
     [TestCase(30)]
     public void GraphInitializationTest_Success(int capacity)
     {
-        Func<DirectedWeightedGraph<char>> createGraph = () => new DirectedWeightedGraph<char>(capacity);
+        Func<DirectedWeightedGraph<char>> createGraph = () =>
+            new DirectedWeightedGraph<char>(capacity);
 
         createGraph.Should().NotThrow();
     }
@@ -52,8 +56,7 @@ public class DirectedWeightedGraphTests
 
         graph.Count.Should().Be(10);
         graph.Vertices.Should().OnlyContain(x => x != null && x.Data == 'A');
-        addOverflow.Should().Throw<InvalidOperationException>()
-            .WithMessage("Graph overflow.");
+        addOverflow.Should().Throw<InvalidOperationException>().WithMessage("Graph overflow.");
     }
 
     [Test]
@@ -187,7 +190,9 @@ public class DirectedWeightedGraphTests
 
         Action removeVertex = () => graph.RemoveVertex(vertexA);
 
-        removeVertex.Should().Throw<InvalidOperationException>()
+        removeVertex
+            .Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"Vertex does not belong to graph: {vertexA}.");
     }
 
@@ -214,7 +219,9 @@ public class DirectedWeightedGraphTests
 
         Action addZeroEdge = () => graph.AddEdge(vertexA, vertexB, 0);
 
-        addZeroEdge.Should().Throw<InvalidOperationException>()
+        addZeroEdge
+            .Should()
+            .Throw<InvalidOperationException>()
             .WithMessage("Edge weight cannot be zero.");
     }
 
@@ -227,7 +234,9 @@ public class DirectedWeightedGraphTests
 
         Action addZeroEdge = () => graph.AddEdge(vertexA, vertexB, 0);
 
-        addZeroEdge.Should().Throw<InvalidOperationException>()
+        addZeroEdge
+            .Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"Vertex does not belong to graph: {vertexB}.");
     }
 
@@ -242,7 +251,9 @@ public class DirectedWeightedGraphTests
 
         Action addZeroEdge = () => graph.AddEdge(vertexA, vertexB, 10);
 
-        addZeroEdge.Should().Throw<InvalidOperationException>()
+        addZeroEdge
+            .Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"Vertex already exists: {currentEdgeWeight}");
     }
 
@@ -268,7 +279,9 @@ public class DirectedWeightedGraphTests
 
         Action removeEdge = () => graph.RemoveEdge(vertexA, vertexB);
 
-        removeEdge.Should().Throw<InvalidOperationException>()
+        removeEdge
+            .Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"Vertex does not belong to graph: {vertexB}.");
     }
 
@@ -304,7 +317,9 @@ public class DirectedWeightedGraphTests
             return enumerable.ToList();
         };
 
-        getNeighbors.Should().Throw<InvalidOperationException>()
+        getNeighbors
+            .Should()
+            .Throw<InvalidOperationException>()
             .WithMessage($"Vertex does not belong to graph: {vertexA}.");
     }
 }

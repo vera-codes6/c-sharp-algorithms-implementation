@@ -28,14 +28,14 @@ public static class Luhn
     /// <returns>Missing digit.</returns>
     public static int GetLostNum(string number)
     {
-        var missingDigitIndex = number.Length - 1 - number.LastIndexOf("x", StringComparison.CurrentCultureIgnoreCase);
-        var checkDigit = GetSum(number.Replace("x", "0", StringComparison.CurrentCultureIgnoreCase)) * 9 % 10;
+        var missingDigitIndex =
+            number.Length - 1 - number.LastIndexOf("x", StringComparison.CurrentCultureIgnoreCase);
+        var checkDigit =
+            GetSum(number.Replace("x", "0", StringComparison.CurrentCultureIgnoreCase)) * 9 % 10;
 
-        return missingDigitIndex % 2 == 0
-            ? checkDigit
-            : Validate(number.Replace("x", (checkDigit / 2).ToString()))
-                ? checkDigit / 2
-                : (checkDigit + 9) / 2;
+        return missingDigitIndex % 2 == 0 ? checkDigit
+            : Validate(number.Replace("x", (checkDigit / 2).ToString())) ? checkDigit / 2
+            : (checkDigit + 9) / 2;
     }
 
     /// <summary>

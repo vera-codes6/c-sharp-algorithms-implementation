@@ -57,11 +57,9 @@ public class HashTable<TKey, TValue>
                 throw new ArgumentNullException(nameof(key));
             }
 
-            var entry = FindEntry(key)
-                ?? throw new KeyNotFoundException();
+            var entry = FindEntry(key) ?? throw new KeyNotFoundException();
             return entry.Value!;
         }
-
         set
         {
             if (EqualityComparer<TKey>.Default.Equals(key, default))
@@ -69,8 +67,7 @@ public class HashTable<TKey, TValue>
                 throw new ArgumentNullException(nameof(key));
             }
 
-            var entry = FindEntry(key)
-                ?? throw new KeyNotFoundException();
+            var entry = FindEntry(key) ?? throw new KeyNotFoundException();
             entry.Value = value;
         }
     }
@@ -92,17 +89,26 @@ public class HashTable<TKey, TValue>
     {
         if (capacity <= 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(capacity), "Capacity must be greater than 0");
+            throw new ArgumentOutOfRangeException(
+                nameof(capacity),
+                "Capacity must be greater than 0"
+            );
         }
 
         if (loadFactor <= 0)
         {
-            throw new ArgumentOutOfRangeException(nameof(loadFactor), "Load factor must be greater than 0");
+            throw new ArgumentOutOfRangeException(
+                nameof(loadFactor),
+                "Load factor must be greater than 0"
+            );
         }
 
         if (loadFactor > 1)
         {
-            throw new ArgumentOutOfRangeException(nameof(loadFactor), "Load factor must be less than or equal to 1");
+            throw new ArgumentOutOfRangeException(
+                nameof(loadFactor),
+                "Load factor must be less than or equal to 1"
+            );
         }
 
         this.capacity = PrimeNumber.NextPrime(capacity);
@@ -134,8 +140,10 @@ public class HashTable<TKey, TValue>
         }
 
         var index = GetIndex(key);
-        if (entries[index] != null &&
-            EqualityComparer<TKey>.Default.Equals(entries[index]!.Key!, key))
+        if (
+            entries[index] != null
+            && EqualityComparer<TKey>.Default.Equals(entries[index]!.Key!, key)
+        )
         {
             throw new ArgumentException("Key already exists");
         }
@@ -282,9 +290,8 @@ public class HashTable<TKey, TValue>
     /// </remarks>
     public void Resize()
     {
-        var newCapacity = size <= threshold / 2
-            ? Math.Max(capacity / 2, DefaultCapacity)
-            : capacity * 2;
+        var newCapacity =
+            size <= threshold / 2 ? Math.Max(capacity / 2, DefaultCapacity) : capacity * 2;
         var newEntries = new Entry<TKey, TValue>[newCapacity];
 
         foreach (var entry in entries)

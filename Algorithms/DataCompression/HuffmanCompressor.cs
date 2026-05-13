@@ -5,7 +5,10 @@ namespace Algorithms.DataCompression;
 /// <summary>
 ///     Greedy lossless compression algorithm.
 /// </summary>
-public class HuffmanCompressor(IComparisonSorter<HuffmanCompressor.ListNode> sorter, Translator translator)
+public class HuffmanCompressor(
+    IComparisonSorter<HuffmanCompressor.ListNode> sorter,
+    Translator translator
+)
 {
     // TODO: Use partial sorter
     private readonly IComparisonSorter<ListNode> sorter = sorter;
@@ -17,7 +20,9 @@ public class HuffmanCompressor(IComparisonSorter<HuffmanCompressor.ListNode> sor
     /// </summary>
     /// <param name="uncompressedText">Text message to compress.</param>
     /// <returns>Compressed string and keys to decompress it.</returns>
-    public (string CompressedText, Dictionary<string, string> DecompressionKeys) Compress(string uncompressedText)
+    public (string CompressedText, Dictionary<string, string> DecompressionKeys) Compress(
+        string uncompressedText
+    )
     {
         if (string.IsNullOrEmpty(uncompressedText))
         {
@@ -26,10 +31,7 @@ public class HuffmanCompressor(IComparisonSorter<HuffmanCompressor.ListNode> sor
 
         if (uncompressedText.Distinct().Count() == 1)
         {
-            var dict = new Dictionary<string, string>
-            {
-                ["1"] = uncompressedText[0].ToString(),
-            };
+            var dict = new Dictionary<string, string> { ["1"] = uncompressedText[0].ToString() };
             return (new string('1', uncompressedText.Length), dict);
         }
 
@@ -57,11 +59,15 @@ public class HuffmanCompressor(IComparisonSorter<HuffmanCompressor.ListNode> sor
             occurenceCounts[ch]++;
         }
 
-        return occurenceCounts.Select(kvp => new ListNode(kvp.Key, 1d * kvp.Value / text.Length)).ToArray();
+        return occurenceCounts
+            .Select(kvp => new ListNode(kvp.Key, 1d * kvp.Value / text.Length))
+            .ToArray();
     }
 
-    private (Dictionary<string, string> CompressionKeys, Dictionary<string, string> DecompressionKeys) GetKeys(
-        ListNode tree)
+    private (
+        Dictionary<string, string> CompressionKeys,
+        Dictionary<string, string> DecompressionKeys
+    ) GetKeys(ListNode tree)
     {
         var compressionKeys = new Dictionary<string, string>();
         var decompressionKeys = new Dictionary<string, string>();
